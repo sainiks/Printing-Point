@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import type { LinkProps } from "next/link";
 import { usePathname } from "next/navigation";
 import { Package2, Menu, Gift, Building2 } from "lucide-react";
 import * as React from "react";
@@ -153,7 +152,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/contact" passHref>
+                <Link href="/contact" legacyBehavior passHref>
                   <NavigationMenuLink
                     active={pathname === "/contact"}
                     className={navigationMenuTriggerStyle()}
@@ -209,13 +208,13 @@ export default function Header() {
 
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { href: LinkProps["href"] }
+  React.ComponentPropsWithoutRef<"a">
 >(({ className, title, children, href, ...props }, ref) => {
   return (
     <li>
       <NavigationMenuLink asChild>
         <Link
-          href={href}
+          href={href!}
           ref={ref}
           className={cn(
             "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
