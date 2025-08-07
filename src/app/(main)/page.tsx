@@ -153,7 +153,7 @@ export default function Home() {
         <ParallaxSection backgroundGradient={soulfulGradient}>
           <section className="py-16 md:py-24">
             <div className="container">
-              <div className="text-center mb-12">
+              <div className="text-center mb-6">
                 <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                   Explore Our Collections
                 </h2>
