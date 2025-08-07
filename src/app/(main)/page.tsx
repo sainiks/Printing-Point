@@ -1,7 +1,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import SloganGenerator from "@/components/slogan-generator";
 
 export default function Home() {
   return (
@@ -40,12 +39,6 @@ export default function Home() {
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
-        </div>
-      </section>
-
-      <section className="py-16 md:py-24 bg-secondary/50">
-        <div className="container">
-          <SloganGenerator />
         </div>
       </section>
     </>
