@@ -94,17 +94,14 @@ const onSale = [
 
 const collections = [
   {
-    title: "Best Buy Deals",
     products: bestBuys,
     bgClass: "bg-gradient-to-br from-blue-100 to-blue-200",
   },
   {
-    title: "New Products",
     products: newArrivals,
     bgClass: "bg-gradient-to-br from-purple-100 to-purple-200",
   },
   {
-    title: "On Sale",
     products: onSale,
     bgClass: "bg-gradient-to-br from-yellow-100 to-yellow-200",
   },
@@ -131,7 +128,7 @@ export default function Home() {
             </div>
             <Carousel
               opts={{
-                align: "start",
+                align: "center",
                 loop: true,
               }}
               className="w-full"
