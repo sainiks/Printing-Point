@@ -150,15 +150,15 @@ export default function Home() {
             </p>
           </div>
           <Card className="w-full overflow-hidden">
-            <div className="flex flex-row h-[70vh] group">
+            <div className="flex flex-col md:flex-row md:h-[70vh] group">
               {collections.map((collection, index) => (
                 <div
                   key={index}
-                  className="flex-1 transition-all duration-700 ease-in-out group-hover:flex-grow-0 hover:!flex-grow-[3] overflow-hidden relative p-8 flex flex-col items-center justify-center"
+                  className="flex-1 transition-all duration-700 ease-in-out md:group-hover:flex-grow-0 md:hover:!flex-grow-[3] overflow-hidden relative p-8 flex flex-col items-center justify-start md:justify-center"
                 >
                   <div className={`absolute inset-0 w-full h-full -z-10 ${collection.bgClass}`} />
                   <h3 className="text-3xl font-bold font-headline text-primary mb-8 text-center">{collection.title}</h3>
-                  <div className="w-full grid grid-cols-1 gap-8 opacity-0 group-hover:opacity-0 hover:!opacity-100 transition-opacity duration-500 delay-300">
+                  <div className="w-full grid grid-cols-1 gap-8 md:opacity-0 group-hover:md:opacity-100 transition-opacity duration-500 delay-300">
                     {collection.products.slice(0, 3).map((product) => (
                       <ProductCard
                         key={product.id}
