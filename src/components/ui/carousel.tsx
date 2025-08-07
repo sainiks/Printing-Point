@@ -293,19 +293,16 @@ const CarouselDots = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex justify-center items-center gap-2", className)}
+      className={cn("flex justify-center items-center gap-4", className)}
       {...props}
     >
       {scrollSnaps.map((_, index) => (
-        <button
+        <div
           key={index}
-          onClick={() => scrollTo(index)}
           className={cn(
-            "h-2 rounded-full bg-border transition-all duration-300 ease-in-out",
+            "h-1 w-8 bg-muted transition-all duration-300 ease-in-out",
             {
-              "w-6 bg-primary": selectedIndex === index,
-              "w-2 bg-muted":
-                selectedIndex !== index,
+              "bg-primary": selectedIndex === index,
             }
           )}
           aria-label={`Go to slide ${index + 1}`}
