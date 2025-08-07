@@ -45,7 +45,7 @@ export async function submitContactForm(
   
   try {
     const { data, error } = await resend.emails.send({
-      from: 'PrintingPoint Luxe <onboarding@resend.dev>',
+      from: 'Printing Point <onboarding@resend.dev>',
       to: receivingEmail,
       subject: 'New Contact Form Submission',
       html: `

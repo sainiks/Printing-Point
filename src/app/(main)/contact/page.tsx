@@ -2,7 +2,7 @@ import ContactForm from "@/components/contact-form";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Contact Us - PrintingPoint Luxe',
+  title: 'Contact Us - Printing Point',
   description: 'Get in touch with us for your gifting needs.',
 }
 

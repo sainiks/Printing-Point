@@ -124,7 +124,7 @@ export default function Home() {
                 Our Philosophy of Gifting
               </h2>
               <p className="text-lg text-foreground/80">
-                At PrintingPoint Luxe, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
+                At Printing Point, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
               </p>
               <p className="text-lg text-foreground/80">
                 From corporate milestones to personal celebrations, we are dedicated to making your moments memorable.
@@ -212,10 +212,10 @@ export default function Home() {
             </div>
             <div className="space-y-4 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
-                About PrintingPoint Luxe
+                About Printing Point
               </h2>
               <p className="text-lg text-foreground/80">
-                Founded on a passion for quality and an eye for detail, PrintingPoint Luxe has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
+                Founded on a passion for quality and an eye for detail, Printing Point has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
               </p>
               <p className="text-lg text-foreground/80">
                 We are more than just a store; we are your partners in celebration, appreciation, and connection.

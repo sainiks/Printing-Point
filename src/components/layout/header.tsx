@@ -165,7 +165,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-2">
           <Package2 className="h-6 w-6 text-primary" />
           <span className="font-bold font-headline text-lg">
-            PrintingPoint Luxe
+            Printing Point
           </span>
         </Link>
 
@@ -189,7 +189,7 @@ export default function Header() {
                     className="flex items-center gap-2 text-lg font-semibold mb-4"
                   >
                     <Package2 className="h-6 w-6 text-primary" />
-                    <span className="font-headline">PrintingPoint Luxe</span>
+                    <span className="font-headline">Printing Point</span>
                   </Link>
                 </SheetClose>
                 {navLinks.map((link) => (

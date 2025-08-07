@@ -9,12 +9,12 @@ export default function Footer() {
           <Link href="/" className="flex items-center gap-2">
             <Package2 className="h-6 w-6 text-primary" />
             <p className="text-center text-sm leading-loose md:text-left font-headline">
-              PrintingPoint Luxe
+              Printing Point
             </p>
           </Link>
         </div>
         <p className="text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} PrintingPoint Luxe. All rights reserved.
+          © {new Date().getFullYear()} Printing Point. All rights reserved.
         </p>
       </div>
     </footer>

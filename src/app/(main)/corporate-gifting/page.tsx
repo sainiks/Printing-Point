@@ -2,7 +2,7 @@ import ProductCard from "@/components/product-card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Corporate Gifting - PrintingPoint Luxe",
+  title: "Corporate Gifting - Printing Point",
   description: "Bespoke corporate gifting solutions for your business.",
 };
 

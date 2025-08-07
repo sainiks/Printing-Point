@@ -87,7 +87,7 @@ export default function HomeHero() {
         </h1>
         <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
           Discover bespoke gifting solutions for every occasion. At
-          PrintingPoint Luxe, we turn moments into memories.
+          Printing Point, we turn moments into memories.
         </p>
         <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Button asChild size="lg">

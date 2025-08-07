@@ -2,7 +2,7 @@ import ProductCard from "@/components/product-card";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
-  title: 'Our Products - PrintingPoint Luxe',
+  title: 'Our Products - Printing Point',
   description: 'Browse our collection of exquisite gifting products.',
 }
 

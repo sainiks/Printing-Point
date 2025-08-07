@@ -3,7 +3,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 
 export const metadata: Metadata = {
-  title: "PrintingPoint Luxe",
+  title: "Printing Point",
   description: "Exquisite Gifts, Expertly Crafted",
 };
 
