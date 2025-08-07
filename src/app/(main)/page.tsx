@@ -98,7 +98,7 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <section className="bg-secondary/50 py-16 md:py-24">
+      <section className="bg-secondary/50 py-16 md:py-24 scroll-animation">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
           <div className="space-y-4 text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
@@ -126,7 +126,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
+      <section className="py-16 md:py-24 scroll-animation">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
@@ -188,7 +188,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bg-secondary/50 py-16 md:py-24">
+      <section className="bg-secondary/50 py-16 md:py-24 scroll-animation">
         <div className="container grid md:grid-cols-2 gap-12 items-center">
           <div className="relative aspect-square">
             <Image

@@ -56,7 +56,7 @@ const products = [
 export default function ProductsPage() {
   return (
     <div className="bg-secondary/50">
-      <div className="container py-12 md:py-16">
+      <div className="container py-12 md:py-16 scroll-animation">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">Our Products</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
