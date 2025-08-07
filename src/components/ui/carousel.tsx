@@ -65,6 +65,10 @@ const Carousel = React.forwardRef<
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
+        watchDrag: (emblaApi, event) => {
+            if (event.pointerType === 'mouse') return false;
+            return true;
+        },
         axis: orientation === "horizontal" ? "x" : "y",
       },
       plugins
@@ -295,6 +299,7 @@ const CarouselDots = React.forwardRef<
       {scrollSnaps.map((_, index) => (
         <button
           key={index}
+          onClick={() => scrollTo(index)}
           className={cn(
             "h-2 rounded-full bg-border transition-all duration-300 ease-in-out",
             {

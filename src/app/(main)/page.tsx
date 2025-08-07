@@ -1,11 +1,12 @@
 
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 
 const bestBuys = [
@@ -112,7 +113,7 @@ export default function Home() {
   const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
 
   return (
-    <div>
+    <div className="scroll-animation">
       <HomeHero />
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
@@ -148,7 +149,7 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-16 md:py-24">
           <div className="container">
-            <div className="text-center mb-6">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
