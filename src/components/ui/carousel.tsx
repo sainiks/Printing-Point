@@ -66,6 +66,10 @@ const Carousel = React.forwardRef<
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
+        watchDrag: (emblaApi, eventName) => {
+          if (eventName === 'pointerDown') return false
+          return true
+        }
       },
       plugins
     )
@@ -277,7 +281,7 @@ const CarouselDots = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex items-center gap-x-2", className)}
+      className={cn("flex items-center justify-center gap-x-2", className)}
       {...props}
     >
       {scrollSnaps.map((_, index) => (

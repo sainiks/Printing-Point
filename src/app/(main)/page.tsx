@@ -187,10 +187,10 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <div className="flex items-center justify-center gap-4 mt-6">
-                <CarouselPrevious className="static -translate-y-0 w-10 h-10" />
+              <div className="flex items-center justify-center gap-4 mt-8">
+                <CarouselPrevious className="static -translate-y-0 w-12 h-12" />
                 <CarouselDots />
-                <CarouselNext className="static -translate-y-0 w-10 h-10" />
+                <CarouselNext className="static -translate-y-0 w-12 h-12" />
               </div>
             </Carousel>
           </div>
