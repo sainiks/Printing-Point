@@ -224,7 +224,7 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "ghost", size = "icon", ...props }, ref) => {
+>(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -232,12 +232,12 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn("rounded-full", className)}
+      className={cn("rounded-full bg-primary-foreground hover:bg-primary-foreground/80 border-none", className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4 text-primary-foreground" />
+      <ArrowLeft className="h-4 w-4 text-primary" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -247,7 +247,7 @@ CarouselPrevious.displayName = "CarouselPrevious"
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "ghost", size = "icon", ...props }, ref) => {
+>(({ className, variant = "outline", size = "icon", ...props }, ref) => {
   const { scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -255,12 +255,12 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn("rounded-full", className)}
+      className={cn("rounded-full bg-primary-foreground hover:bg-primary-foreground/80 border-none", className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4 text-primary-foreground" />
+      <ArrowRight className="h-4 w-4 text-primary" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
