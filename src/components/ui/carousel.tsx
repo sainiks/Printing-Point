@@ -66,10 +66,6 @@ const Carousel = React.forwardRef<
       {
         ...opts,
         axis: orientation === "horizontal" ? "x" : "y",
-        watchDrag: (emblaApi, eventName) => {
-          if (eventName === 'pointerDown') return false
-          return true
-        }
       },
       plugins
     )
@@ -155,8 +151,7 @@ const Carousel = React.forwardRef<
           carouselRef,
           api: api,
           opts,
-          orientation:
-            orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
+          orientation,
           scrollPrev,
           scrollNext,
           scrollTo,
