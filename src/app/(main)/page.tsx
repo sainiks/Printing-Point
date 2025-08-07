@@ -131,10 +131,10 @@ export default function Home() {
             </p>
           </div>
           <div className="flex flex-col md:flex-row gap-8 group">
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
-              <div className="space-y-4">
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
+              <div className="space-y-4 h-full">
                 <h3 className="text-2xl font-bold font-headline text-center text-primary">Best Buy Deals</h3>
-                <div className="space-y-8">
+                <div className="h-full">
                   {bestBuys.slice(0, 1).map((product) => (
                     <ProductCard
                       key={product.id}
@@ -148,10 +148,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
-              <div className="space-y-4">
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
+              <div className="space-y-4 h-full">
                 <h3 className="text-2xl font-bold font-headline text-center text-primary">New Products</h3>
-                <div className="space-y-8">
+                <div className="h-full">
                   {newArrivals.slice(0, 1).map((product) => (
                      <ProductCard
                       key={product.id}
@@ -165,10 +165,10 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
-              <div className="space-y-4">
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
+              <div className="space-y-4 h-full">
                 <h3 className="text-2xl font-bold font-headline text-center text-primary">On Sale</h3>
-                 <div className="space-y-8">
+                 <div className="h-full">
                   {onSale.slice(0, 1).map((product) => (
                     <ProductCard
                       key={product.id}
@@ -216,3 +216,5 @@ export default function Home() {
     </>
   );
 }
+
+    
