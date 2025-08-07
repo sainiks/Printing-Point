@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const bestBuys = [
   {
@@ -130,59 +131,55 @@ export default function Home() {
               Curated selections for every need, from special deals to our newest arrivals.
             </p>
           </div>
-          <div className="flex flex-col md:flex-row gap-8 group">
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
-              <div className="space-y-4 h-full">
-                <h3 className="text-2xl font-bold font-headline text-center text-primary">Best Buy Deals</h3>
-                <div className="h-full">
-                  {bestBuys.slice(0, 1).map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      title={product.title}
-                      description={product.description}
-                      imageUrl={product.imageUrl}
-                      minimumOrder={product.minimumOrder}
-                      imageHint={product.imageHint}
-                    />
-                  ))}
-                </div>
+          <Tabs defaultValue="best-buys" className="w-full">
+            <TabsList className="grid w-full grid-cols-3">
+              <TabsTrigger value="best-buys">Best Buy Deals</TabsTrigger>
+              <TabsTrigger value="new-arrivals">New Products</TabsTrigger>
+              <TabsTrigger value="on-sale">On Sale</TabsTrigger>
+            </TabsList>
+            <TabsContent value="best-buys">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                {bestBuys.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    description={product.description}
+                    imageUrl={product.imageUrl}
+                    minimumOrder={product.minimumOrder}
+                    imageHint={product.imageHint}
+                  />
+                ))}
               </div>
-            </div>
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
-              <div className="space-y-4 h-full">
-                <h3 className="text-2xl font-bold font-headline text-center text-primary">New Products</h3>
-                <div className="h-full">
-                  {newArrivals.slice(0, 1).map((product) => (
-                     <ProductCard
-                      key={product.id}
-                      title={product.title}
-                      description={product.description}
-                      imageUrl={product.imageUrl}
-                      minimumOrder={product.minimumOrder}
-                      imageHint={product.imageHint}
-                    />
-                  ))}
-                </div>
+            </TabsContent>
+            <TabsContent value="new-arrivals">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                {newArrivals.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    description={product.description}
+                    imageUrl={product.imageUrl}
+                    minimumOrder={product.minimumOrder}
+                    imageHint={product.imageHint}
+                  />
+                ))}
               </div>
-            </div>
-            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:w-1/5 md:hover:!w-3/5">
-              <div className="space-y-4 h-full">
-                <h3 className="text-2xl font-bold font-headline text-center text-primary">On Sale</h3>
-                 <div className="h-full">
-                  {onSale.slice(0, 1).map((product) => (
-                    <ProductCard
-                      key={product.id}
-                      title={product.title}
-                      description={product.description}
-                      imageUrl={product.imageUrl}
-                      minimumOrder={product.minimumOrder}
-                      imageHint={product.imageHint}
-                    />
-                  ))}
-                </div>
+            </TabsContent>
+            <TabsContent value="on-sale">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+                {onSale.map((product) => (
+                  <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    description={product.description}
+                    imageUrl={product.imageUrl}
+                    minimumOrder={product.minimumOrder}
+                    imageHint={product.imageHint}
+                  />
+                ))}
               </div>
-            </div>
-          </div>
+            </TabsContent>
+          </Tabs>
         </div>
       </section>
 
@@ -216,5 +213,3 @@ export default function Home() {
     </>
   );
 }
-
-    
