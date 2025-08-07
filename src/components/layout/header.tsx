@@ -86,8 +86,8 @@ function NavMenu() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/products"
                   >
-                    <Gift className="h-6 w-6 text-primary" />
-                    <div className="mb-2 mt-4 text-lg font-medium font-headline">
+                    <Gift className="h-6 w-6 text-primary-foreground" />
+                    <div className="mb-2 mt-4 text-lg font-medium font-headline text-primary-foreground">
                       All Products
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
@@ -118,8 +118,8 @@ function NavMenu() {
                     className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
                     href="/corporate-gifting"
                   >
-                    <Building2 className="h-6 w-6 text-primary" />
-                    <div className="mb-2 mt-4 text-lg font-medium font-headline">
+                    <Building2 className="h-6 w-6 text-primary-foreground" />
+                    <div className="mb-2 mt-4 text-lg font-medium font-headline text-primary-foreground">
                       Bespoke Solutions
                     </div>
                     <p className="text-sm leading-tight text-muted-foreground">
@@ -160,10 +160,10 @@ export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Package2 className="h-6 w-6 text-primary" />
+          <Package2 className="h-6 w-6" />
           <span className="font-bold font-headline text-lg">
             Printing Point
           </span>
@@ -176,19 +176,19 @@ export default function Header() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger asChild>
-              <Button variant="ghost" size="icon">
+              <Button variant="ghost" size="icon" className="hover:bg-white/20">
                 <Menu className="h-6 w-6" />
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right">
+            <SheetContent side="right" className="bg-primary text-primary-foreground">
               <nav className="grid gap-6 text-lg font-medium mt-6">
                 <SheetClose asChild>
                   <Link
                     href="/"
                     className="flex items-center gap-2 text-lg font-semibold mb-4"
                   >
-                    <Package2 className="h-6 w-6 text-primary" />
+                    <Package2 className="h-6 w-6" />
                     <span className="font-headline">Printing Point</span>
                   </Link>
                 </SheetClose>
@@ -197,8 +197,8 @@ export default function Header() {
                     <Link
                       href={link.href}
                       className={cn(
-                        "text-muted-foreground transition-colors hover:text-foreground",
-                        pathname === link.href && "text-foreground"
+                        "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
+                        pathname === link.href && "text-primary-foreground"
                       )}
                     >
                       {link.label}
