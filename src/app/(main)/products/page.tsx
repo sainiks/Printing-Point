@@ -65,20 +65,19 @@ export default function ProductsPage() {
             Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
           </p>
         </div>
-        <TiltEffect>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {products.map((product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <TiltEffect key={product.id}>
               <ProductCard
-                key={product.id}
                 title={product.title}
                 description={product.description}
                 imageUrl={product.imageUrl}
                 minimumOrder={product.minimumOrder}
                 imageHint={product.imageHint}
               />
-            ))}
-          </div>
-        </TiltEffect>
+            </TiltEffect>
+          ))}
+        </div>
       </div>
     </div>
   );

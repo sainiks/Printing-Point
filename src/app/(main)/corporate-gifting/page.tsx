@@ -79,20 +79,19 @@ export default function CorporateGiftingPage() {
             prestige and values.
           </p>
         </div>
-        <TiltEffect>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {corporateGifts.map((product) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {corporateGifts.map((product) => (
+            <TiltEffect key={product.id}>
               <ProductCard
-                key={product.id}
                 title={product.title}
                 description={product.description}
                 imageUrl={product.imageUrl}
                 minimumOrder={product.minimumOrder}
                 imageHint={product.imageHint}
               />
-            ))}
-          </div>
-        </TiltEffect>
+            </TiltEffect>
+          ))}
+        </div>
       </div>
     </div>
   );
