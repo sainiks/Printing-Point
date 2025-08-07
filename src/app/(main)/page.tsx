@@ -120,7 +120,7 @@ export default function Home() {
         <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary scroll-animation">
                 Our Philosophy of Gifting
               </AnimatedTitle>
               <p className="text-lg text-foreground/80">
@@ -150,7 +150,7 @@ export default function Home() {
         <section className="py-24 md:py-32">
           <div className="container">
             <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary scroll-animation">
                 Explore Our Collections
               </AnimatedTitle>
               <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -169,7 +169,7 @@ export default function Home() {
                   <CarouselItem key={index}>
                     <Card className={`${collection.bgClass} bg-opacity-20 backdrop-blur-sm border-white/20`}>
                       <CardContent className="p-4 sm:p-6">
-                        <AnimatedTitle as="h3" className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</AnimatedTitle>
+                        <AnimatedTitle as="h3" className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center scroll-animation">{collection.title}</AnimatedTitle>
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {collection.products.map((product) => (
                             <div key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
@@ -211,7 +211,7 @@ export default function Home() {
               />
             </div>
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary scroll-animation">
                 About Printing Point
               </AnimatedTitle>
               <p className="text-lg text-foreground/80">
