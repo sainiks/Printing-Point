@@ -67,15 +67,15 @@ const corporateGifts = [
 ];
 
 export default function CorporateGiftingPage() {
-  const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
+  const newBackgroundColor = "#203354";
   return (
-    <div className="bg-secondary/50">
-      <div className="container py-16 md:py-24 text-center" style={{background: soulfulGradient}}>
+    <div style={{backgroundColor: newBackgroundColor}}>
+      <div className="container py-16 md:py-24 text-center">
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
-            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
               Corporate Gifting Solutions
             </StaticTitle>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            <p className="mt-4 text-lg text-primary-foreground/80 max-w-3xl mx-auto">
               Elevate your brand with our bespoke corporate gifts. We specialize
               in creating memorable experiences that reflect your company's
               prestige and values.
