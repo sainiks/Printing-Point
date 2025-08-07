@@ -6,12 +6,10 @@ import { useState, useEffect, useRef, Children, isValidElement } from "react";
 
 export default function ParallaxSection({
   children,
-  backgroundImage,
-  backgroundHint,
+  backgroundGradient,
 }: {
   children: React.ReactNode;
-  backgroundImage: string;
-  backgroundHint: string;
+  backgroundGradient: string;
 }) {
   const [scrollPosition, setScrollPosition] = useState(0);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -41,15 +39,9 @@ export default function ParallaxSection({
             style={{
             transform: `translateZ(${relativeScroll * -0.7}px) scale(${1 + Math.abs(relativeScroll * 0.0005)})`,
             transformStyle: "preserve-3d",
+            background: backgroundGradient
             }}
         >
-            <Image
-                src={backgroundImage}
-                alt={backgroundHint}
-                data-ai-hint={backgroundHint}
-                fill
-                className="object-cover"
-            />
              <div className="absolute inset-0 bg-black/30"></div>
         </div>
 

@@ -114,8 +114,8 @@ export default function Home() {
     <>
       <HomeHero />
 
-      <ParallaxSection backgroundImage="https://placehold.co/1920x1080.png" backgroundHint="gifting background">
-        <section className="bg-secondary/50 py-16 md:py-24">
+      <ParallaxSection backgroundGradient="linear-gradient(to right, #283593, #192161)">
+        <section className="bg-transparent py-16 md:py-24">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">
@@ -144,7 +144,7 @@ export default function Home() {
         </section>
       </ParallaxSection>
       
-      <ParallaxSection backgroundImage="https://placehold.co/1920x1080.png" backgroundHint="product collection">
+      <ParallaxSection backgroundGradient="linear-gradient(to right, #4a0e72, #240b36)">
         <section className="py-16 md:py-24">
           <div className="container">
             <div className="text-center mb-12">
@@ -192,8 +192,8 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
-      <ParallaxSection backgroundImage="https://placehold.co/1920x1080.png" backgroundHint="company team">
-        <section className="bg-secondary/50 py-16 md:py-24">
+      <ParallaxSection backgroundGradient="linear-gradient(to right, #2c3e50, #34495e)">
+        <section className="bg-transparent py-16 md:py-24">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square">
               <Image
