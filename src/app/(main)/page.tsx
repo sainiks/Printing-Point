@@ -112,12 +112,12 @@ export default function Home() {
   const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
 
   return (
-    <>
-      <div className="scroll-animation">
+    <div className="scroll-container">
+      <div className="scroll-animation h-screen">
         <HomeHero />
       </div>
 
-      <div className="scroll-animation">
+      <div className="scroll-animation h-screen">
         <ParallaxSection backgroundGradient={soulfulGradient}>
           <section className="bg-transparent py-16 md:py-24">
             <div className="container grid md:grid-cols-2 gap-12 items-center">
@@ -149,7 +149,7 @@ export default function Home() {
         </ParallaxSection>
       </div>
       
-      <div className="scroll-animation">
+      <div className="scroll-animation h-screen">
         <ParallaxSection backgroundGradient={soulfulGradient}>
           <section className="py-16 md:py-24">
             <div className="container">
@@ -198,7 +198,7 @@ export default function Home() {
         </ParallaxSection>
       </div>
 
-      <div className="scroll-animation">
+      <div className="scroll-animation h-screen">
         <ParallaxSection backgroundGradient={soulfulGradient}>
           <section className="bg-transparent py-16 md:py-24">
             <div className="container grid md:grid-cols-2 gap-12 items-center">
@@ -229,6 +229,6 @@ export default function Home() {
           </section>
         </ParallaxSection>
       </div>
-    </>
+    </div>
   );
 }
