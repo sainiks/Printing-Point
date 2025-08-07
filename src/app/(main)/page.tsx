@@ -120,33 +120,6 @@ export default function Home() {
       <HomeHero />
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-24 md:py-32">
-          <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
-                Our Philosophy of Gifting
-              </StaticTitle>
-              <p className="text-lg text-foreground/80">
-                At Printing Point, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
-              </p>
-              <p className="text-lg text-foreground/80">
-                From corporate milestones to personal celebrations, we are dedicated to making your moments memorable.
-              </p>
-              <Button asChild size="lg" className="mt-4">
-                <Link href="/corporate-gifting">Discover Corporate Solutions</Link>
-              </Button>
-            </div>
-            <ParallaxImage
-              src="https://placehold.co/600x600.png"
-              alt="Craftspeople at work"
-              data-ai-hint="artisans workshop"
-              className="object-cover rounded-lg shadow-xl"
-            />
-          </div>
-        </section>
-      </ParallaxSection>
-      
-      <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-24 md:py-32">
           <div className="container">
             <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
