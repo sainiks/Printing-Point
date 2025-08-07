@@ -64,6 +64,33 @@ const corporateGifts = [
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "wellness kit relaxation",
   },
+  {
+    id: 7,
+    title: "Tech Lovers Swag",
+    description:
+      "Impress with a kit containing a power bank, wireless earbuds, and a branded phone stand.",
+    minimumOrder: 50,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "tech swag gadgets",
+  },
+  {
+    id: 8,
+    title: "Eco-Friendly Welcome Kit",
+    description:
+      "A sustainable choice with a bamboo notebook, a reusable coffee cup, and a seeded paper thank you card.",
+    minimumOrder: 50,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "eco friendly gifts",
+  },
+  {
+    id: 9,
+    title: "Luxury Leather Portfolio",
+    description:
+      "A premium leather portfolio for executives, perfect for meetings and presentations.",
+    minimumOrder: 25,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "leather portfolio business",
+  },
 ];
 
 export default function CorporateGiftingPage() {

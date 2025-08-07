@@ -54,6 +54,42 @@ const products = [
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "gift basket"
   },
+  {
+    id: 6,
+    title: "The Statesman Watch",
+    description:
+      "A timeless watch with a leather strap and a minimalist face.",
+    minimumOrder: 20,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "luxury watch"
+  },
+  {
+    id: 7,
+    title: "Silk Scarf Collection",
+    description:
+      "A collection of pure silk scarves with artistic, hand-painted designs.",
+    minimumOrder: 30,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "silk scarf"
+  },
+  {
+    id: 8,
+    title: "Tech Organizer Case",
+    description:
+      "A sleek and durable case to keep all your tech accessories in one place.",
+    minimumOrder: 40,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "tech organizer"
+  },
+  {
+    id: 9,
+    title: "Artisan Coffee Set",
+    description:
+      "A set of single-origin coffee beans and a French press for the coffee connoisseur.",
+    minimumOrder: 25,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "coffee set"
+  },
 ];
 
 export default function ProductsPage() {
