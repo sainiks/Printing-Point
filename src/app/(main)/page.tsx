@@ -117,7 +117,7 @@ export default function Home() {
       <HomeHero />
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-24 md:py-32">
+        <section className="bg-transparent py-24 md:py-32 scroll-animation">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
@@ -147,7 +147,7 @@ export default function Home() {
       </ParallaxSection>
       
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="py-24 md:py-32">
+        <section className="py-24 md:py-32 scroll-animation">
           <div className="container">
             <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
@@ -199,7 +199,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-24 md:py-32">
+        <section className="bg-transparent py-24 md:py-32 scroll-animation">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square">
               <Image

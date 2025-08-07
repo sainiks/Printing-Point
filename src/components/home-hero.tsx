@@ -54,7 +54,7 @@ export default function HomeHero() {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden"
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden scroll-animation"
       style={{ perspective: "1000px" }}
     >
       <div
