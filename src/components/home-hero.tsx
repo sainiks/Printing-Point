@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import AnimatedTitle from "./animated-title";
+import StaticTitle from "./animated-title";
 
 const ParallaxLayer = ({
   src,
@@ -84,9 +84,9 @@ export default function HomeHero() {
         }}
       >
         <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-white/20 shadow-lg">
-          <AnimatedTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
+          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
             Exquisite Gifts, Expertly Crafted
-          </AnimatedTitle>
+          </StaticTitle>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
             Discover bespoke gifting solutions for every occasion. At
             Printing Point, we turn moments into memories.

@@ -2,7 +2,7 @@
 import ProductCard from "@/components/product-card";
 import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from 'next'
-import AnimatedTitle from "@/components/animated-title";
+import StaticTitle from "@/components/animated-title";
  
 export const metadata: Metadata = {
   title: 'Our Products - Printing Point',
@@ -62,9 +62,9 @@ export default function ProductsPage() {
     <div className="bg-secondary/50">
       <div className="container py-16 md:py-24 text-center" style={{background: soulfulGradient}}>
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
-            <AnimatedTitle className="text-4xl md:text-5xl font-bold font-headline text-primary">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary">
               Our Products
-            </AnimatedTitle>
+            </StaticTitle>
             <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
             </p>

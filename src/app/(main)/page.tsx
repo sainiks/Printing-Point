@@ -8,7 +8,7 @@ import HomeHero from "@/components/home-hero";
 import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
-import AnimatedTitle from "@/components/animated-title";
+import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import ParallaxImage from "@/components/parallax-image";
 
@@ -123,9 +123,9 @@ export default function Home() {
         <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Our Philosophy of Gifting
-              </AnimatedTitle>
+              </StaticTitle>
               <p className="text-lg text-foreground/80">
                 At Printing Point, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
               </p>
@@ -150,9 +150,9 @@ export default function Home() {
         <section className="py-24 md:py-32">
           <div className="container">
             <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
-              </AnimatedTitle>
+              </StaticTitle>
               <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
                 Curated selections for every need, from special deals to our newest arrivals.
               </p>
@@ -169,7 +169,7 @@ export default function Home() {
                   <CarouselItem key={index}>
                     <Card className={`${collection.bgClass} bg-opacity-20 backdrop-blur-sm border-white/20`}>
                       <CardContent className="p-4 sm:p-6">
-                        <AnimatedTitle as="h3" className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</AnimatedTitle>
+                        <StaticTitle as="h3" className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</StaticTitle>
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {collection.products.map((product) => (
                             <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
@@ -208,9 +208,9 @@ export default function Home() {
               className="object-cover rounded-lg shadow-xl"
             />
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
+              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 About Printing Point
-              </AnimatedTitle>
+              </StaticTitle>
               <p className="text-lg text-foreground/80">
                 Founded on a passion for quality and an eye for detail, Printing Point has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
               </p>
