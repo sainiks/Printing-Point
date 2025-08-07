@@ -1,14 +1,11 @@
 
-
-
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 
 const bestBuys = [
@@ -116,114 +113,122 @@ export default function Home() {
 
   return (
     <>
-      <HomeHero />
+      <div className="scroll-animation">
+        <HomeHero />
+      </div>
 
-      <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-16 md:py-24">
-          <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
-                Our Philosophy of Gifting
-              </h2>
-              <p className="text-lg text-foreground/80">
-                At PrintingPoint Luxe, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
-              </p>
-              <p className="text-lg text-foreground/80">
-                From corporate milestones to personal celebrations, we are dedicated to making your moments memorable.
-              </p>
-              <Button asChild size="lg" className="mt-4">
-                <Link href="/corporate-gifting">Discover Corporate Solutions</Link>
-              </Button>
+      <div className="scroll-animation">
+        <ParallaxSection backgroundGradient={soulfulGradient}>
+          <section className="bg-transparent py-16 md:py-24">
+            <div className="container grid md:grid-cols-2 gap-12 items-center">
+              <div className="space-y-4 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
+                  Our Philosophy of Gifting
+                </h2>
+                <p className="text-lg text-foreground/80">
+                  At PrintingPoint Luxe, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
+                </p>
+                <p className="text-lg text-foreground/80">
+                  From corporate milestones to personal celebrations, we are dedicated to making your moments memorable.
+                </p>
+                <Button asChild size="lg" className="mt-4">
+                  <Link href="/corporate-gifting">Discover Corporate Solutions</Link>
+                </Button>
+              </div>
+              <div className="relative aspect-square">
+                  <Image
+                    src="https://placehold.co/600x600.png"
+                    alt="Craftspeople at work"
+                    data-ai-hint="artisans workshop"
+                    fill
+                    className="object-cover rounded-lg shadow-xl"
+                  />
+              </div>
             </div>
-            <div className="relative aspect-square">
+          </section>
+        </ParallaxSection>
+      </div>
+      
+      <div className="scroll-animation">
+        <ParallaxSection backgroundGradient={soulfulGradient}>
+          <section className="py-16 md:py-24">
+            <div className="container">
+              <div className="text-center mb-12">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
+                  Explore Our Collections
+                </h2>
+                <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+                  Curated selections for every need, from special deals to our newest arrivals.
+                </p>
+              </div>
+              <Carousel
+                opts={{
+                  align: "start",
+                  loop: true,
+                }}
+                className="w-full"
+              >
+                <CarouselContent>
+                  {collections.map((collection, index) => (
+                    <CarouselItem key={index}>
+                      <Card className={`${collection.bgClass} bg-opacity-75`}>
+                        <CardContent className="p-6 md:p-8">
+                          <h3 className="text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
+                          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                            {collection.products.map((product) => (
+                              <ProductCard
+                                key={product.id}
+                                title={product.title}
+                                description={product.description}
+                                imageUrl={product.imageUrl}
+                                minimumOrder={product.minimumOrder}
+                                imageHint={product.imageHint}
+                              />
+                            ))}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </CarouselItem>
+                  ))}
+                </CarouselContent>
+                <CarouselDots className="mt-6" />
+              </Carousel>
+            </div>
+          </section>
+        </ParallaxSection>
+      </div>
+
+      <div className="scroll-animation">
+        <ParallaxSection backgroundGradient={soulfulGradient}>
+          <section className="bg-transparent py-16 md:py-24">
+            <div className="container grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative aspect-square">
                 <Image
                   src="https://placehold.co/600x600.png"
-                  alt="Craftspeople at work"
-                  data-ai-hint="artisans workshop"
+                  alt="Team of designers collaborating"
+                  data-ai-hint="designers team meeting"
                   fill
                   className="object-cover rounded-lg shadow-xl"
                 />
+              </div>
+              <div className="space-y-4 text-center md:text-left">
+                <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
+                  About PrintingPoint Luxe
+                </h2>
+                <p className="text-lg text-foreground/80">
+                  Founded on a passion for quality and an eye for detail, PrintingPoint Luxe has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
+                </p>
+                <p className="text-lg text-foreground/80">
+                  We are more than just a store; we are your partners in celebration, appreciation, and connection.
+                </p>
+                <Button asChild size="lg" className="mt-4">
+                  <Link href="/contact">Get In Touch</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-        </section>
-      </ParallaxSection>
-      
-      <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="py-16 md:py-24">
-          <div className="container">
-            <div className="text-center mb-8">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
-                Explore Our Collections
-              </h2>
-              <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-                Curated selections for every need, from special deals to our newest arrivals.
-              </p>
-            </div>
-            <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {collections.map((collection, index) => (
-                  <CarouselItem key={index}>
-                    <Card className={`${collection.bgClass} bg-opacity-75`}>
-                      <CardContent className="p-6 md:p-8">
-                        <h3 className="text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                          {collection.products.map((product) => (
-                            <ProductCard
-                              key={product.id}
-                              title={product.title}
-                              description={product.description}
-                              imageUrl={product.imageUrl}
-                              minimumOrder={product.minimumOrder}
-                              imageHint={product.imageHint}
-                            />
-                          ))}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselDots className="mt-6" />
-            </Carousel>
-          </div>
-        </section>
-      </ParallaxSection>
-
-      <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-16 md:py-24">
-          <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative aspect-square">
-              <Image
-                src="https://placehold.co/600x600.png"
-                alt="Team of designers collaborating"
-                data-ai-hint="designers team meeting"
-                fill
-                className="object-cover rounded-lg shadow-xl"
-              />
-            </div>
-            <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
-                About PrintingPoint Luxe
-              </h2>
-              <p className="text-lg text-foreground/80">
-                Founded on a passion for quality and an eye for detail, PrintingPoint Luxe has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
-              </p>
-              <p className="text-lg text-foreground/80">
-                We are more than just a store; we are your partners in celebration, appreciation, and connection.
-              </p>
-              <Button asChild size="lg" className="mt-4">
-                <Link href="/contact">Get In Touch</Link>
-              </Button>
-            </div>
-          </div>
-        </section>
-      </ParallaxSection>
+          </section>
+        </ParallaxSection>
+      </div>
     </>
   );
 }
