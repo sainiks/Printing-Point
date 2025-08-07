@@ -130,50 +130,56 @@ export default function Home() {
               Curated selections for every need, from special deals to our newest arrivals.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold font-headline text-center text-primary">Best Buy Deals</h3>
-              <div className="space-y-8">
-                {bestBuys.slice(0, 1).map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
+          <div className="flex flex-col md:flex-row gap-8 group">
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold font-headline text-center text-primary">Best Buy Deals</h3>
+                <div className="space-y-8">
+                  {bestBuys.slice(0, 1).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      title={product.title}
+                      description={product.description}
+                      imageUrl={product.imageUrl}
+                      minimumOrder={product.minimumOrder}
+                      imageHint={product.imageHint}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold font-headline text-center text-primary">New Products</h3>
-              <div className="space-y-8">
-                {newArrivals.slice(0, 1).map((product) => (
-                   <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold font-headline text-center text-primary">New Products</h3>
+                <div className="space-y-8">
+                  {newArrivals.slice(0, 1).map((product) => (
+                     <ProductCard
+                      key={product.id}
+                      title={product.title}
+                      description={product.description}
+                      imageUrl={product.imageUrl}
+                      minimumOrder={product.minimumOrder}
+                      imageHint={product.imageHint}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-2xl font-bold font-headline text-center text-primary">On Sale</h3>
-               <div className="space-y-8">
-                {onSale.slice(0, 1).map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
+            <div className="flex-1 transition-all duration-500 ease-in-out md:group-hover:flex-none md:group-hover:w-1/4 md:hover:!w-1/2">
+              <div className="space-y-4">
+                <h3 className="text-2xl font-bold font-headline text-center text-primary">On Sale</h3>
+                 <div className="space-y-8">
+                  {onSale.slice(0, 1).map((product) => (
+                    <ProductCard
+                      key={product.id}
+                      title={product.title}
+                      description={product.description}
+                      imageUrl={product.imageUrl}
+                      minimumOrder={product.minimumOrder}
+                      imageHint={product.imageHint}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </div>
