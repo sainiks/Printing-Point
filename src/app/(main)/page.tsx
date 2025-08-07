@@ -110,21 +110,23 @@ const collections = [
 
 
 export default function Home() {
+  const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
+
   return (
     <>
       <HomeHero />
 
-      <ParallaxSection backgroundGradient="linear-gradient(to right, #283593, #192161)">
+      <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="bg-transparent py-16 md:py-24">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Our Philosophy of Gifting
               </h2>
-              <p className="text-lg text-gray-200">
+              <p className="text-lg text-foreground/80">
                 At PrintingPoint Luxe, we believe a gift is more than an item—it's a gesture, a story, and a connection. Our mission is to provide impeccably crafted gifts that convey prestige and thoughtfulness. We source the finest materials and partner with skilled artisans to ensure every product we offer is a masterpiece of quality and elegance.
               </p>
-              <p className="text-lg text-gray-200">
+              <p className="text-lg text-foreground/80">
                 From corporate milestones to personal celebrations, we are dedicated to making your moments memorable.
               </p>
               <Button asChild size="lg" className="mt-4">
@@ -144,14 +146,14 @@ export default function Home() {
         </section>
       </ParallaxSection>
       
-      <ParallaxSection backgroundGradient="linear-gradient(to right, #4a0e72, #240b36)">
+      <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-16 md:py-24">
           <div className="container">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
-              <p className="mt-4 text-lg text-gray-200 max-w-2xl mx-auto">
+              <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
                 Curated selections for every need, from special deals to our newest arrivals.
               </p>
             </div>
@@ -165,7 +167,7 @@ export default function Home() {
               <CarouselContent>
                 {collections.map((collection, index) => (
                   <CarouselItem key={index}>
-                    <Card className={`${collection.bgClass}`}>
+                    <Card className={`${collection.bgClass} bg-opacity-75`}>
                       <CardContent className="p-8 md:p-12">
                         <h3 className="text-3xl font-bold font-headline text-primary mb-8 text-center">{collection.title}</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -192,7 +194,7 @@ export default function Home() {
         </section>
       </ParallaxSection>
 
-      <ParallaxSection backgroundGradient="linear-gradient(to right, #2c3e50, #34495e)">
+      <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="bg-transparent py-16 md:py-24">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square">
@@ -205,13 +207,13 @@ export default function Home() {
               />
             </div>
             <div className="space-y-4 text-center md:text-left">
-              <h2 className="text-3xl md:text-4xl font-bold font-headline text-white">
+              <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 About PrintingPoint Luxe
               </h2>
-              <p className="text-lg text-gray-200">
+              <p className="text-lg text-foreground/80">
                 Founded on a passion for quality and an eye for detail, PrintingPoint Luxe has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
               </p>
-              <p className="text-lg text-gray-200">
+              <p className="text-lg text-foreground/80">
                 We are more than just a store; we are your partners in celebration, appreciation, and connection.
               </p>
               <Button asChild size="lg" className="mt-4">

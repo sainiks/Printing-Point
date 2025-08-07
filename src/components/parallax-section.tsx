@@ -42,7 +42,6 @@ export default function ParallaxSection({
             background: backgroundGradient
             }}
         >
-             <div className="absolute inset-0 bg-black/30"></div>
         </div>
 
       <div
