@@ -286,8 +286,8 @@ const CarouselDots = React.forwardRef<
           className={cn(
             "h-3 rounded-full transition-all duration-300 ease-in-out",
             {
-              "w-10 bg-primary": selectedIndex === index,
-              "w-5 bg-primary/20": selectedIndex !== index
+              "w-10 bg-primary-foreground": selectedIndex === index,
+              "w-5 bg-primary-foreground/20": selectedIndex !== index
             }
           )}
           aria-label={`Go to slide ${index + 1}`}
