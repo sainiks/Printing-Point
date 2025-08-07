@@ -69,16 +69,18 @@ export default function CorporateGiftingPage() {
   return (
     <div className="bg-secondary/50 scroll-animation">
       <div className="container py-16 md:py-24">
-        <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
-            Corporate Gifting Solutions
-          </h1>
-          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-            Elevate your brand with our bespoke corporate gifts. We specialize
-            in creating memorable experiences that reflect your company's
-            prestige and values.
-          </p>
-        </div>
+        <TiltEffect>
+          <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
+            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
+              Corporate Gifting Solutions
+            </h1>
+            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+              Elevate your brand with our bespoke corporate gifts. We specialize
+              in creating memorable experiences that reflect your company's
+              prestige and values.
+            </p>
+          </div>
+        </TiltEffect>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {corporateGifts.map((product) => (
             <TiltEffect key={product.id}>
