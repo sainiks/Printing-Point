@@ -89,14 +89,14 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="flex flex-col w-[200px] gap-3 p-4">
               {productsComponents.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
                   href={component.href}
                 >
-                  {component.description}
+                  {""}
                 </ListItem>
               ))}
             </ul>
@@ -105,14 +105,14 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+            <ul className="flex flex-col w-[200px] gap-3 p-4">
               {corporateGiftingComponents.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
                   href={component.href}
                 >
-                  {component.description}
+                  {""}
                 </ListItem>
               ))}
             </ul>
