@@ -152,7 +152,7 @@ export default function Header() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <Link href="/contact" passHref legacyBehavior={false} asChild>
+                <Link href="/contact" legacyBehavior passHref>
                   <NavigationMenuLink
                     active={pathname === "/contact"}
                     className={navigationMenuTriggerStyle()}
