@@ -96,26 +96,4 @@
       transform: translateY(0);
     }
   }
-
-  .scroll-focus-section {
-    animation: focus-in-out linear;
-    animation-timeline: view();
-    animation-range-start: entry 25%;
-    animation-range-end: exit 40%;
-  }
-
-  @keyframes focus-in-out {
-    from {
-      opacity: 0.3;
-      filter: blur(5px);
-    }
-    to {
-      opacity: 0.3;
-      filter: blur(5px);
-    }
-    50% {
-      opacity: 1;
-      filter: blur(0);
-    }
-  }
 }
