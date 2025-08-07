@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import Image from "next/image";
-import Link from "next/link";
+import ProductCard from "@/components/product-card";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -8,41 +6,88 @@ export const metadata: Metadata = {
   description: "Bespoke corporate gifting solutions for your business.",
 };
 
+const corporateGifts = [
+  {
+    id: 1,
+    title: "Employee Onboarding Kit",
+    description:
+      "Welcome new hires with a custom-branded kit, including a journal, pen, and a thermal flask.",
+    minimumOrder: 25,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "onboarding kit office",
+  },
+  {
+    id: 2,
+    title: "Client Appreciation Basket",
+    description:
+      "A curated selection of gourmet snacks, premium coffee, and a personalized thank you card.",
+    minimumOrder: 20,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "client gift basket",
+  },
+  {
+    id: 3,
+    title: "Conference Swag Bag",
+    description:
+      "Equip attendees with memorable swag, including a branded tote bag, notebook, and tech accessories.",
+    minimumOrder: 100,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "conference swag",
+  },
+  {
+    id: 4,
+    title: "Executive Gift Set",
+    description:
+      "A high-end set for valued partners, featuring a crystal decanter and a set of premium glasses.",
+    minimumOrder: 10,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "executive crystal gift",
+  },
+  {
+    id: 5,
+    title: "Holiday Gift Box",
+    description:
+      "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. Perfect for year-end.",
+    minimumOrder: 30,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "holiday gift box",
+  },
+  {
+    id: 6,
+    title: "Wellness & Self-Care Kit",
+    description:
+      "Promote well-being with a kit containing an essential oil diffuser, a stress ball, and herbal teas.",
+    minimumOrder: 40,
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "wellness kit relaxation",
+  },
+];
+
 export default function CorporateGiftingPage() {
   return (
     <div className="bg-secondary/50">
-      <div className="container py-12 md:py-24">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
-              Elevate Your Brand with Bespoke Corporate Gifts
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              At PrintingPoint Luxe, we specialize in creating memorable gifting
-              experiences that reflect your company's prestige and values. From
-              onboarding kits for new hires to exclusive gifts for your most
-              valued clients, we provide end-to-end service with a touch of
-              luxury.
-            </p>
-            <ul className="mt-6 space-y-2 list-disc list-inside text-muted-foreground">
-              <li>Custom branding and packaging options.</li>
-              <li>Bulk order discounts and wholesale rates.</li>
-              <li>Dedicated account manager for your orders.</li>
-              <li>Worldwide shipping and fulfillment.</li>
-            </ul>
-            <Button asChild size="lg" className="mt-8">
-              <Link href="/contact">Start Your Inquiry</Link>
-            </Button>
-          </div>
-          <div className="relative aspect-square rounded-lg overflow-hidden shadow-xl order-1 md:order-2">
-            <Image
-              src="https://placehold.co/600x600.png"
-              alt="Corporate Gifting"
-              data-ai-hint="corporate gifts meeting"
-              fill
-              className="object-cover"
+      <div className="container py-12 md:py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
+            Corporate Gifting Solutions
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+            Elevate your brand with our bespoke corporate gifts. We specialize
+            in creating memorable experiences that reflect your company's
+            prestige and values.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {corporateGifts.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              imageUrl={product.imageUrl}
+              minimumOrder={product.minimumOrder}
+              imageHint={product.imageHint}
             />
-          </div>
+          ))}
         </div>
       </div>
     </div>
