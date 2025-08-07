@@ -168,9 +168,9 @@ export default function Home() {
                 {collections.map((collection, index) => (
                   <CarouselItem key={index}>
                     <Card className={`${collection.bgClass} bg-opacity-75`}>
-                      <CardContent className="p-6 md:p-8">
-                        <h3 className="text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                      <CardContent className="p-4 sm:p-6 md:p-8">
+                        <h3 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
+                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
                           {collection.products.map((product) => (
                             <ProductCard
                               key={product.id}
