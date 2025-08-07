@@ -58,7 +58,7 @@ export default function ContactForm() {
   }, [state, toast]);
 
   return (
-    <Card className="shadow-lg">
+    <Card className="shadow-lg bg-card/70 backdrop-blur-sm border-white/20">
       <form action={formAction} ref={formRef}>
         <CardContent className="p-6 space-y-6">
           <div className="space-y-2">

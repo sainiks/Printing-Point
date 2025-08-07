@@ -57,7 +57,7 @@ export default function ProductsPage() {
   return (
     <div className="bg-secondary/50 scroll-animation">
       <div className="container py-16 md:py-24">
-        <div className="text-center mb-12">
+        <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">Our Products</h1>
           <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
             Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.

@@ -1,5 +1,3 @@
-
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -119,7 +117,7 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <div className="space-y-4 text-center md:text-left">
+            <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Our Philosophy of Gifting
               </h2>
@@ -149,7 +147,7 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-24 md:py-32">
           <div className="container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
@@ -167,12 +165,12 @@ export default function Home() {
               <CarouselContent>
                 {collections.map((collection, index) => (
                   <CarouselItem key={index}>
-                    <Card className={`${collection.bgClass} bg-opacity-75`}>
+                    <Card className={`${collection.bgClass} bg-opacity-20 backdrop-blur-sm border-white/20`}>
                       <CardContent className="p-4 sm:p-6">
                         <h3 className="text-2xl md:text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 justify-center">
+                        <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {collection.products.map((product) => (
-                            <div key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-auto">
+                            <div key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
                               <ProductCard
                                 title={product.title}
                                 description={product.description}
@@ -210,7 +208,7 @@ export default function Home() {
                 className="object-cover rounded-lg shadow-xl"
               />
             </div>
-            <div className="space-y-4 text-center md:text-left">
+            <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 About Printing Point
               </h2>
