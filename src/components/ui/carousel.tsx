@@ -26,8 +26,11 @@ type CarouselContextProps = {
   api: ReturnType<typeof useEmblaCarousel>[1]
   scrollPrev: () => void
   scrollNext: () => void
+  scrollTo: (index: number) => void;
   canScrollPrev: boolean
   canScrollNext: boolean
+  selectedIndex: number;
+  scrollSnaps: number[];
 } & CarouselProps
 
 const CarouselContext = React.createContext<CarouselContextProps | null>(null)
@@ -67,15 +70,24 @@ const Carousel = React.forwardRef<
     )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
+    const [selectedIndex, setSelectedIndex] = React.useState(0);
+    const [scrollSnaps, setScrollSnaps] = React.useState<number[]>([]);
 
     const onSelect = React.useCallback((api: CarouselApi) => {
       if (!api) {
         return
       }
 
+      setSelectedIndex(api.selectedScrollSnap());
       setCanScrollPrev(api.canScrollPrev())
       setCanScrollNext(api.canScrollNext())
     }, [])
+    
+    const onInit = React.useCallback((api: CarouselApi) => {
+      if (!api) return;
+      setScrollSnaps(api.scrollSnapList());
+    }, []);
+
 
     const scrollPrev = React.useCallback(() => {
       api?.scrollPrev()
@@ -84,6 +96,14 @@ const Carousel = React.forwardRef<
     const scrollNext = React.useCallback(() => {
       api?.scrollNext()
     }, [api])
+    
+    const scrollTo = React.useCallback(
+      (index: number) => {
+        api?.scrollTo(index);
+      },
+      [api]
+    );
+
 
     const handleKeyDown = React.useCallback(
       (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -110,15 +130,19 @@ const Carousel = React.forwardRef<
       if (!api) {
         return
       }
-
+      
+      onInit(api);
       onSelect(api)
+      api.on("reInit", onInit);
       api.on("reInit", onSelect)
       api.on("select", onSelect)
 
       return () => {
         api?.off("select", onSelect)
+        api?.off("reInit", onInit);
+        api?.off("reInit", onSelect);
       }
-    }, [api, onSelect])
+    }, [api, onSelect, onInit])
 
     return (
       <CarouselContext.Provider
@@ -130,8 +154,11 @@ const Carousel = React.forwardRef<
             orientation || (opts?.axis === "y" ? "vertical" : "horizontal"),
           scrollPrev,
           scrollNext,
+          scrollTo,
           canScrollPrev,
           canScrollNext,
+          selectedIndex,
+          scrollSnaps
         }}
       >
         <div
@@ -252,6 +279,35 @@ const CarouselNext = React.forwardRef<
 })
 CarouselNext.displayName = "CarouselNext"
 
+const CarouselDots = React.forwardRef<
+  HTMLDivElement,
+  React.HTMLAttributes<HTMLDivElement>
+>(({ className, ...props }, ref) => {
+  const { selectedIndex, scrollSnaps, scrollTo } = useCarousel();
+
+  return (
+    <div
+      ref={ref}
+      className={cn("flex justify-center items-center gap-2", className)}
+      {...props}
+    >
+      {scrollSnaps.map((_, index) => (
+        <Button
+          key={index}
+          variant="outline"
+          size="icon"
+          className={cn("h-2 w-2 rounded-full p-0", {
+            "bg-primary": selectedIndex === index,
+          })}
+          onClick={() => scrollTo(index)}
+        />
+      ))}
+    </div>
+  );
+});
+CarouselDots.displayName = "CarouselDots";
+
+
 export {
   type CarouselApi,
   Carousel,
@@ -259,4 +315,5 @@ export {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
+  CarouselDots,
 }

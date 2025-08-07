@@ -1,12 +1,13 @@
 
 
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 
 const bestBuys = [
@@ -187,8 +188,7 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="hidden md:flex" />
-              <CarouselNext className="hidden md:flex" />
+              <CarouselDots className="mt-4" />
             </Carousel>
           </div>
         </section>
