@@ -136,7 +136,7 @@ export default function Home() {
               <CarouselContent>
                 {collections.map((collection, index) => (
                   <CarouselItem key={index}>
-                    <Card className={`${collection.bgClass} bg-opacity-20 backdrop-blur-sm border-white/20`}>
+                    <Card className={`${collection.bgClass} backdrop-blur-sm border-none shadow-none bg-transparent`}>
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {collection.products.map((product) => (
