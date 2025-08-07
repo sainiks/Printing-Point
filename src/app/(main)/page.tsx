@@ -1,4 +1,5 @@
 
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -9,6 +10,7 @@ import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious
 import ParallaxSection from "@/components/parallax-section";
 import AnimatedTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
+import ParallaxImage from "@/components/parallax-image";
 
 const bestBuys = [
   {
@@ -134,17 +136,12 @@ export default function Home() {
                 <Link href="/corporate-gifting">Discover Corporate Solutions</Link>
               </Button>
             </div>
-            <TiltEffect>
-              <div className="relative aspect-square">
-                  <Image
-                    src="https://placehold.co/600x600.png"
-                    alt="Craftspeople at work"
-                    data-ai-hint="artisans workshop"
-                    fill
-                    className="object-cover rounded-lg shadow-xl"
-                  />
-              </div>
-            </TiltEffect>
+            <ParallaxImage
+              src="https://placehold.co/600x600.png"
+              alt="Craftspeople at work"
+              data-ai-hint="artisans workshop"
+              className="object-cover rounded-lg shadow-xl"
+            />
           </div>
         </section>
       </ParallaxSection>
@@ -204,17 +201,12 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <TiltEffect>
-              <div className="relative aspect-square">
-                <Image
-                  src="https://placehold.co/600x600.png"
-                  alt="Team of designers collaborating"
-                  data-ai-hint="designers team meeting"
-                  fill
-                  className="object-cover rounded-lg shadow-xl"
-                />
-              </div>
-            </TiltEffect>
+            <ParallaxImage
+              src="https://placehold.co/600x600.png"
+              alt="Team of designers collaborating"
+              data-ai-hint="designers team meeting"
+              className="object-cover rounded-lg shadow-xl"
+            />
             <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
               <AnimatedTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 About Printing Point
