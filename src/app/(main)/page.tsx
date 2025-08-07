@@ -149,7 +149,7 @@ export default function Home() {
               Curated selections for every need, from special deals to our newest arrivals.
             </p>
           </div>
-          <Card className="w-full">
+          <Card className="w-full overflow-hidden">
             <div className="flex flex-row h-[70vh] group">
               {collections.map((collection, index) => (
                 <div
