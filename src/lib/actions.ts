@@ -38,11 +38,12 @@ export async function submitContactForm(
   }
 
   const { fullName, email, phone, message } = validatedFields.data;
-  const receivingEmail = "your-email@example.com";
+  // This is a placeholder email. In a real application, you would use a service like 
+  // Resend, SendGrid, or Nodemailer to send an email here.
+  const receivingEmail = "kunalsaini20090360@gmail.com";
   
-  // In a real application, you would use a service like Resend, SendGrid, or Nodemailer
-  // to send an email here. For this prototype, we are just logging it to the console.
   console.log("--- New Contact Form Submission (Simulated Email) ---");
+  console.log("This is a prototype. No email is actually sent.");
   console.log(`Recipient: ${receivingEmail}`);
   console.log(`Full Name: ${fullName}`);
   console.log(`Email: ${email}`);

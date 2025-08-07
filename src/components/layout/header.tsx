@@ -71,6 +71,91 @@ const navLinks = [
   { href: "/contact", label: "Contact Us" },
 ];
 
+function NavMenu() {
+  const pathname = usePathname();
+  return (
+    <NavigationMenu>
+      <NavigationMenuList>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <Link
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/products"
+                  >
+                    <Gift className="h-6 w-6 text-primary" />
+                    <div className="mb-2 mt-4 text-lg font-medium font-headline">
+                      All Products
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Browse our entire collection of exquisite gifts.
+                    </p>
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+              {productsComponents.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
+              <li className="row-span-3">
+                <NavigationMenuLink asChild>
+                  <Link
+                    className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                    href="/corporate-gifting"
+                  >
+                    <Building2 className="h-6 w-6 text-primary" />
+                    <div className="mb-2 mt-4 text-lg font-medium font-headline">
+                      Bespoke Solutions
+                    </div>
+                    <p className="text-sm leading-tight text-muted-foreground">
+                      Elevate your brand with custom gifts that reflect
+                      your values.
+                    </p>
+                  </Link>
+                </NavigationMenuLink>
+              </li>
+              {corporateGiftingComponents.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <Link href="/contact" legacyBehavior passHref>
+            <NavigationMenuLink
+              active={pathname === "/contact"}
+              className={navigationMenuTriggerStyle()}
+            >
+              Contact Us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+      </NavigationMenuList>
+    </NavigationMenu>
+  );
+}
+
 export default function Header() {
   const pathname = usePathname();
 
@@ -85,85 +170,7 @@ export default function Header() {
         </Link>
 
         <nav className="hidden md:flex">
-          <NavigationMenu>
-            <NavigationMenuList>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Products</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <Link
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                          href="/products"
-                        >
-                          <Gift className="h-6 w-6 text-primary" />
-                          <div className="mb-2 mt-4 text-lg font-medium font-headline">
-                            All Products
-                          </div>
-                          <p className="text-sm leading-tight text-muted-foreground">
-                            Browse our entire collection of exquisite gifts.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    {productsComponents.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="grid gap-3 p-6 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
-                    <li className="row-span-3">
-                      <NavigationMenuLink asChild>
-                        <Link
-                          className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
-                          href="/corporate-gifting"
-                        >
-                          <Building2 className="h-6 w-6 text-primary" />
-                          <div className="mb-2 mt-4 text-lg font-medium font-headline">
-                            Bespoke Solutions
-                          </div>
-                          <p className="text-sm leading-tight text-muted-foreground">
-                            Elevate your brand with custom gifts that reflect
-                            your values.
-                          </p>
-                        </Link>
-                      </NavigationMenuLink>
-                    </li>
-                    {corporateGiftingComponents.map((component) => (
-                      <ListItem
-                        key={component.title}
-                        title={component.title}
-                        href={component.href}
-                      >
-                        {component.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-              </NavigationMenuItem>
-              <NavigationMenuItem>
-                <Link href="/contact" passHref legacyBehavior>
-                  <NavigationMenuLink
-                    active={pathname === "/contact"}
-                    className={navigationMenuTriggerStyle()}
-                  >
-                    Contact Us
-                  </NavigationMenuLink>
-                </Link>
-              </NavigationMenuItem>
-            </NavigationMenuList>
-          </NavigationMenu>
+          <NavMenu />
         </nav>
 
         <div className="md:hidden">
