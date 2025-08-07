@@ -26,7 +26,7 @@ export default function AnimatedTitle({ children, className }: AnimatedTitleProp
             >
               <span 
                 className="inline-block animate-letter-reveal"
-                style={{ animationDelay: `${(wordIndex * 0.1 + letterIndex * 0.05).toFixed(2)}s` }}
+                style={{ animationDelay: `${(wordIndex * 0.2 + letterIndex * 0.05).toFixed(2)}s` }}
               >
                 {letter === " " ? "\u00A0" : letter}
               </span>
