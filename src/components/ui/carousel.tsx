@@ -237,7 +237,7 @@ const CarouselPrevious = React.forwardRef<
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft className="h-4 w-4 text-primary-foreground" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -260,7 +260,7 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4" />
+      <ArrowRight className="h-4 w-4 text-primary-foreground" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
@@ -284,10 +284,10 @@ const CarouselDots = React.forwardRef<
           key={index}
           onClick={() => scrollTo(index)}
           className={cn(
-            "h-2.5 rounded-full transition-all duration-300 ease-in-out",
+            "h-3 rounded-full transition-all duration-300 ease-in-out",
             {
-              "w-8 bg-primary": selectedIndex === index,
-              "w-4 bg-primary/20": selectedIndex !== index
+              "w-10 bg-primary": selectedIndex === index,
+              "w-5 bg-primary/20": selectedIndex !== index
             }
           )}
           aria-label={`Go to slide ${index + 1}`}
