@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -84,35 +85,17 @@
 }
 
 @layer utilities {
-  .scroll-animation .animate-letter-reveal {
-    animation: fade-in-up linear both;
-    animation-timeline: view();
-    animation-range: entry 0% cover 30%;
-  }
-
   .animate-letter-reveal {
-    animation: letter-reveal 0.8s cubic-bezier(0.77, 0, 0.175, 1) forwards;
-    opacity: 0;
-  }
-
-  @keyframes fade-in-up {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    animation: letter-reveal 2s ease-in-out infinite alternate;
   }
 
   @keyframes letter-reveal {
-    from {
-      transform: translateY(100%);
-      opacity: 0;
+    0% {
+      transform: translateY(0);
+      opacity: 0.5;
     }
-    to {
-      transform: translateY(0%);
+    100% {
+      transform: translateY(-5px);
       opacity: 1;
     }
   }
