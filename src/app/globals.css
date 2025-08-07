@@ -81,21 +81,4 @@
   body {
     @apply bg-background text-foreground;
   }
-  .scroll-container {
-    height: 100vh;
-    overflow-y: scroll;
-    scroll-snap-type: y mandatory;
-  }
-  .scroll-animation {
-    scroll-snap-align: start;
-    animation: fade-in-out linear;
-    animation-timeline: view(y);
-    animation-range-start: entry 0%;
-    animation-range-end: exit 100%;
-  }
-  @keyframes fade-in-out {
-    0% { opacity: 0; }
-    25%, 75% { opacity: 1; }
-    100% { opacity: 0; }
-  }
 }
