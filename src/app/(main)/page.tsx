@@ -1,6 +1,7 @@
 
 
 
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -150,7 +151,7 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-16 md:py-24">
           <div className="container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
@@ -169,8 +170,8 @@ export default function Home() {
                 {collections.map((collection, index) => (
                   <CarouselItem key={index}>
                     <Card className={`${collection.bgClass} bg-opacity-75`}>
-                      <CardContent className="p-8 md:p-12">
-                        <h3 className="text-3xl font-bold font-headline text-primary mb-8 text-center">{collection.title}</h3>
+                      <CardContent className="p-6 md:p-8">
+                        <h3 className="text-3xl font-bold font-headline text-primary mb-6 text-center">{collection.title}</h3>
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                           {collection.products.map((product) => (
                             <ProductCard
@@ -188,7 +189,7 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselDots className="mt-4" />
+              <CarouselDots className="mt-6" />
             </Carousel>
           </div>
         </section>
