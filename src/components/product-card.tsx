@@ -30,7 +30,7 @@ export default function ProductCard({
   const inquiryUrl = `/contact?message=${encodeURIComponent(inquiryMessage)}`;
 
   return (
-    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card/70 backdrop-blur-sm border-white/20">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-transparent border-white/20 shadow-none hover:shadow-white/20">
       <CardHeader className="p-0">
         <div className="relative aspect-video">
           <Image
@@ -38,24 +38,26 @@ export default function ProductCard({
             alt={title}
             data-ai-hint={imageHint}
             fill
-            className="object-cover"
+            className="object-cover rounded-t-lg"
           />
         </div>
       </CardHeader>
-      <CardContent className="p-6 flex-1">
-        <CardTitle className="font-headline text-xl">{title}</CardTitle>
-        <CardDescription className="mt-2">{description}</CardDescription>
-        {minimumOrder && (
-          <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
-        )}
-      </CardContent>
-      <CardFooter className="p-6 pt-0">
-        <Button asChild className="w-full">
-          <Link href={inquiryUrl}>
-            <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
-          </Link>
-        </Button>
-      </CardFooter>
+      <div className="bg-card/70 backdrop-blur-sm p-6 flex flex-col flex-1 rounded-b-lg">
+        <CardContent className="p-0 flex-1">
+          <CardTitle className="font-headline text-xl">{title}</CardTitle>
+          <CardDescription className="mt-2">{description}</CardDescription>
+          {minimumOrder && (
+            <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
+          )}
+        </CardContent>
+        <CardFooter className="p-0 pt-6">
+          <Button asChild className="w-full">
+            <Link href={inquiryUrl}>
+              <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
+            </Link>
+          </Button>
+        </CardFooter>
+      </div>
     </Card>
   );
 }
