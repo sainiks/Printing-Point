@@ -9,93 +9,43 @@ export const metadata: Metadata = {
   description: 'Browse our collection of exquisite gifting products.',
 }
 
-const products = [
-  {
-    id: 1,
-    title: "The Monarch Pen",
-    description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "luxury pen"
-  },
-  {
-    id: 2,
-    title: "Calligraphy Gift Set",
-    description: "An exquisite set for the aspiring calligrapher, with multiple nibs and inks.",
-    minimumOrder: 20,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "calligraphy set"
-  },
-  {
-    id: 3,
-    title: "The Statesman Rollerball",
-    description: "A modern classic, offering a smooth and effortless writing experience.",
-    minimumOrder: 40,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "rollerball pen"
-  },
-  {
-    id: 4,
-    title: "Executive Leather Journal",
-    description: "Premium full-grain leather journal for your thoughts and ideas.",
-    minimumOrder: 30,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "leather journal"
-  },
-  {
-    id: 5,
-    title: "The Minimalist Wallet",
-    description: "A sleek, RFID-blocking wallet crafted from Italian leather.",
-    minimumOrder: 60,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "leather wallet"
-  },
-  {
-    id: 6,
-    title: "Tech Organizer Case",
-    description: "A sleek and durable leather case to keep all your tech accessories in one place.",
-    minimumOrder: 40,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "tech organizer"
-  },
-  {
-    id: 7,
-    title: "Crystal Desk Clock",
-    description: "An exquisite timepiece that adds a touch of class to any workspace.",
-    minimumOrder: 25,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "desk clock"
-  },
-  {
-    id: 8,
-    title: "Personalized Cufflinks",
-    description: "Custom-engraved sterling silver cufflinks for a personal touch.",
-    minimumOrder: 35,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "silver cufflinks"
-  },
-  {
-    id: 9,
-    title: "The Statesman Watch",
-    description: "A timeless watch with a leather strap and a minimalist face.",
-    minimumOrder: 20,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "luxury watch"
-  },
+const allProducts = [
+  // Premium Writing Instruments
+  { id: 1, title: "The Monarch Pen", description: "A symbol of elegance and precision, crafted from solid brass with gold accents.", minimumOrder: 50, imageUrl: "https://placehold.co/600x400.png", imageHint: "luxury pen", category: "Premium Writing Instruments" },
+  { id: 2, title: "Calligraphy Gift Set", description: "An exquisite set for the aspiring calligrapher, with multiple nibs and inks.", minimumOrder: 20, imageUrl: "https://placehold.co/600x400.png", imageHint: "calligraphy set", category: "Premium Writing Instruments" },
+  { id: 3, title: "The Statesman Rollerball", description: "A modern classic, offering a smooth and effortless writing experience.", minimumOrder: 40, imageUrl: "https://placehold.co/600x400.png", imageHint: "rollerball pen", category: "Premium Writing Instruments" },
+  // Fine Leather Accessories
+  { id: 4, title: "Executive Leather Journal", description: "Premium full-grain leather journal for your thoughts and ideas.", minimumOrder: 30, imageUrl: "https://placehold.co/600x400.png", imageHint: "leather journal", category: "Fine Leather Accessories" },
+  { id: 5, title: "The Minimalist Wallet", description: "A sleek, RFID-blocking wallet crafted from Italian leather.", minimumOrder: 60, imageUrl: "https://placehold.co/600x400.png", imageHint: "leather wallet", category: "Fine Leather Accessories" },
+  { id: 6, title: "Tech Organizer Case", description: "A sleek and durable leather case to keep all your tech accessories in one place.", minimumOrder: 40, imageUrl: "https://placehold.co/600x400.png", imageHint: "tech organizer", category: "Fine Leather Accessories" },
+  // Executive Desk Decor
+  { id: 7, title: "Crystal Desk Clock", description: "An exquisite timepiece that adds a touch of class to any workspace.", minimumOrder: 25, imageUrl: "https://placehold.co/600x400.png", imageHint: "desk clock", category: "Executive Desk Decor" },
+  { id: 8, title: "Personalized Cufflinks", description: "Custom-engraved sterling silver cufflinks for a personal touch.", minimumOrder: 35, imageUrl: "https://placehold.co/600x400.png", imageHint: "silver cufflinks", category: "Executive Desk Decor" },
+  { id: 9, title: "The Statesman Watch", description: "A timeless watch with a leather strap and a minimalist face.", minimumOrder: 20, imageUrl: "https://placehold.co/600x400.png", imageHint: "luxury watch", category: "Executive Desk Decor" },
 ];
 
 
-export default function ProductsPage() {
+export default function ProductsPage({ searchParams }: { searchParams?: { category?: string } }) {
+  const category = searchParams?.category;
+  const products = category 
+    ? allProducts.filter(p => p.category === category)
+    : allProducts;
+  
+  const pageTitle = category || "Our Products";
+  const pageDescription = category 
+    ? `Explore our collection of ${category}.`
+    : "Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.";
+
   const newBackgroundColor = "#203354";
   return (
     <div style={{backgroundColor: newBackgroundColor}}>
       <div className="container py-16 md:py-24 text-center">
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
             <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
-              Our Products
+              {pageTitle}
             </StaticTitle>
             <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-              Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
+              {pageDescription}
             </p>
           </div>
       </div>

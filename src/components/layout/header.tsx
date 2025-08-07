@@ -28,17 +28,17 @@ const productsComponents: { title: string; href: string; description: string }[]
   [
     {
       title: "Premium Writing Instruments",
-      href: "/products",
+      href: "/products?category=Premium+Writing+Instruments",
       description: "Elegant writing instruments for a lasting impression.",
     },
     {
       title: "Fine Leather Accessories",
-      href: "/products",
+      href: "/products?category=Fine+Leather+Accessories",
       description: "Premium journals, wallets, and accessories.",
     },
     {
       title: "Executive Desk Decor",
-      href: "/products",
+      href: "/products?category=Executive+Desk+Decor",
       description: "Sophisticated clocks, organizers, and decor.",
     },
     {
@@ -55,23 +55,23 @@ const corporateGiftingComponents: {
 }[] = [
   {
     title: "Onboarding & Welcome Kits",
-    href: "/corporate-gifting",
+    href: "/corporate-gifting?category=Onboarding+%26+Welcome+Kits",
     description: "Welcome new team members with curated gift sets.",
   },
   {
     title: "Client & Partner Gifting",
-    href: "/corporate-gifting",
+    href: "/corporate-gifting?category=Client+%26+Partner+Gifting",
     description: "Strengthen relationships with high-end presents.",
   },
   {
     title: "Event & Conference Solutions",
-    href: "/corporate-gifting",
+    href: "/corporate-gifting?category=Event+%26+Conference+Solutions",
     description: "Memorable takeaways for your next corporate event.",
   },
   {
-    title: "Custom Branding Services",
+    title: "View All Corporate Gifts",
     href: "/corporate-gifting",
-    description: "Elevate your brand with custom gifts that reflect your values.",
+    description: "Explore all corporate gifting solutions.",
   }
 ];
 
