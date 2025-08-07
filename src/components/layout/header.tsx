@@ -3,8 +3,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Package2, Menu, Gift, Building2 } from "lucide-react";
+import { Menu } from "lucide-react";
 import * as React from "react";
+import Image from "next/image";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -140,7 +141,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 w-full border-b bg-primary text-primary-foreground">
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <Package2 className="h-6 w-6" />
+          <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
           <span className="font-bold font-headline text-lg">
             Printing Point
           </span>
@@ -165,7 +166,7 @@ export default function Header() {
                     href="/"
                     className="flex items-center gap-2 text-lg font-semibold mb-4"
                   >
-                    <Package2 className="h-6 w-6" />
+                    <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
                     <span className="font-headline">Printing Point</span>
                   </Link>
                 </SheetClose>
@@ -202,7 +203,7 @@ const ListItem = React.forwardRef<
           href={href!}
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/90 focus:bg-primary/90",
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
             className
           )}
           {...props}
