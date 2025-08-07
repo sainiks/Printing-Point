@@ -117,7 +117,7 @@ export default function Home() {
       <HomeHero />
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-16 md:py-24">
+        <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-4 text-center md:text-left">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
@@ -147,9 +147,9 @@ export default function Home() {
       </ParallaxSection>
       
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="py-16 md:py-24">
+        <section className="py-24 md:py-32">
           <div className="container">
-            <div className="text-center mb-12">
+            <div className="text-center mb-6">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
@@ -158,10 +158,7 @@ export default function Home() {
               </p>
             </div>
             <Carousel
-              opts={{
-                align: "start",
-                loop: true,
-              }}
+              
               className="w-full"
             >
               <CarouselContent>
@@ -196,7 +193,7 @@ export default function Home() {
       </ParallaxSection>
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
-        <section className="bg-transparent py-16 md:py-24">
+        <section className="bg-transparent py-24 md:py-32">
           <div className="container grid md:grid-cols-2 gap-12 items-center">
             <div className="relative aspect-square">
               <Image
