@@ -51,7 +51,7 @@ export default function ProductCard({
           )}
         </CardContent>
         <CardFooter className="p-0 pt-6">
-          <Button asChild className="w-full">
+          <Button asChild className="w-full" style={{backgroundColor: '#F6F3EE', color: '#203354'}}>
             <Link href={inquiryUrl}>
               <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
             </Link>
