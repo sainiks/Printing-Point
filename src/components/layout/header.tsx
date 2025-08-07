@@ -27,22 +27,22 @@ import { cn } from "@/lib/utils";
 const productsComponents: { title: string; href: string; description: string }[] =
   [
     {
-      title: "Luxury Pens",
+      title: "Premium Writing Instruments",
       href: "/products",
       description: "Elegant writing instruments for a lasting impression.",
     },
     {
-      title: "Leather Goods",
+      title: "Fine Leather Accessories",
       href: "/products",
       description: "Premium journals, wallets, and accessories.",
     },
     {
-      title: "Desk Items",
+      title: "Executive Desk Decor",
       href: "/products",
       description: "Sophisticated clocks, organizers, and decor.",
     },
     {
-      title: "All Products",
+      title: "View All Products",
       href: "/products",
       description: "Browse our entire collection of exquisite gifts.",
     }
@@ -54,22 +54,22 @@ const corporateGiftingComponents: {
   description: string;
 }[] = [
   {
-    title: "Employee Onboarding Kits",
+    title: "Onboarding & Welcome Kits",
     href: "/corporate-gifting",
     description: "Welcome new team members with curated gift sets.",
   },
   {
-    title: "Client Appreciation",
+    title: "Client & Partner Gifting",
     href: "/corporate-gifting",
     description: "Strengthen relationships with high-end presents.",
   },
   {
-    title: "Event & Conference Swag",
+    title: "Event & Conference Solutions",
     href: "/corporate-gifting",
     description: "Memorable takeaways for your next corporate event.",
   },
   {
-    title: "Bespoke Solutions",
+    title: "Custom Branding Services",
     href: "/corporate-gifting",
     description: "Elevate your brand with custom gifts that reflect your values.",
   }
@@ -89,14 +89,14 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex flex-col w-[200px] gap-3 p-4">
+            <ul className="flex flex-col w-[250px] gap-3 p-4">
               {productsComponents.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
                   href={component.href}
                 >
-                  {""}
+                  {component.description}
                 </ListItem>
               ))}
             </ul>
@@ -105,14 +105,14 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex flex-col w-[200px] gap-3 p-4">
+            <ul className="flex flex-col w-[250px] gap-3 p-4">
               {corporateGiftingComponents.map((component) => (
                 <ListItem
                   key={component.title}
                   title={component.title}
                   href={component.href}
                 >
-                  {""}
+                  {component.description}
                 </ListItem>
               ))}
             </ul>
