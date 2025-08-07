@@ -2,6 +2,7 @@
 
 import { useActionState, useEffect, useRef } from "react";
 import { useFormStatus } from "react-dom";
+import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
 
@@ -30,9 +31,11 @@ function SubmitButton() {
 }
 
 export default function ContactForm() {
+  const searchParams = useSearchParams();
   const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
+  const messageParam = searchParams.get("message");
 
   useEffect(() => {
     if (state.status === "success") {
@@ -41,6 +44,10 @@ export default function ContactForm() {
         description: state.message,
       });
       formRef.current?.reset();
+       // We might want to clear the textarea specifically if the form reset doesn't
+       const textarea = formRef.current?.querySelector('textarea');
+       if(textarea) textarea.value = '';
+
     } else if (state.status === "error") {
       toast({
         title: "Error",
@@ -86,6 +93,7 @@ export default function ContactForm() {
               required
               minLength={10}
               rows={5}
+              defaultValue={messageParam || ''}
             />
           </div>
         </CardContent>

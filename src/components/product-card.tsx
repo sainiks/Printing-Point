@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import {
   Card,
   CardContent,
@@ -25,6 +26,9 @@ export default function ProductCard({
   imageHint,
   minimumOrder,
 }: ProductCardProps) {
+  const inquiryMessage = `Product: ${title}\nDescription: ${description}\nMinimum Order: ${minimumOrder || 'N/A'}`;
+  const inquiryUrl = `/contact?message=${encodeURIComponent(inquiryMessage)}`;
+
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2">
       <CardHeader className="p-0">
@@ -46,8 +50,10 @@ export default function ProductCard({
         )}
       </CardContent>
       <CardFooter className="p-6 pt-0">
-        <Button className="w-full">
-          <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
+        <Button asChild className="w-full">
+          <Link href={inquiryUrl}>
+            <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
+          </Link>
         </Button>
       </CardFooter>
     </Card>
