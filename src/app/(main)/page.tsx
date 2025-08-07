@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Card } from "@/components/ui/card";
 
 const bestBuys = [
   {
@@ -87,6 +87,24 @@ const onSale = [
   },
 ];
 
+const collections = [
+  {
+    title: "Best Buy Deals",
+    products: bestBuys,
+    bgClass: "bg-gradient-to-br from-blue-100 to-blue-200",
+  },
+  {
+    title: "New Products",
+    products: newArrivals,
+    bgClass: "bg-gradient-to-br from-purple-100 to-purple-200",
+  },
+  {
+    title: "On Sale",
+    products: onSale,
+    bgClass: "bg-gradient-to-br from-yellow-100 to-yellow-200",
+  },
+];
+
 
 export default function Home() {
   return (
@@ -131,55 +149,31 @@ export default function Home() {
               Curated selections for every need, from special deals to our newest arrivals.
             </p>
           </div>
-          <Tabs defaultValue="best-buys" className="w-full">
-            <TabsList className="grid w-full grid-cols-3">
-              <TabsTrigger value="best-buys">Best Buy Deals</TabsTrigger>
-              <TabsTrigger value="new-arrivals">New Products</TabsTrigger>
-              <TabsTrigger value="on-sale">On Sale</TabsTrigger>
-            </TabsList>
-            <TabsContent value="best-buys">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                {bestBuys.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="new-arrivals">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                {newArrivals.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-            <TabsContent value="on-sale">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
-                {onSale.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+          <Card className="w-full">
+            <div className="flex flex-row h-[70vh] group">
+              {collections.map((collection, index) => (
+                <div
+                  key={index}
+                  className="flex-1 transition-all duration-700 ease-in-out group-hover:flex-grow-0 hover:!flex-grow-[3] overflow-hidden relative p-8 flex flex-col items-center justify-center"
+                >
+                  <div className={`absolute inset-0 w-full h-full -z-10 ${collection.bgClass}`} />
+                  <h3 className="text-3xl font-bold font-headline text-primary mb-8 text-center">{collection.title}</h3>
+                  <div className="w-full grid grid-cols-1 gap-8 opacity-0 group-hover:opacity-0 hover:!opacity-100 transition-opacity duration-500 delay-300">
+                    {collection.products.slice(0, 3).map((product) => (
+                      <ProductCard
+                        key={product.id}
+                        title={product.title}
+                        description={product.description}
+                        imageUrl={product.imageUrl}
+                        minimumOrder={product.minimumOrder}
+                        imageHint={product.imageHint}
+                      />
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </Card>
         </div>
       </section>
 
