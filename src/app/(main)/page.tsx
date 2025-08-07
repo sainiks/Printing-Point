@@ -6,7 +6,7 @@ import Link from "next/link";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
 import { Card, CardContent } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselDots } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 
 const bestBuys = [
@@ -187,6 +187,8 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
+              <CarouselPrevious className="left-4" />
+              <CarouselNext className="right-4" />
               <CarouselDots className="mt-6" />
             </Carousel>
           </div>

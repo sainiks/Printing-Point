@@ -229,7 +229,7 @@ CarouselItem.displayName = "CarouselItem"
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, variant = "ghost", size = "icon", ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
@@ -238,10 +238,8 @@ const CarouselPrevious = React.forwardRef<
       variant={variant}
       size={size}
       className={cn(
-        "absolute  h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-left-12 top-1/2 -translate-y-1/2"
-          : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
+        "absolute h-8 w-8 rounded-full",
+        "top-1/2 -translate-y-1/2",
         className
       )}
       disabled={!canScrollPrev}
@@ -258,7 +256,7 @@ CarouselPrevious.displayName = "CarouselPrevious"
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
   React.ComponentProps<typeof Button>
->(({ className, variant = "outline", size = "icon", ...props }, ref) => {
+>(({ className, variant = "ghost", size = "icon", ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
@@ -268,9 +266,7 @@ const CarouselNext = React.forwardRef<
       size={size}
       className={cn(
         "absolute h-8 w-8 rounded-full",
-        orientation === "horizontal"
-          ? "-right-12 top-1/2 -translate-y-1/2"
-          : "-bottom-12 left-1/2 -translate-x-1/2 rotate-90",
+        "top-1/2 -translate-y-1/2",
         className
       )}
       disabled={!canScrollNext}
@@ -293,16 +289,18 @@ const CarouselDots = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex justify-center items-center gap-4", className)}
+      className={cn("flex justify-center items-center gap-x-4", className)}
       {...props}
     >
       {scrollSnaps.map((_, index) => (
         <div
           key={index}
           className={cn(
-            "h-1 w-8 bg-muted transition-all duration-300 ease-in-out",
+            "h-1 w-8 bg-muted transition-all duration-300 ease-in-out relative",
+            "after:absolute after:bottom-0 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300",
             {
-              "bg-primary": selectedIndex === index,
+              "after:w-full": selectedIndex === index,
+              "after:w-0": selectedIndex !== index
             }
           )}
           aria-label={`Go to slide ${index + 1}`}
