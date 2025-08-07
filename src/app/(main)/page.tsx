@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -94,7 +95,7 @@ const onSale = [
 export default function Home() {
   return (
     <>
-      <section className="relative w-full h-[calc(100vh-4rem)] flex items-center justify-center">
+      <section className="relative w-full h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
         <Image
           src="https://placehold.co/1920x1080.png"
           alt="Luxury gifting products background"
@@ -102,8 +103,16 @@ export default function Home() {
           fill
           className="object-cover"
           priority
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)'
+          }}
         />
-        <div className="absolute inset-0 bg-black/50" />
+        <div 
+          className="absolute inset-0 bg-black/50" 
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%)'
+          }}
+        />
         <div className="relative z-10 text-center text-white p-4">
           <h1 className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
             Exquisite Gifts, Expertly Crafted
