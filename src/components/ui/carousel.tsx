@@ -65,10 +65,6 @@ const Carousel = React.forwardRef<
     const [carouselRef, api] = useEmblaCarousel(
       {
         ...opts,
-        watchDrag: (emblaApi, event) => {
-            if (event.pointerType === 'mouse') return false;
-            return true;
-        },
         axis: orientation === "horizontal" ? "x" : "y",
       },
       plugins
@@ -237,11 +233,7 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        "top-1/2 -translate-y-1/2",
-        className
-      )}
+      className={cn("rounded-full", className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
@@ -264,11 +256,7 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn(
-        "absolute h-8 w-8 rounded-full",
-        "top-1/2 -translate-y-1/2",
-        className
-      )}
+      className={cn("rounded-full", className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
@@ -289,7 +277,7 @@ const CarouselDots = React.forwardRef<
   return (
     <div
       ref={ref}
-      className={cn("flex justify-center items-center gap-x-2", className)}
+      className={cn("flex items-center gap-x-2", className)}
       {...props}
     >
       {scrollSnaps.map((_, index) => (
@@ -297,10 +285,10 @@ const CarouselDots = React.forwardRef<
           key={index}
           onClick={() => scrollTo(index)}
           className={cn(
-            "h-2 rounded-full transition-all duration-300 ease-in-out",
+            "h-2.5 rounded-full transition-all duration-300 ease-in-out",
             {
               "w-8 bg-primary": selectedIndex === index,
-              "w-2 bg-muted": selectedIndex !== index
+              "w-4 bg-primary/20": selectedIndex !== index
             }
           )}
           aria-label={`Go to slide ${index + 1}`}

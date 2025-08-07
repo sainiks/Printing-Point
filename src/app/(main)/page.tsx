@@ -149,7 +149,7 @@ export default function Home() {
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="py-24 md:py-32">
           <div className="container">
-            <div className="text-center mb-6">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 Explore Our Collections
               </h2>
@@ -158,7 +158,10 @@ export default function Home() {
               </p>
             </div>
             <Carousel
-              
+              opts={{
+                align: "start",
+                loop: true,
+              }}
               className="w-full"
             >
               <CarouselContent>
@@ -184,9 +187,11 @@ export default function Home() {
                   </CarouselItem>
                 ))}
               </CarouselContent>
-              <CarouselPrevious className="left-4" />
-              <CarouselNext className="right-4" />
-              <CarouselDots className="mt-6" />
+              <div className="flex items-center justify-center gap-4 mt-6">
+                <CarouselPrevious className="static -translate-y-0 w-10 h-10" />
+                <CarouselDots />
+                <CarouselNext className="static -translate-y-0 w-10 h-10" />
+              </div>
             </Carousel>
           </div>
         </section>
