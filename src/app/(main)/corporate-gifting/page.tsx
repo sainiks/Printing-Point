@@ -2,6 +2,7 @@
 import ProductCard from "@/components/product-card";
 import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from "next";
+import ParallaxSection from "@/components/parallax-section";
 
 export const metadata: Metadata = {
   title: "Corporate Gifting - Printing Point",
@@ -66,21 +67,24 @@ const corporateGifts = [
 ];
 
 export default function CorporateGiftingPage() {
+  const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
   return (
     <div className="bg-secondary/50 scroll-animation">
+      <ParallaxSection backgroundGradient={soulfulGradient}>
+        <div className="container py-16 md:py-24 text-center">
+            <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
+              <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
+                Corporate Gifting Solutions
+              </h1>
+              <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
+                Elevate your brand with our bespoke corporate gifts. We specialize
+                in creating memorable experiences that reflect your company's
+                prestige and values.
+              </p>
+            </div>
+        </div>
+      </ParallaxSection>
       <div className="container py-16 md:py-24">
-        <TiltEffect>
-          <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-            <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
-              Corporate Gifting Solutions
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
-              Elevate your brand with our bespoke corporate gifts. We specialize
-              in creating memorable experiences that reflect your company's
-              prestige and values.
-            </p>
-          </div>
-        </TiltEffect>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {corporateGifts.map((product) => (
             <TiltEffect key={product.id}>
