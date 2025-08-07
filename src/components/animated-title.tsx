@@ -2,21 +2,23 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import React from "react";
 
 type AnimatedTitleProps = {
   children: React.ReactNode;
   className?: string;
+  as?: React.ElementType;
 };
 
-export default function AnimatedTitle({ children, className }: AnimatedTitleProps) {
+export default function AnimatedTitle({ children, className, as: Tag = 'h1' }: AnimatedTitleProps) {
   if (typeof children !== 'string') {
-    return <h1 className={className}>{children}</h1>;
+    return <Tag className={className}>{children}</Tag>;
   }
   
   const words = children.split(" ");
 
   return (
-    <h1 className={cn(className)}>
+    <Tag className={cn(className)}>
       {words.map((word, wordIndex) => (
         <span key={wordIndex} className="inline-block mr-[0.25em]">
           {word.split("").map((letter, letterIndex) => (
@@ -34,6 +36,6 @@ export default function AnimatedTitle({ children, className }: AnimatedTitleProp
           ))}
         </span>
       ))}
-    </h1>
+    </Tag>
   );
 }
