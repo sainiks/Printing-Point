@@ -1,3 +1,4 @@
+
 "use client"
 
 import * as React from "react"
@@ -292,14 +293,18 @@ const CarouselDots = React.forwardRef<
       {...props}
     >
       {scrollSnaps.map((_, index) => (
-        <Button
+        <button
           key={index}
-          variant="outline"
-          size="icon"
-          className={cn("h-2 w-2 rounded-full p-0", {
-            "bg-primary": selectedIndex === index,
-          })}
+          className={cn(
+            "h-2 rounded-full bg-border transition-all duration-300 ease-in-out",
+            {
+              "w-6 bg-primary": selectedIndex === index,
+              "w-2 bg-muted hover:bg-muted-foreground/50":
+                selectedIndex !== index,
+            }
+          )}
           onClick={() => scrollTo(index)}
+          aria-label={`Go to slide ${index + 1}`}
         />
       ))}
     </div>
