@@ -1,3 +1,4 @@
+
 "use server";
 
 import { z } from "zod";
@@ -37,17 +38,17 @@ export async function submitContactForm(
   }
 
   const { fullName, email, phone, message } = validatedFields.data;
-  const receivingEmail = "kunalsaini20090360@gmail.com";
+  const receivingEmail = "your-email@example.com";
   
   // In a real application, you would use a service like Resend, SendGrid, or Nodemailer
-  // to send an email here. For this example, we'll just log it to the console.
-  console.log("--- New Contact Form Submission ---");
+  // to send an email here. For this prototype, we are just logging it to the console.
+  console.log("--- New Contact Form Submission (Simulated Email) ---");
   console.log(`Recipient: ${receivingEmail}`);
   console.log(`Full Name: ${fullName}`);
   console.log(`Email: ${email}`);
   console.log(`Phone: ${phone || 'Not provided'}`);
   console.log(`Message: ${message}`);
-  console.log("-----------------------------------");
+  console.log("-----------------------------------------------------");
 
   return {
     status: "success",
