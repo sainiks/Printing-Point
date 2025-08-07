@@ -1,4 +1,6 @@
+
 import ContactForm from "@/components/contact-form";
+import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
@@ -16,9 +18,9 @@ export default function ContactPage() {
             Have a question or a bulk order inquiry? Fill out the form below, and our team will get back to you shortly.
           </p>
         </div>
-        <div className="max-w-2xl mx-auto mt-12">
-          <ContactForm />
-        </div>
+        <TiltEffect className="max-w-2xl mx-auto mt-12">
+            <ContactForm />
+        </TiltEffect>
       </div>
     </div>
   );

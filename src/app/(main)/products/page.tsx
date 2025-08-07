@@ -1,4 +1,6 @@
+
 import ProductCard from "@/components/product-card";
+import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
@@ -63,18 +65,20 @@ export default function ProductsPage() {
             Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              title={product.title}
-              description={product.description}
-              imageUrl={product.imageUrl}
-              minimumOrder={product.minimumOrder}
-              imageHint={product.imageHint}
-            />
-          ))}
-        </div>
+        <TiltEffect>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {products.map((product) => (
+              <ProductCard
+                key={product.id}
+                title={product.title}
+                description={product.description}
+                imageUrl={product.imageUrl}
+                minimumOrder={product.minimumOrder}
+                imageHint={product.imageHint}
+              />
+            ))}
+          </div>
+        </TiltEffect>
       </div>
     </div>
   );
