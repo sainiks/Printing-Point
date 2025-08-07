@@ -173,14 +173,8 @@ export default function Home() {
 
       <ParallaxSection backgroundGradient={soulfulGradient}>
         <section className="bg-transparent py-24 md:py-32">
-          <div className="container grid md:grid-cols-2 gap-12 items-center">
-            <ParallaxImage
-              src="https://placehold.co/600x600.png"
-              alt="Team of designers collaborating"
-              data-ai-hint="designers team meeting"
-              className="object-cover rounded-lg shadow-xl"
-            />
-            <div className="space-y-4 text-center md:text-left p-8 rounded-lg bg-black/5 backdrop-blur-sm">
+          <div className="container">
+            <div className="space-y-4 text-center p-8 rounded-lg bg-black/5 backdrop-blur-sm max-w-3xl mx-auto">
               <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary">
                 About Printing Point
               </StaticTitle>
