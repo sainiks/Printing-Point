@@ -11,43 +11,45 @@ const products = [
     id: 1,
     title: "The Monarch Pen",
     description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "luxury pen"
   },
   {
     id: 2,
     title: "Executive Leather Journal",
-    description: "Premium full-grain leather journal for your thoughts and ideas.",
+    description:
+      "Premium full-grain leather journal for your thoughts and ideas.",
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "leather journal"
   },
   {
     id: 3,
     title: "Crystal Desk Clock",
-    description: "An exquisite timepiece that adds a touch of class to any workspace.",
+    description:
+      "An exquisite timepiece that adds a touch of class to any workspace.",
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "desk clock"
   },
   {
     id: 4,
     title: "Personalized Cufflinks",
-    description: "Custom-engraved sterling silver cufflinks for a personal touch.",
+    description:
+      "Custom-engraved sterling silver cufflinks for a personal touch.",
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "silver cufflinks"
   },
   {
     id: 5,
     title: "Gourmet Gift Basket",
-    description: "A curated selection of fine foods and wines for the discerning palate.",
+    description:
+      "A curated selection of fine foods and wines for the discerning palate.",
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "gift basket"
-  },
-  {
-    id: 6,
-    title: "Silk Scarf Collection",
-    description: "Luxurious, hand-painted silk scarves from renowned artisans.",
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "silk scarf"
   },
 ];
 
@@ -68,6 +70,7 @@ export default function ProductsPage() {
               title={product.title}
               description={product.description}
               imageUrl={product.imageUrl}
+              minimumOrder={product.minimumOrder}
               imageHint={product.imageHint}
             />
           ))}

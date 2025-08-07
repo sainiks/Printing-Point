@@ -15,6 +15,7 @@ type ProductCardProps = {
   description: string;
   imageUrl: string;
   imageHint: string;
+  minimumOrder?: number;
 };
 
 export default function ProductCard({
@@ -22,6 +23,7 @@ export default function ProductCard({
   description,
   imageUrl,
   imageHint,
+  minimumOrder,
 }: ProductCardProps) {
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
@@ -39,6 +41,9 @@ export default function ProductCard({
       <CardContent className="p-6 flex-1">
         <CardTitle className="font-headline text-xl">{title}</CardTitle>
         <CardDescription className="mt-2">{description}</CardDescription>
+        {minimumOrder && (
+          <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
+        )}
       </CardContent>
       <CardFooter className="p-6 pt-0">
         <Button className="w-full">
