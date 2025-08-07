@@ -2,12 +2,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import {
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from "@/components/ui/tabs";
 import ProductCard from "@/components/product-card";
 import HomeHero from "@/components/home-hero";
 
@@ -136,15 +130,11 @@ export default function Home() {
               Curated selections for every need, from special deals to our newest arrivals.
             </p>
           </div>
-          <Tabs defaultValue="deals" className="w-full">
-            <TabsList className="grid w-full max-w-md mx-auto grid-cols-3">
-              <TabsTrigger value="deals">Best Buy Deals</TabsTrigger>
-              <TabsTrigger value="new">New Products</TabsTrigger>
-              <TabsTrigger value="sale">On Sale</TabsTrigger>
-            </TabsList>
-            <TabsContent value="deals" className="mt-12">
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {bestBuys.map((product) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold font-headline text-center text-primary">Best Buy Deals</h3>
+              <div className="space-y-8">
+                {bestBuys.slice(0, 1).map((product) => (
                   <ProductCard
                     key={product.id}
                     title={product.title}
@@ -155,10 +145,26 @@ export default function Home() {
                   />
                 ))}
               </div>
-            </TabsContent>
-            <TabsContent value="new" className="mt-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {newArrivals.map((product) => (
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold font-headline text-center text-primary">New Products</h3>
+              <div className="space-y-8">
+                {newArrivals.slice(0, 1).map((product) => (
+                   <ProductCard
+                    key={product.id}
+                    title={product.title}
+                    description={product.description}
+                    imageUrl={product.imageUrl}
+                    minimumOrder={product.minimumOrder}
+                    imageHint={product.imageHint}
+                  />
+                ))}
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold font-headline text-center text-primary">On Sale</h3>
+               <div className="space-y-8">
+                {onSale.slice(0, 1).map((product) => (
                   <ProductCard
                     key={product.id}
                     title={product.title}
@@ -169,22 +175,8 @@ export default function Home() {
                   />
                 ))}
               </div>
-            </TabsContent>
-            <TabsContent value="sale" className="mt-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {onSale.map((product) => (
-                  <ProductCard
-                    key={product.id}
-                    title={product.title}
-                    description={product.description}
-                    imageUrl={product.imageUrl}
-                    minimumOrder={product.minimumOrder}
-                    imageHint={product.imageHint}
-                  />
-                ))}
-              </div>
-            </TabsContent>
-          </Tabs>
+            </div>
+          </div>
         </div>
       </section>
 
