@@ -86,7 +86,7 @@
 
 @layer utilities {
   .animate-letter-reveal {
-    animation: letter-reveal 2s ease-in-out infinite alternate;
+    animation: letter-reveal 1s ease-in-out infinite alternate;
   }
 
   @keyframes letter-reveal {
