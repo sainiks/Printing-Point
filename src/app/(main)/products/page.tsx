@@ -59,13 +59,13 @@ const products = [
 export default function ProductsPage() {
   const soulfulGradient = "linear-gradient(to right, #e0e7ff, #c7d2fe)";
   return (
-    <div className="bg-secondary/50 scroll-animation">
+    <div className="bg-secondary/50">
       <div className="container py-16 md:py-24 text-center" style={{background: soulfulGradient}}>
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
             <AnimatedTitle className="text-4xl md:text-5xl font-bold font-headline text-primary">
               Our Products
             </AnimatedTitle>
-            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto scroll-animation">
+            <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
               Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
             </p>
           </div>
