@@ -1,0 +1,78 @@
+import ProductCard from "@/components/product-card";
+import type { Metadata } from 'next'
+ 
+export const metadata: Metadata = {
+  title: 'Our Products - PrintingPoint Luxe',
+  description: 'Browse our collection of exquisite gifting products.',
+}
+
+const products = [
+  {
+    id: 1,
+    title: "The Monarch Pen",
+    description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "luxury pen"
+  },
+  {
+    id: 2,
+    title: "Executive Leather Journal",
+    description: "Premium full-grain leather journal for your thoughts and ideas.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "leather journal"
+  },
+  {
+    id: 3,
+    title: "Crystal Desk Clock",
+    description: "An exquisite timepiece that adds a touch of class to any workspace.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "desk clock"
+  },
+  {
+    id: 4,
+    title: "Personalized Cufflinks",
+    description: "Custom-engraved sterling silver cufflinks for a personal touch.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "silver cufflinks"
+  },
+  {
+    id: 5,
+    title: "Gourmet Gift Basket",
+    description: "A curated selection of fine foods and wines for the discerning palate.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "gift basket"
+  },
+  {
+    id: 6,
+    title: "Silk Scarf Collection",
+    description: "Luxurious, hand-painted silk scarves from renowned artisans.",
+    imageUrl: "https://placehold.co/600x400.png",
+    imageHint: "silk scarf"
+  },
+];
+
+export default function ProductsPage() {
+  return (
+    <div className="bg-secondary/50">
+      <div className="container py-12 md:py-16">
+        <div className="text-center mb-12">
+          <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">Our Products</h1>
+          <p className="mt-4 text-lg text-muted-foreground max-w-2xl mx-auto">
+            Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              title={product.title}
+              description={product.description}
+              imageUrl={product.imageUrl}
+              imageHint={product.imageHint}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+}
