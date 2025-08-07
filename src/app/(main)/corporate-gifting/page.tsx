@@ -12,7 +12,7 @@ const corporateGifts = [
     title: "Employee Onboarding Kit",
     description:
       "Welcome new hires with a custom-branded kit, including a journal, pen, and a thermal flask.",
-    minimumOrder: 25,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "onboarding kit office",
   },
@@ -21,7 +21,7 @@ const corporateGifts = [
     title: "Client Appreciation Basket",
     description:
       "A curated selection of gourmet snacks, premium coffee, and a personalized thank you card.",
-    minimumOrder: 20,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "client gift basket",
   },
@@ -30,7 +30,7 @@ const corporateGifts = [
     title: "Conference Swag Bag",
     description:
       "Equip attendees with memorable swag, including a branded tote bag, notebook, and tech accessories.",
-    minimumOrder: 100,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "conference swag",
   },
@@ -39,7 +39,7 @@ const corporateGifts = [
     title: "Executive Gift Set",
     description:
       "A high-end set for valued partners, featuring a crystal decanter and a set of premium glasses.",
-    minimumOrder: 10,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "executive crystal gift",
   },
@@ -48,7 +48,7 @@ const corporateGifts = [
     title: "Holiday Gift Box",
     description:
       "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. Perfect for year-end.",
-    minimumOrder: 30,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "holiday gift box",
   },
@@ -57,7 +57,7 @@ const corporateGifts = [
     title: "Wellness & Self-Care Kit",
     description:
       "Promote well-being with a kit containing an essential oil diffuser, a stress ball, and herbal teas.",
-    minimumOrder: 40,
+    minimumOrder: 50,
     imageUrl: "https://placehold.co/600x400.png",
     imageHint: "wellness kit relaxation",
   },
