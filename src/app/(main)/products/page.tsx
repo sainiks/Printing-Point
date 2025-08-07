@@ -9,88 +9,96 @@ export const metadata: Metadata = {
   description: 'Browse our collection of exquisite gifting products.',
 }
 
-const products = [
+const productCategories = [
   {
-    id: 1,
-    title: "The Monarch Pen",
-    description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "luxury pen"
+    category: "Premium Writing Instruments",
+    products: [
+      {
+        id: 1,
+        title: "The Monarch Pen",
+        description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
+        minimumOrder: 50,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "luxury pen"
+      },
+      {
+        id: 2,
+        title: "Calligraphy Gift Set",
+        description: "An exquisite set for the aspiring calligrapher, with multiple nibs and inks.",
+        minimumOrder: 20,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "calligraphy set"
+      },
+      {
+        id: 3,
+        title: "The Statesman Rollerball",
+        description: "A modern classic, offering a smooth and effortless writing experience.",
+        minimumOrder: 40,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "rollerball pen"
+      },
+    ]
   },
   {
-    id: 2,
-    title: "Executive Leather Journal",
-    description:
-      "Premium full-grain leather journal for your thoughts and ideas.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "leather journal"
+    category: "Fine Leather Accessories",
+    products: [
+      {
+        id: 4,
+        title: "Executive Leather Journal",
+        description: "Premium full-grain leather journal for your thoughts and ideas.",
+        minimumOrder: 30,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "leather journal"
+      },
+      {
+        id: 5,
+        title: "The Minimalist Wallet",
+        description: "A sleek, RFID-blocking wallet crafted from Italian leather.",
+        minimumOrder: 60,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "leather wallet"
+      },
+      {
+        id: 6,
+        title: "Tech Organizer Case",
+        description: "A sleek and durable leather case to keep all your tech accessories in one place.",
+        minimumOrder: 40,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "tech organizer"
+      },
+    ]
   },
   {
-    id: 3,
-    title: "Crystal Desk Clock",
-    description:
-      "An exquisite timepiece that adds a touch of class to any workspace.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "desk clock"
-  },
-  {
-    id: 4,
-    title: "Personalized Cufflinks",
-    description:
-      "Custom-engraved sterling silver cufflinks for a personal touch.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "silver cufflinks"
-  },
-  {
-    id: 5,
-    title: "Gourmet Gift Basket",
-    description:
-      "A curated selection of fine foods and wines for the discerning palate.",
-    minimumOrder: 50,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "gift basket"
-  },
-  {
-    id: 6,
-    title: "The Statesman Watch",
-    description:
-      "A timeless watch with a leather strap and a minimalist face.",
-    minimumOrder: 20,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "luxury watch"
-  },
-  {
-    id: 7,
-    title: "Silk Scarf Collection",
-    description:
-      "A collection of pure silk scarves with artistic, hand-painted designs.",
-    minimumOrder: 30,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "silk scarf"
-  },
-  {
-    id: 8,
-    title: "Tech Organizer Case",
-    description:
-      "A sleek and durable case to keep all your tech accessories in one place.",
-    minimumOrder: 40,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "tech organizer"
-  },
-  {
-    id: 9,
-    title: "Artisan Coffee Set",
-    description:
-      "A set of single-origin coffee beans and a French press for the coffee connoisseur.",
-    minimumOrder: 25,
-    imageUrl: "https://placehold.co/600x400.png",
-    imageHint: "coffee set"
-  },
+    category: "Executive Desk Decor",
+    products: [
+      {
+        id: 7,
+        title: "Crystal Desk Clock",
+        description: "An exquisite timepiece that adds a touch of class to any workspace.",
+        minimumOrder: 25,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "desk clock"
+      },
+      {
+        id: 8,
+        title: "Personalized Cufflinks",
+        description: "Custom-engraved sterling silver cufflinks for a personal touch.",
+        minimumOrder: 35,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "silver cufflinks"
+      },
+      {
+        id: 9,
+        title: "The Statesman Watch",
+        description: "A timeless watch with a leather strap and a minimalist face.",
+        minimumOrder: 20,
+        imageUrl: "https://placehold.co/600x400.png",
+        imageHint: "luxury watch"
+      },
+    ]
+  }
 ];
+
 
 export default function ProductsPage() {
   const newBackgroundColor = "#203354";
@@ -106,20 +114,27 @@ export default function ProductsPage() {
             </p>
           </div>
       </div>
-      <div className="container py-16 md:py-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <TiltEffect key={product.id}>
-              <ProductCard
-                title={product.title}
-                description={product.description}
-                imageUrl={product.imageUrl}
-                minimumOrder={product.minimumOrder}
-                imageHint={product.imageHint}
-              />
-            </TiltEffect>
-          ))}
-        </div>
+      <div className="container py-16 md:py-24 space-y-16">
+        {productCategories.map(({ category, products }) => (
+          <div key={category}>
+            <h2 className="text-3xl font-headline font-bold text-center mb-8 text-primary-foreground">
+              {category}
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {products.map((product) => (
+                <TiltEffect key={product.id}>
+                  <ProductCard
+                    title={product.title}
+                    description={product.description}
+                    imageUrl={product.imageUrl}
+                    minimumOrder={product.minimumOrder}
+                    imageHint={product.imageHint}
+                  />
+                </TiltEffect>
+              ))}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
