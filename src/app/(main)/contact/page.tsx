@@ -23,7 +23,7 @@ export default function ContactPage() {
             </p>
           </div>
       </div>
-      <div className="container pt-12 md:pt-16">
+      <div className="container pt-4">
         <TiltEffect className="max-w-2xl mx-auto">
             <ContactForm />
         </TiltEffect>
