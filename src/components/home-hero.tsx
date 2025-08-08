@@ -67,8 +67,8 @@ export default function HomeHero() {
         }}
       >
         <Image
-          src="https://placehold.co/1920x1080.png"
-          alt="Abstract background"
+          src="/hero-background.jpg"
+          alt="Hero background image"
           data-ai-hint="abstract luxury background"
           fill
           className="object-cover"
