@@ -47,24 +47,23 @@ export default function HomeHero() {
         }}
       >
         
-          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
-            Exquisite Gifts, Expertly Crafted
+          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg uppercase">
+            Printing Point
           </StaticTitle>
           <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto drop-shadow-md">
-            Discover bespoke gifting solutions for every occasion. At
-            Printing Point, we turn moments into memories.
+            Your Solution To Corporate Gifting
           </p>
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button asChild size="lg">
-              <Link href="/products">Browse Products</Link>
-            </Button>
+           <p className="mt-4 text-base md:text-lg max-w-3xl mx-auto drop-shadow-md">
+            Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
+          </p>
+          <div className="mt-8 flex items-center justify-center gap-4">
             <Button
               asChild
               size="lg"
               variant="outline"
               className="bg-transparent border-white text-white hover:bg-white hover:text-primary"
             >
-              <Link href="/contact">Contact Us</Link>
+              <Link href="/contact">Get a Custom Quote</Link>
             </Button>
           </div>
         
