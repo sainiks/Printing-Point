@@ -28,7 +28,7 @@ export default function HomeHero() {
       style={{ perspective: '1000px' }}
     >
       <Image
-        src="/final_background.png"
+        src="/background.png"
         alt="Background"
         fill
         className="object-cover"
@@ -39,13 +39,13 @@ export default function HomeHero() {
       />
       <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
       <div
-        className="relative z-10 text-center text-white"
+        className="relative z-10 text-center text-white p-8 md:p-12"
         style={{
           transform: `translateZ(${scrollPosition * -0.5}px)`,
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="p-8 md:p-12">
+        
           <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
             Exquisite Gifts, Expertly Crafted
           </StaticTitle>
@@ -66,7 +66,7 @@ export default function HomeHero() {
               <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
-        </div>
+        
       </div>
     </section>
   );
