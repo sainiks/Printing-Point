@@ -140,56 +140,58 @@ export default function Header() {
           </span>
         </Link>
 
-        <nav className="hidden md:flex">
-          <NavMenu />
-        </nav>
+        <div className="flex items-center gap-4">
+            <nav className="hidden md:flex">
+                <NavMenu />
+            </nav>
 
-        <div className="md:hidden">
-          <Sheet>
-            <SheetTrigger asChild>
-              <Button variant="ghost" size="icon" className="hover:bg-white/20">
-                <Menu className="h-6 w-6" />
-                <span className="sr-only">Toggle navigation menu</span>
-              </Button>
-            </SheetTrigger>
-            <SheetContent side="right" className="bg-primary text-primary-foreground">
-              <nav className="grid gap-6 text-lg font-medium mt-6">
-                <SheetClose asChild>
-                  <Link
-                    href="/"
-                    className="flex items-center gap-2 text-lg font-semibold mb-4"
-                  >
-                    <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
-                    <span className="font-headline">Printing Point</span>
-                  </Link>
-                </SheetClose>
-                {navLinks.map((link) => (
-                  <SheetClose asChild key={link.href}>
-                    <Link
-                      href={link.href}
-                      className={cn(
-                        "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
-                        pathname === link.href && "text-primary-foreground"
-                      )}
-                    >
-                      {link.label}
-                    </Link>
-                  </SheetClose>
-                ))}
-                 <SheetClose asChild>
-                    <Link
-                      href="/contact"
-                      className={cn(
-                        "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
-                        pathname === "/contact" && "text-primary-foreground"
-                      )}
-                    >
-                      Contact Us
-                    </Link>
-                  </SheetClose>
-              </nav>
-            </SheetContent>
-          </Sheet>
+            <div className="md:hidden">
+                <Sheet>
+                    <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" className="hover:bg-white/20">
+                        <Menu className="h-6 w-6" />
+                        <span className="sr-only">Toggle navigation menu</span>
+                    </Button>
+                    </SheetTrigger>
+                    <SheetContent side="right" className="bg-primary text-primary-foreground">
+                    <nav className="grid gap-6 text-lg font-medium mt-6">
+                        <SheetClose asChild>
+                        <Link
+                            href="/"
+                            className="flex items-center gap-2 text-lg font-semibold mb-4"
+                        >
+                            <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
+                            <span className="font-headline">Printing Point</span>
+                        </Link>
+                        </SheetClose>
+                        {navLinks.map((link) => (
+                        <SheetClose asChild key={link.href}>
+                            <Link
+                            href={link.href}
+                            className={cn(
+                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
+                                pathname === link.href && "text-primary-foreground"
+                            )}
+                            >
+                            {link.label}
+                            </Link>
+                        </SheetClose>
+                        ))}
+                        <SheetClose asChild>
+                            <Link
+                            href="/contact"
+                            className={cn(
+                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
+                                pathname === "/contact" && "text-primary-foreground"
+                            )}
+                            >
+                            Contact Us
+                            </Link>
+                        </SheetClose>
+                    </nav>
+                    </SheetContent>
+                </Sheet>
+            </div>
         </div>
       </div>
     </header>
