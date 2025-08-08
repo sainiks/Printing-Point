@@ -74,6 +74,7 @@ export default function HomeHero() {
           className="object-cover"
           priority
         />
+        <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
       </div>
 
       <div
