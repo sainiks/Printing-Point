@@ -28,8 +28,9 @@ export default function HomeHero() {
       style={{ perspective: '1000px' }}
     >
       <Image
-        src="/final-background.png"
+        src="https://placehold.co/1920x1080.png"
         alt="Background"
+        data-ai-hint="abstract background"
         fill
         className="object-cover"
         style={{
