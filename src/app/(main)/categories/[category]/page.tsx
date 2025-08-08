@@ -2,7 +2,8 @@
 import { allProducts, mainCategories } from "@/lib/all-products";
 import type { Metadata } from 'next';
 import StaticTitle from "@/components/animated-title";
-import Link from "next/link";
+import CategoryCard from "@/components/category-card";
+import TiltEffect from "@/components/tilt-effect";
 
 export async function generateStaticParams() {
   return mainCategories.map((category) => ({
@@ -32,16 +33,21 @@ export default function CategoryPage({ params }: { params: { category: string } 
     .filter(p => p.category === categoryInfo.title)
     .map(p => p.subCategory))
   ].map(subCategory => {
+    // Find the first product in this sub-category to get an image.
+    const product = allProducts.find(p => p.subCategory === subCategory);
     return {
-      title: subCategory,
-      link: `/products?category=${encodeURIComponent(categoryInfo.title)}&subCategory=${encodeURIComponent(subCategory as string)}`
+      title: subCategory as string,
+      link: `/products?category=${encodeURIComponent(categoryInfo.title)}&subCategory=${encodeURIComponent(subCategory as string)}`,
+      imageUrl: product?.imageUrl || "https://placehold.co/600x400.png",
+      imageHint: product?.imageHint || categoryInfo.title.toLowerCase(),
+      description: `Browse our collection of ${subCategory}.`
     }
   });
 
   const newBackgroundColor = "#203354";
 
   return (
-    <div style={{backgroundColor: newBackgroundColor}} className="min-h-[calc(100vh-12rem)]">
+    <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen">
       <div className="container py-16 md:py-24 text-center">
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
             <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
@@ -53,15 +59,17 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
       </div>
       <div className="container pb-16 md:pb-24">
-        <div className="max-w-2xl mx-auto space-y-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {subCategories.map((subCategory) => (
-            <Link 
-              key={subCategory.title}
-              href={subCategory.link} 
-              className="block p-6 rounded-lg bg-card/70 backdrop-blur-sm border border-white/20 shadow-none hover:shadow-lg hover:border-white/30 hover:bg-card/80 transition-all duration-300 text-center"
-            >
-              <h2 className="font-headline text-2xl text-primary-foreground">{subCategory.title}</h2>
-            </Link>
+             <TiltEffect key={subCategory.title}>
+                <CategoryCard
+                    title={subCategory.title}
+                    description={subCategory.description}
+                    imageUrl={subCategory.imageUrl}
+                    imageHint={subCategory.imageHint}
+                    link={subCategory.link}
+                />
+            </TiltEffect>
           ))}
         </div>
       </div>
