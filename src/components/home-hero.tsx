@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -38,7 +37,7 @@ export default function HomeHero() {
           transformStyle: "preserve-3d",
         }}
       />
-      <div className="absolute inset-0 bg-black/20" />
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
       <div
         className="relative z-10 text-left text-white p-8 md:p-12 lg:p-24 max-w-3xl"
         style={{
@@ -47,7 +46,7 @@ export default function HomeHero() {
         }}
       >
         
-          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg uppercase">
+          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg uppercase whitespace-nowrap">
             Printing Point
           </StaticTitle>
           <p className="mt-4 text-lg md:text-xl max-w-2xl drop-shadow-md">
