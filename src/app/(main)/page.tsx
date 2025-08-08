@@ -95,15 +95,15 @@ const onSale = [
 const collections = [
   {
     products: bestBuys,
-    bgClass: "bg-gradient-to-br from-blue-100 to-blue-200",
+    bgClass: "bg-transparent",
   },
   {
     products: newArrivals,
-    bgClass: "bg-gradient-to-br from-purple-100 to-purple-200",
+    bgClass: "bg-transparent",
   },
   {
     products: onSale,
-    bgClass: "bg-gradient-to-br from-yellow-100 to-yellow-200",
+    bgClass: "bg-transparent",
   },
 ];
 
@@ -112,7 +112,7 @@ export default function Home() {
   const newBackgroundColor = "#203354";
 
   return (
-    <div>
+    <div className="dark">
       <HomeHero />
 
       <ParallaxSection backgroundGradient={newBackgroundColor}>
