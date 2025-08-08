@@ -90,15 +90,20 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex flex-col w-[250px] gap-3 p-4">
+            <ul className="grid w-[250px] gap-1 p-2">
               {productsComponents.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                 <li key={component.title}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={component.href}
+                        className={cn(
+                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                        )}
+                      >
+                        <div className="text-sm font-medium leading-none">{component.title}</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -106,15 +111,20 @@ function NavMenu() {
         <NavigationMenuItem>
           <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
           <NavigationMenuContent>
-            <ul className="flex flex-col w-[250px] gap-3 p-4">
+            <ul className="grid w-[250px] gap-1 p-2">
               {corporateGiftingComponents.map((component) => (
-                <ListItem
-                  key={component.title}
-                  title={component.title}
-                  href={component.href}
-                >
-                  {component.description}
-                </ListItem>
+                <li key={component.title}>
+                    <NavigationMenuLink asChild>
+                      <Link
+                        href={component.href}
+                        className={cn(
+                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                        )}
+                      >
+                        <div className="text-sm font-medium leading-none">{component.title}</div>
+                      </Link>
+                    </NavigationMenuLink>
+                  </li>
               ))}
             </ul>
           </NavigationMenuContent>
@@ -191,30 +201,3 @@ export default function Header() {
     </header>
   );
 }
-
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, href, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          href={href!}
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-primary-foreground/80">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
