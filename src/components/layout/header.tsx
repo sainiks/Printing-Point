@@ -75,8 +75,8 @@ function NavMenu() {
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[250px] gap-1 p-2">
-              {productsComponents.map((component) => (
-                 <li key={component.title}>
+              {productsComponents.map((component, index) => (
+                 <li key={component.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s`}}>
                     <NavigationMenuLink asChild>
                       <Link
                         href={component.href}
@@ -89,8 +89,8 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
-              <Separator className="my-1 bg-white/10" />
-              <li>
+              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${productsComponents.length * 0.1}s`}} />
+              <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(productsComponents.length + 1) * 0.1}s`}}>
                 <NavigationMenuLink asChild>
                   <Link
                     href="/products"
@@ -109,8 +109,8 @@ function NavMenu() {
           <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[250px] gap-1 p-2">
-              {corporateGiftingComponents.map((component) => (
-                <li key={component.title}>
+              {corporateGiftingComponents.map((component, index) => (
+                <li key={component.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s`}}>
                     <NavigationMenuLink asChild>
                       <Link
                         href={component.href}
@@ -123,8 +123,8 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
-              <Separator className="my-1 bg-white/10" />
-              <li>
+              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${corporateGiftingComponents.length * 0.1}s`}}/>
+              <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(corporateGiftingComponents.length + 1) * 0.1}s`}}>
                 <NavigationMenuLink asChild>
                   <Link
                     href="/corporate-gifting"
