@@ -140,7 +140,7 @@ export default function Header() {
   return (
     <header className={cn(
       "sticky top-0 z-50 w-full transition-all duration-300",
-      isScrolled ? "bg-primary text-primary-foreground border-b" : "bg-transparent text-white"
+      isScrolled ? "bg-primary text-primary-foreground border-b border-primary/50" : "bg-black/20 backdrop-blur-sm text-white"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
