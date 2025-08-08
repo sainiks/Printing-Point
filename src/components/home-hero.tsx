@@ -37,6 +37,7 @@ export default function HomeHero() {
           transformStyle: "preserve-3d",
         }}
       />
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
       <div
         className="relative z-10 text-center text-white"
         style={{
@@ -44,7 +45,7 @@ export default function HomeHero() {
           transformStyle: "preserve-3d",
         }}
       >
-        <div className="bg-black/20 backdrop-blur-sm rounded-xl p-8 md:p-12 border border-white/20 shadow-lg">
+        <div className="p-8 md:p-12">
           <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg">
             Exquisite Gifts, Expertly Crafted
           </StaticTitle>
