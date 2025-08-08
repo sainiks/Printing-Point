@@ -26,6 +26,16 @@ export default function HomeHero() {
     <section
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-primary"
     >
+      <Image
+        src="/final-background.png"
+        alt="Background"
+        fill
+        className="object-cover"
+        style={{
+          transform: `translateZ(${scrollPosition * -0.2}px) scale(1.2)`,
+          transformStyle: "preserve-3d",
+        }}
+      />
       <div
         className="relative z-10 text-center text-white"
         style={{
