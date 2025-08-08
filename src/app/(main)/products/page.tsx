@@ -3,36 +3,29 @@ import ProductCard from "@/components/product-card";
 import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from 'next'
 import StaticTitle from "@/components/animated-title";
+import { allProducts } from "@/lib/all-products";
  
 export const metadata: Metadata = {
   title: 'Our Products - Printing Point',
   description: 'Browse our collection of exquisite gifting products.',
 }
 
-const allProducts = [
-  // Premium Writing Instruments
-  { id: 1, title: "The Monarch Pen", description: "A symbol of elegance and precision, crafted from solid brass with gold accents.", minimumOrder: 50, imageUrl: "https://placehold.co/600x400.png", imageHint: "luxury pen", category: "Premium Writing Instruments" },
-  { id: 2, title: "Calligraphy Gift Set", description: "An exquisite set for the aspiring calligrapher, with multiple nibs and inks.", minimumOrder: 20, imageUrl: "https://placehold.co/600x400.png", imageHint: "calligraphy set", category: "Premium Writing Instruments" },
-  { id: 3, title: "The Statesman Rollerball", description: "A modern classic, offering a smooth and effortless writing experience.", minimumOrder: 40, imageUrl: "https://placehold.co/600x400.png", imageHint: "rollerball pen", category: "Premium Writing Instruments" },
-  // Fine Leather Accessories
-  { id: 4, title: "Executive Leather Journal", description: "Premium full-grain leather journal for your thoughts and ideas.", minimumOrder: 30, imageUrl: "https://placehold.co/600x400.png", imageHint: "leather journal", category: "Fine Leather Accessories" },
-  { id: 5, title: "The Minimalist Wallet", description: "A sleek, RFID-blocking wallet crafted from Italian leather.", minimumOrder: 60, imageUrl: "https://placehold.co/600x400.png", imageHint: "leather wallet", category: "Fine Leather Accessories" },
-  { id: 6, title: "Tech Organizer Case", description: "A sleek and durable leather case to keep all your tech accessories in one place.", minimumOrder: 40, imageUrl: "https://placehold.co/600x400.png", imageHint: "tech organizer", category: "Fine Leather Accessories" },
-  // Executive Desk Decor
-  { id: 7, title: "Crystal Desk Clock", description: "An exquisite timepiece that adds a touch of class to any workspace.", minimumOrder: 25, imageUrl: "https://placehold.co/600x400.png", imageHint: "desk clock", category: "Executive Desk Decor" },
-  { id: 8, title: "Personalized Cufflinks", description: "Custom-engraved sterling silver cufflinks for a personal touch.", minimumOrder: 35, imageUrl: "https://placehold.co/600x400.png", imageHint: "silver cufflinks", category: "Executive Desk Decor" },
-  { id: 9, title: "The Statesman Watch", description: "A timeless watch with a leather strap and a minimalist face.", minimumOrder: 20, imageUrl: "https://placehold.co/600x400.png", imageHint: "luxury watch", category: "Executive Desk Decor" },
-];
-
-
-export default function ProductsPage({ searchParams }: { searchParams?: { category?: string } }) {
+export default function ProductsPage({ searchParams }: { searchParams?: { category?: string, subCategory?: string } }) {
   const category = searchParams?.category;
-  const products = category 
-    ? allProducts.filter(p => p.category === category)
-    : allProducts;
+  const subCategory = searchParams?.subCategory;
+
+  let products = allProducts;
+
+  if (subCategory) {
+    products = allProducts.filter(p => p.subCategory === subCategory);
+  } else if (category) {
+    products = allProducts.filter(p => p.category === category);
+  }
   
-  const pageTitle = category || "Our Products";
-  const pageDescription = category 
+  const pageTitle = subCategory || category || "Our Products";
+  const pageDescription = subCategory 
+    ? `Explore our collection of ${subCategory}.`
+    : category
     ? `Explore our collection of ${category}.`
     : "Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.";
 

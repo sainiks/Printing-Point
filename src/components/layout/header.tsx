@@ -25,46 +25,13 @@ import {
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
+import { mainCategories } from "@/lib/all-products";
 
-const productsComponents: { title: string; href: string }[] =
-  [
-    {
-      title: "Premium Writing Instruments",
-      href: "/products?category=Premium+Writing+Instruments",
-    },
-    {
-      title: "Fine Leather Accessories",
-      href: "/products?category=Fine+Leather+Accessories",
-    },
-    {
-      title: "Executive Desk Decor",
-      href: "/products?category=Executive+Desk+Decor",
-    },
-  ];
+const navLinks = mainCategories.map(category => ({
+  href: `/categories/${category.slug}`,
+  label: category.title,
+}));
 
-const corporateGiftingComponents: {
-  title: string;
-  href: string;
-}[] = [
-  {
-    title: "Onboarding & Welcome Kits",
-    href: "/corporate-gifting?category=Onboarding+%26+Welcome+Kits",
-  },
-  {
-    title: "Client & Partner Gifting",
-    href: "/corporate-gifting?category=Client+%26+Partner+Gifting",
-  },
-  {
-    title: "Event & Conference Solutions",
-    href: "/corporate-gifting?category=Event+%26+Conference+Solutions",
-  },
-];
-
-const navLinks = [
-  { href: "/products", label: "Products" },
-  { href: "/corporate-gifting", label: "Corporate Gifting" },
-  { href: "/contact", label: "Contact Us" },
-];
 
 function NavMenu() {
   const pathname = usePathname();
@@ -72,14 +39,14 @@ function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[250px] gap-1 p-2">
-              {productsComponents.map((component, index) => (
+              {mainCategories.map((component, index) => (
                  <li key={component.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s`}}>
                     <NavigationMenuLink asChild>
                       <Link
-                        href={component.href}
+                        href={`/categories/${component.slug}`}
                         className={cn(
                           "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                         )}
@@ -89,8 +56,8 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
-              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${productsComponents.length * 0.1}s`}} />
-              <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(productsComponents.length + 1) * 0.1}s`}}>
+              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${mainCategories.length * 0.1}s`}} />
+              <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(mainCategories.length + 1) * 0.1}s`}}>
                 <NavigationMenuLink asChild>
                   <Link
                     href="/products"
@@ -99,40 +66,6 @@ function NavMenu() {
                     )}
                   >
                     <div className="text-sm font-medium leading-none">View All Products</div>
-                  </Link>
-                </NavigationMenuLink>
-              </li>
-            </ul>
-          </NavigationMenuContent>
-        </NavigationMenuItem>
-        <NavigationMenuItem>
-          <NavigationMenuTrigger>Corporate Gifting</NavigationMenuTrigger>
-          <NavigationMenuContent>
-            <ul className="grid w-[250px] gap-1 p-2">
-              {corporateGiftingComponents.map((component, index) => (
-                <li key={component.title} className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${index * 0.1}s`}}>
-                    <NavigationMenuLink asChild>
-                      <Link
-                        href={component.href}
-                        className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
-                        )}
-                      >
-                        <div className="text-sm font-medium leading-none">{component.title}</div>
-                      </Link>
-                    </NavigationMenuLink>
-                  </li>
-              ))}
-              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${corporateGiftingComponents.length * 0.1}s`}}/>
-              <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(corporateGiftingComponents.length + 1) * 0.1}s`}}>
-                <NavigationMenuLink asChild>
-                  <Link
-                    href="/corporate-gifting"
-                    className={cn(
-                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
-                    )}
-                  >
-                    <div className="text-sm font-medium leading-none">View All Corporate Gifts</div>
                   </Link>
                 </NavigationMenuLink>
               </li>
@@ -203,6 +136,17 @@ export default function Header() {
                     </Link>
                   </SheetClose>
                 ))}
+                 <SheetClose asChild>
+                    <Link
+                      href="/contact"
+                      className={cn(
+                        "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
+                        pathname === "/contact" && "text-primary-foreground"
+                      )}
+                    >
+                      Contact Us
+                    </Link>
+                  </SheetClose>
               </nav>
             </SheetContent>
           </Sheet>
