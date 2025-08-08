@@ -14,11 +14,11 @@ export default function ContactPage() {
   return (
     <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen py-16 md:py-24">
        <div className="container text-center">
-          <div className="max-w-2xl mx-auto p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
+          <div className="max-w-2xl mx-auto p-8 rounded-lg bg-white/90 backdrop-blur-sm shadow-lg">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-card-foreground">
               Contact Us
             </StaticTitle>
-            <p className="mt-4 text-lg text-primary-foreground/80">
+            <p className="mt-4 text-lg text-card-foreground/80">
               Have a question or a bulk order inquiry? Fill out the form below, and our team will get back to you shortly.
             </p>
           </div>
