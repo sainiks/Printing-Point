@@ -24,56 +24,40 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { Separator } from "@/components/ui/separator";
 
-const productsComponents: { title: string; href: string; description: string }[] =
+const productsComponents: { title: string; href: string }[] =
   [
     {
       title: "Premium Writing Instruments",
       href: "/products?category=Premium+Writing+Instruments",
-      description: "Elegant writing instruments for a lasting impression.",
     },
     {
       title: "Fine Leather Accessories",
       href: "/products?category=Fine+Leather+Accessories",
-      description: "Premium journals, wallets, and accessories.",
     },
     {
       title: "Executive Desk Decor",
       href: "/products?category=Executive+Desk+Decor",
-      description: "Sophisticated clocks, organizers, and decor.",
     },
-    {
-      title: "View All Products",
-      href: "/products",
-      description: "Browse our entire collection of exquisite gifts.",
-    }
   ];
 
 const corporateGiftingComponents: {
   title: string;
   href: string;
-  description: string;
 }[] = [
   {
     title: "Onboarding & Welcome Kits",
     href: "/corporate-gifting?category=Onboarding+%26+Welcome+Kits",
-    description: "Welcome new team members with curated gift sets.",
   },
   {
     title: "Client & Partner Gifting",
     href: "/corporate-gifting?category=Client+%26+Partner+Gifting",
-    description: "Strengthen relationships with high-end presents.",
   },
   {
     title: "Event & Conference Solutions",
     href: "/corporate-gifting?category=Event+%26+Conference+Solutions",
-    description: "Memorable takeaways for your next corporate event.",
   },
-  {
-    title: "View All Corporate Gifts",
-    href: "/corporate-gifting",
-    description: "Explore all corporate gifting solutions.",
-  }
 ];
 
 const navLinks = [
@@ -105,6 +89,19 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
+              <Separator className="my-1 bg-white/10" />
+              <li>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/products"
+                    className={cn(
+                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                    )}
+                  >
+                    <div className="text-sm font-medium leading-none">View All Products</div>
+                  </Link>
+                </NavigationMenuLink>
+              </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
@@ -126,6 +123,19 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
+              <Separator className="my-1 bg-white/10" />
+              <li>
+                <NavigationMenuLink asChild>
+                  <Link
+                    href="/corporate-gifting"
+                    className={cn(
+                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                    )}
+                  >
+                    <div className="text-sm font-medium leading-none">View All Corporate Gifts</div>
+                  </Link>
+                </NavigationMenuLink>
+              </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
