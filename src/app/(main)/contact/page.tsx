@@ -24,9 +24,11 @@ export default function ContactPage() {
           </div>
       </div>
       <div className="container pt-4">
-        <ParallaxContactForm>
-            <ContactForm />
-        </ParallaxContactForm>
+        <div className="max-w-xl mx-auto">
+            <ParallaxContactForm>
+                <ContactForm />
+            </ParallaxContactForm>
+        </div>
       </div>
     </div>
   );
