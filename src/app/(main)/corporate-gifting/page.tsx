@@ -30,7 +30,7 @@ export default function CorporateGiftingPage({ searchParams }: { searchParams?: 
 
   const newBackgroundColor = "#203354";
   return (
-    <div style={{backgroundColor: newBackgroundColor}}>
+    <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen">
       <div className="container py-16 md:py-24 text-center">
           <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
             <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
@@ -41,7 +41,7 @@ export default function CorporateGiftingPage({ searchParams }: { searchParams?: 
             </p>
           </div>
       </div>
-      <div className="container py-16 md:py-24">
+      <div className="container pb-16 md:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((product) => (
             <TiltEffect key={product.id}>
