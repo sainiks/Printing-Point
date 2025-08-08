@@ -72,6 +72,9 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --contact-card-bg: 48 33% 94%; /* warm cream */
+    --contact-card-fg: 20 10% 20%; /* dark text for contrast */
+    --contact-input-bg: 60 40% 98%; /* ivory white */
   }
 }
 

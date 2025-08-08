@@ -24,7 +24,7 @@ const initialState: ContactFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full" disabled={pending}>
+    <Button type="submit" className="w-full bg-primary/80 text-primary-foreground hover:bg-primary" disabled={pending}>
       {pending ? "Sending..." : "Send Message"}
     </Button>
   );
@@ -58,34 +58,43 @@ export default function ContactForm() {
   }, [state, toast]);
 
   return (
-    <Card className="shadow-lg bg-card/70 backdrop-blur-sm border-white/20">
+    <Card 
+      className="shadow-lg backdrop-blur-sm border"
+      style={{ 
+        backgroundColor: 'hsl(var(--contact-card-bg) / 0.8)',
+        borderColor: 'hsl(var(--contact-card-bg) / 0.5)',
+        color: 'hsl(var(--contact-card-fg))'
+      }}
+    >
       <form action={formAction} ref={formRef}>
         <CardContent className="p-6 space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="fullName">Full Name</Label>
-            <Input id="fullName" name="fullName" placeholder="John Doe" required />
+            <Label htmlFor="fullName" style={{color: 'hsl(var(--contact-card-fg))'}}>Full Name</Label>
+            <Input id="fullName" name="fullName" placeholder="John Doe" required style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}} />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email">Email</Label>
+            <Label htmlFor="email" style={{color: 'hsl(var(--contact-card-fg))'}}>Email</Label>
             <Input
               id="email"
               name="email"
               type="email"
               placeholder="john@example.com"
               required
+              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone">Phone Number (Optional)</Label>
+            <Label htmlFor="phone" style={{color: 'hsl(var(--contact-card-fg))'}}>Phone Number (Optional)</Label>
             <Input
               id="phone"
               name="phone"
               type="tel"
               placeholder="+1 (555) 123-4567"
+              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message">Your Query</Label>
+            <Label htmlFor="message" style={{color: 'hsl(var(--contact-card-fg))'}}>Your Query</Label>
             <Textarea
               id="message"
               name="message"
@@ -94,6 +103,7 @@ export default function ContactForm() {
               minLength={10}
               rows={5}
               defaultValue={messageParam || ''}
+              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
         </CardContent>
