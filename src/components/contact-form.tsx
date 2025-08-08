@@ -70,32 +70,32 @@ export default function ContactForm() {
       <form action={formAction} ref={formRef}>
         <CardContent className="p-6 space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="fullName" style={{color: 'hsl(var(--contact-card-fg))'}}>Full Name</Label>
-            <Input id="fullName" name="fullName" placeholder="John Doe" required style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}} />
+            <Label htmlFor="fullName" style={{color: 'hsl(var(--primary))'}}>Full Name</Label>
+            <Input id="fullName" name="fullName" placeholder="John Doe" required style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--primary) / 0.2)'}} />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="email" style={{color: 'hsl(var(--contact-card-fg))'}}>Email</Label>
+            <Label htmlFor="email" style={{color: 'hsl(var(--primary))'}}>Email</Label>
             <Input
               id="email"
               name="email"
               type="email"
               placeholder="john@example.com"
               required
-              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--primary) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="phone" style={{color: 'hsl(var(--contact-card-fg))'}}>Phone Number (Optional)</Label>
+            <Label htmlFor="phone" style={{color: 'hsl(var(--primary))'}}>Phone Number (Optional)</Label>
             <Input
               id="phone"
               name="phone"
               type="tel"
               placeholder="+1 (555) 123-4567"
-              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--primary) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="message" style={{color: 'hsl(var(--contact-card-fg))'}}>Your Query</Label>
+            <Label htmlFor="message" style={{color: 'hsl(var(--primary))'}}>Your Query</Label>
             <Textarea
               id="message"
               name="message"
@@ -104,7 +104,7 @@ export default function ContactForm() {
               minLength={10}
               rows={5}
               defaultValue={messageParam || ''}
-              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--primary) / 0.2)'}}
             />
           </div>
         </CardContent>
