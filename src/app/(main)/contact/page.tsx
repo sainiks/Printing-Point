@@ -1,7 +1,7 @@
 
 import StaticTitle from "@/components/animated-title";
 import ContactForm from "@/components/contact-form";
-import TiltEffect from "@/components/tilt-effect";
+import ParallaxContactForm from "@/components/parallax-contact-form";
 import type { Metadata } from 'next'
  
 export const metadata: Metadata = {
@@ -24,9 +24,9 @@ export default function ContactPage() {
           </div>
       </div>
       <div className="container pt-4">
-        <TiltEffect className="max-w-2xl mx-auto">
+        <ParallaxContactForm>
             <ContactForm />
-        </TiltEffect>
+        </ParallaxContactForm>
       </div>
     </div>
   );
