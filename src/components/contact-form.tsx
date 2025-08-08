@@ -70,7 +70,7 @@ export default function ContactForm() {
         <CardContent className="p-6 space-y-6">
           <div className="space-y-2">
             <Label htmlFor="fullName" style={{color: 'hsl(var(--contact-card-fg))'}}>Full Name</Label>
-            <Input id="fullName" name="fullName" placeholder="John Doe" required style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}} />
+            <Input id="fullName" name="fullName" placeholder="John Doe" required style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}} />
           </div>
           <div className="space-y-2">
             <Label htmlFor="email" style={{color: 'hsl(var(--contact-card-fg))'}}>Email</Label>
@@ -80,7 +80,7 @@ export default function ContactForm() {
               type="email"
               placeholder="john@example.com"
               required
-              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
@@ -90,7 +90,7 @@ export default function ContactForm() {
               name="phone"
               type="tel"
               placeholder="+1 (555) 123-4567"
-              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
           <div className="space-y-2">
@@ -103,7 +103,7 @@ export default function ContactForm() {
               minLength={10}
               rows={5}
               defaultValue={messageParam || ''}
-              style={{backgroundColor: 'hsl(var(--contact-input-bg))', color: 'hsl(var(--contact-card-fg))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
+              style={{backgroundColor: 'hsl(var(--contact-card-bg))', color: 'hsl(var(--primary))', borderColor: 'hsl(var(--contact-card-fg) / 0.2)'}}
             />
           </div>
         </CardContent>
