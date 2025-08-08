@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -28,7 +27,7 @@ export default function HomeHero() {
       style={{ perspective: '1000px' }}
     >
       <Image
-        src="/final_background.png"
+        src="/final-background.png"
         alt="Background"
         fill
         className="object-cover"
