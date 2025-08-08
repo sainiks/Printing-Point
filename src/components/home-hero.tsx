@@ -67,7 +67,7 @@ export default function HomeHero() {
         }}
       >
         <Image
-          src="/hero-background.png"
+          src="/final-background.png"
           alt="Hero background image"
           data-ai-hint="abstract luxury background"
           fill
