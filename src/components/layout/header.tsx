@@ -81,7 +81,7 @@ function NavMenu() {
                       <Link
                         href={component.href}
                         className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                         )}
                       >
                         <div className="text-sm font-medium leading-none">{component.title}</div>
@@ -95,7 +95,7 @@ function NavMenu() {
                   <Link
                     href="/products"
                     className={cn(
-                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                     )}
                   >
                     <div className="text-sm font-medium leading-none">View All Products</div>
@@ -115,7 +115,7 @@ function NavMenu() {
                       <Link
                         href={component.href}
                         className={cn(
-                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                          "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                         )}
                       >
                         <div className="text-sm font-medium leading-none">{component.title}</div>
@@ -129,7 +129,7 @@ function NavMenu() {
                   <Link
                     href="/corporate-gifting"
                     className={cn(
-                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-white/10 hover:text-primary-foreground/90 focus:bg-white/10 focus:text-primary-foreground/90"
+                      "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                     )}
                   >
                     <div className="text-sm font-medium leading-none">View All Corporate Gifts</div>
