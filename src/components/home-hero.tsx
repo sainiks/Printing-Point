@@ -7,36 +7,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import StaticTitle from "./animated-title";
 
-const ParallaxLayer = ({
-  src,
-  alt,
-  hint,
-  className,
-  transform,
-  priority = false,
-}: {
-  src: string;
-  alt: string;
-  hint: string;
-  className: string;
-  transform: string;
-  priority?: boolean;
-}) => (
-  <div
-    className={`absolute inset-0 transition-transform duration-500 ease-out ${className}`}
-    style={{ transform, transformStyle: "preserve-3d" }}
-  >
-    <Image
-      src={src}
-      alt={alt}
-      data-ai-hint={hint}
-      fill
-      className="object-cover"
-      priority={priority}
-    />
-  </div>
-);
-
 export default function HomeHero() {
   const [scrollPosition, setScrollPosition] = useState(0);
 
@@ -54,29 +24,8 @@ export default function HomeHero() {
 
   return (
     <section
-      className="relative w-full h-screen flex items-center justify-center overflow-hidden"
-      style={{ perspective: "1000px" }}
+      className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-primary"
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          transform: `translateZ(${scrollPosition * -1.5}px) scale(${
-            1 + scrollPosition * 0.001
-          })`,
-          transformStyle: "preserve-3d",
-        }}
-      >
-        <Image
-          src="/final-background.png"
-          alt="Hero background image"
-          data-ai-hint="abstract luxury background"
-          fill
-          className="object-cover"
-          priority
-        />
-        <div className="absolute inset-0 bg-black/30" />
-      </div>
-
       <div
         className="relative z-10 text-center text-white"
         style={{
