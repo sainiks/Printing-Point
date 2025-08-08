@@ -38,7 +38,7 @@ export default function HomeHero() {
           transformStyle: "preserve-3d",
         }}
       />
-      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm" />
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-md" />
       <div
         className="relative z-10 text-left text-white p-8 md:p-12 lg:p-24 max-w-3xl"
         style={{
