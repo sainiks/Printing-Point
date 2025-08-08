@@ -39,7 +39,7 @@ function NavMenu() {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Categories</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[250px] gap-1 p-2">
               {mainCategories.map((component, index) => (
@@ -69,6 +69,43 @@ function NavMenu() {
                   </Link>
                 </NavigationMenuLink>
               </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Other Services</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[250px] gap-1 p-2">
+               <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `0.1s`}}>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="#"
+                      className={cn(
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
+                      )}
+                    >
+                      <div className="text-sm font-medium leading-none">Service 1</div>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        Description for service 1.
+                      </p>
+                    </Link>
+                  </NavigationMenuLink>
+                </li>
+                <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `0.2s`}}>
+                  <NavigationMenuLink asChild>
+                    <Link
+                      href="#"
+                      className={cn(
+                        "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
+                      )}
+                    >
+                      <div className="text-sm font-medium leading-none">Service 2</div>
+                      <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                        Description for service 2.
+                      </p>
+                    </Link>
+                  </NavigationMenuLink>
+                </li>
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
