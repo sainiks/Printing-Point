@@ -28,7 +28,7 @@ export default function HomeHero() {
       style={{ perspective: '1000px' }}
     >
       <Image
-        src="/background.png"
+        src="/final_background.png"
         alt="Background"
         fill
         className="object-cover"
