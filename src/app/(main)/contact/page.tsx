@@ -12,8 +12,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   const newBackgroundColor = "#203354";
   return (
-    <div style={{backgroundColor: newBackgroundColor}}>
-       <div className="container py-12 md:py-24 text-center">
+    <div style={{backgroundColor: newBackgroundColor}} className="py-16 md:py-24">
+       <div className="container text-center">
           <div className="max-w-2xl mx-auto p-8 rounded-lg bg-black/5 backdrop-blur-sm">
             <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
               Contact Us
@@ -23,7 +23,7 @@ export default function ContactPage() {
             </p>
           </div>
       </div>
-      <div className="container py-12 md:py-16">
+      <div className="container pt-12 md:pt-16">
         <TiltEffect className="max-w-2xl mx-auto">
             <ContactForm />
         </TiltEffect>
