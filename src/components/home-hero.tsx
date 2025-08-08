@@ -25,6 +25,7 @@ export default function HomeHero() {
   return (
     <section
       className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-primary"
+      style={{ perspective: '1000px' }}
     >
       <Image
         src="/final-background.png"
