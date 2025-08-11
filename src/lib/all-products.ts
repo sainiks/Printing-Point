@@ -119,6 +119,8 @@ export const allProducts = [
   { id: 90, productId: "23", title: "Kitchen/Home Appliance", description: "High-quality appliances for your home.", minimumOrder: 15, imageUrl: "/Product_Images/23.webp", imageHint: "kitchen appliance", category: "Kitchen/Home Appliances", subCategory: "Kitchen/Home Appliances" },
   
   // Eco-Friendly products
-  { id: 91, productId: "PP-EF-001", title: "Bamboo Utensils", description: "Sustainable bamboo utensil sets.", minimumOrder: 80, imageUrl: "/Product_Images/PP-EF-001.webp", imageHint: "bamboo utensils", category: "Eco-Friendly products", subCategory: "Bamboo Utensils" },
-  { id: 92, productId: "PP-EF-002", title: "Reusable Shopping Bags", description: "Durable and eco-friendly shopping bags.", minimumOrder: 120, imageUrl: "/Product_Images/PP-EF-002.webp", imageHint: "reusable bag", category: "Eco-Friendly products", subCategory: "Reusable Shopping Bags" },
+  { id: 91, productId: "EF-001", title: "Bamboo Utensils", description: "Sustainable bamboo utensil sets.", minimumOrder: 80, imageUrl: "/Product_Images/EF-001.webp", imageHint: "bamboo utensils", category: "Eco-Friendly products", subCategory: "Bamboo Utensils" },
+  { id: 92, productId: "EF-002", title: "Reusable Shopping Bags", description: "Durable and eco-friendly shopping bags.", minimumOrder: 120, imageUrl: "/Product_Images/EF-002.webp", imageHint: "reusable bag", category: "Eco-Friendly products", subCategory: "Reusable Shopping Bags" },
 ];
+
+    
