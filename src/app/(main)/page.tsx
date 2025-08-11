@@ -10,112 +10,24 @@ import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious
 import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
+import { allProducts } from "@/lib/all-products";
 
-const bestBuys = [
-  {
-    id: 1,
-    productId: "GS-EXEC-01",
-    title: "Executive Gift Set",
-    description: "A high-end set for valued partners, featuring a crystal decanter and a set of premium glasses.",
-    minimumOrder: 10,
-    imageUrl: "/Product_Images/GS-EXEC-01.webp",
-    imageHint: "executive crystal gift",
-  },
-  {
-    id: 2,
-    productId: "PN-MNRCH-01",
-    title: "The Monarch Pen",
-    description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
-    minimumOrder: 50,
-    imageUrl: "/Product_Images/PN-MNRCH-01.webp",
-    imageHint: "luxury pen",
-  },
-  {
-    id: 3,
-    productId: "GB-GOURMET-01",
-    title: "Gourmet Gift Basket",
-    description: "A curated selection of fine foods and wines for the discerning palate.",
-    minimumOrder: 25,
-    imageUrl: "/Product_Images/GB-GOURMET-01.webp",
-    imageHint: "gourmet food wine",
-  },
-];
+// Group products by subCategory
+const productsBySubCategory: Record<string, typeof allProducts> = allProducts.reduce((acc, product) => {
+  if (product.subCategory) {
+    if (!acc[product.subCategory]) {
+      acc[product.subCategory] = [];
+    }
+    acc[product.subCategory].push(product);
+  }
+  return acc;
+}, {} as Record<string, typeof allProducts>);
 
-const newArrivals = [
-  {
-    id: 4,
-    productId: "AC-CUFF-01",
-    title: "Personalized Cufflinks",
-    description: "Custom-engraved sterling silver cufflinks for a personal touch.",
-    minimumOrder: 20,
-    imageUrl: "/Product_Images/AC-CUFF-01.webp",
-    imageHint: "silver cufflinks",
-  },
-  {
-    id: 5,
-    productId: "SW-CONF-01",
-    title: "Conference Swag Bag",
-    description: "Equip attendees with memorable swag, including a branded tote bag and notebook.",
-    minimumOrder: 100,
-    imageUrl: "/Product_Images/SW-CONF-01.webp",
-    imageHint: "conference swag",
-  },
-    {
-    id: 6,
-    productId: "DC-CRYSTL-01",
-    title: "Crystal Desk Clock",
-    description: "An exquisite timepiece that adds a touch of class to any workspace.",
-    minimumOrder: 15,
-    imageUrl: "/Product_Images/DC-CRYSTL-01.webp",
-    imageHint: "desk clock",
-  },
-];
-
-const onSale = [
-  {
-    id: 7,
-    productId: "NB-LTHR-01",
-    title: "Executive Leather Journal",
-    description: "Premium full-grain leather journal for your thoughts and ideas. 20% off!",
-    minimumOrder: 30,
-    imageUrl: "/Product_Images/NB-LTHR-01.webp",
-    imageHint: "leather journal",
-  },
-    {
-    id: 8,
-    productId: "KT-WLNS-01",
-    title: "Wellness & Self-Care Kit",
-    description: "Promote well-being with a kit containing an essential oil diffuser and herbal teas. Limited time offer!",
-    minimumOrder: 40,
-    imageUrl: "/Product_Images/KT-WLNS-01.webp",
-    imageHint: "wellness kit",
-  },
-  {
-    id: 9,
-    productId: "GB-HOLIDAY-01",
-    title: "Holiday Gift Box",
-    description: "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. On sale now!",
-    minimumOrder: 30,
-    imageUrl: "/Product_Images/GB-HOLIDAY-01.webp",
-    imageHint: "holiday gift box",
-  },
-];
-
-const collections = [
-  {
-    products: bestBuys,
-    bgClass: "bg-transparent",
-  },
-  {
-    products: newArrivals,
-    bgClass: "bg-transparent",
-  },
-  {
-    products: onSale,
-    bgClass: "bg-transparent",
-  },
-];
-
+// Create collections for the carousel, taking the first 3 products from each subcategory
+const collections = Object.values(productsBySubCategory).map(products => ({
+  products: products.slice(0, 3),
+  bgClass: "bg-transparent",
+}));
 
 export default function Home() {
   const newBackgroundColor = "#203354";
@@ -132,7 +44,7 @@ export default function Home() {
                 Trending Products
               </StaticTitle>
               <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
-                Curated selections for every need, from special deals to our newest arrivals.
+                Curated selections from all our categories, from special deals to our newest arrivals.
               </p>
             </div>
             <Carousel
