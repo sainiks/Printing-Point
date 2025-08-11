@@ -122,5 +122,3 @@ export const allProducts = [
   { id: 91, productId: "EF-001", title: "Bamboo Utensils", description: "Sustainable bamboo utensil sets.", minimumOrder: 80, imageUrl: "/Product_Images/EF-001.webp", imageHint: "bamboo utensils", category: "Eco-Friendly products", subCategory: "Bamboo Utensils" },
   { id: 92, productId: "EF-002", title: "Reusable Shopping Bags", description: "Durable and eco-friendly shopping bags.", minimumOrder: 120, imageUrl: "/Product_Images/EF-002.webp", imageHint: "reusable bag", category: "Eco-Friendly products", subCategory: "Reusable Shopping Bags" },
 ];
-
-    
