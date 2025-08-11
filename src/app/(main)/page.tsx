@@ -12,19 +12,19 @@ import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts } from "@/lib/all-products";
 
-// Group products by subCategory
-const productsBySubCategory: Record<string, typeof allProducts> = allProducts.reduce((acc, product) => {
-  if (product.subCategory) {
-    if (!acc[product.subCategory]) {
-      acc[product.subCategory] = [];
+// Group products by category
+const productsByCategory: Record<string, typeof allProducts> = allProducts.reduce((acc, product) => {
+  if (product.category) {
+    if (!acc[product.category]) {
+      acc[product.category] = [];
     }
-    acc[product.subCategory].push(product);
+    acc[product.category].push(product);
   }
   return acc;
 }, {} as Record<string, typeof allProducts>);
 
-// Create collections for the carousel, taking the first 3 products from each subcategory
-const collections = Object.values(productsBySubCategory).map(products => ({
+// Create collections for the carousel, taking the first 3 products from each category
+const collections = Object.values(productsByCategory).map(products => ({
   products: products.slice(0, 3),
   bgClass: "bg-transparent",
 }));
