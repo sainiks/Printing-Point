@@ -18,7 +18,7 @@ const bestBuys = [
     title: "Executive Gift Set",
     description: "A high-end set for valued partners, featuring a crystal decanter and a set of premium glasses.",
     minimumOrder: 10,
-    imageUrl: "/product_images/GS-EXEC-01.webp",
+    imageUrl: "/Product_Images/GS-EXEC-01.webp",
     imageHint: "executive crystal gift",
   },
   {
@@ -27,7 +27,7 @@ const bestBuys = [
     title: "The Monarch Pen",
     description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
     minimumOrder: 50,
-    imageUrl: "/product_images/PN-MNRCH-01.webp",
+    imageUrl: "/Product_Images/PN-MNRCH-01.webp",
     imageHint: "luxury pen",
   },
   {
@@ -36,7 +36,7 @@ const bestBuys = [
     title: "Gourmet Gift Basket",
     description: "A curated selection of fine foods and wines for the discerning palate.",
     minimumOrder: 25,
-    imageUrl: "/product_images/GB-GOURMET-01.webp",
+    imageUrl: "/Product_Images/GB-GOURMET-01.webp",
     imageHint: "gourmet food wine",
   },
 ];
@@ -48,7 +48,7 @@ const newArrivals = [
     title: "Personalized Cufflinks",
     description: "Custom-engraved sterling silver cufflinks for a personal touch.",
     minimumOrder: 20,
-    imageUrl: "/product_images/AC-CUFF-01.webp",
+    imageUrl: "/Product_Images/AC-CUFF-01.webp",
     imageHint: "silver cufflinks",
   },
   {
@@ -57,7 +57,7 @@ const newArrivals = [
     title: "Conference Swag Bag",
     description: "Equip attendees with memorable swag, including a branded tote bag and notebook.",
     minimumOrder: 100,
-    imageUrl: "/product_images/SW-CONF-01.webp",
+    imageUrl: "/Product_Images/SW-CONF-01.webp",
     imageHint: "conference swag",
   },
     {
@@ -66,7 +66,7 @@ const newArrivals = [
     title: "Crystal Desk Clock",
     description: "An exquisite timepiece that adds a touch of class to any workspace.",
     minimumOrder: 15,
-    imageUrl: "/product_images/DC-CRYSTL-01.webp",
+    imageUrl: "/Product_Images/DC-CRYSTL-01.webp",
     imageHint: "desk clock",
   },
 ];
@@ -78,7 +78,7 @@ const onSale = [
     title: "Executive Leather Journal",
     description: "Premium full-grain leather journal for your thoughts and ideas. 20% off!",
     minimumOrder: 30,
-    imageUrl: "/product_images/NB-LTHR-01.webp",
+    imageUrl: "/Product_Images/NB-LTHR-01.webp",
     imageHint: "leather journal",
   },
     {
@@ -87,7 +87,7 @@ const onSale = [
     title: "Wellness & Self-Care Kit",
     description: "Promote well-being with a kit containing an essential oil diffuser and herbal teas. Limited time offer!",
     minimumOrder: 40,
-    imageUrl: "/product_images/KT-WLNS-01.webp",
+    imageUrl: "/Product_Images/KT-WLNS-01.webp",
     imageHint: "wellness kit",
   },
   {
@@ -96,7 +96,7 @@ const onSale = [
     title: "Holiday Gift Box",
     description: "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. On sale now!",
     minimumOrder: 30,
-    imageUrl: "/product_images/GB-HOLIDAY-01.webp",
+    imageUrl: "/Product_Images/GB-HOLIDAY-01.webp",
     imageHint: "holiday gift box",
   },
 ];
