@@ -14,6 +14,7 @@ import TiltEffect from "@/components/tilt-effect";
 const bestBuys = [
   {
     id: 1,
+    productId: "GS-EXEC-01",
     title: "Executive Gift Set",
     description: "A high-end set for valued partners, featuring a crystal decanter and a set of premium glasses.",
     minimumOrder: 10,
@@ -22,6 +23,7 @@ const bestBuys = [
   },
   {
     id: 2,
+    productId: "PN-MNRCH-01",
     title: "The Monarch Pen",
     description: "A symbol of elegance and precision, crafted from solid brass with gold accents.",
     minimumOrder: 50,
@@ -30,6 +32,7 @@ const bestBuys = [
   },
   {
     id: 3,
+    productId: "GB-GOURMET-01",
     title: "Gourmet Gift Basket",
     description: "A curated selection of fine foods and wines for the discerning palate.",
     minimumOrder: 25,
@@ -41,6 +44,7 @@ const bestBuys = [
 const newArrivals = [
   {
     id: 4,
+    productId: "AC-CUFF-01",
     title: "Personalized Cufflinks",
     description: "Custom-engraved sterling silver cufflinks for a personal touch.",
     minimumOrder: 20,
@@ -49,6 +53,7 @@ const newArrivals = [
   },
   {
     id: 5,
+    productId: "SW-CONF-01",
     title: "Conference Swag Bag",
     description: "Equip attendees with memorable swag, including a branded tote bag and notebook.",
     minimumOrder: 100,
@@ -57,6 +62,7 @@ const newArrivals = [
   },
     {
     id: 6,
+    productId: "DC-CRYSTL-01",
     title: "Crystal Desk Clock",
     description: "An exquisite timepiece that adds a touch of class to any workspace.",
     minimumOrder: 15,
@@ -68,6 +74,7 @@ const newArrivals = [
 const onSale = [
   {
     id: 7,
+    productId: "NB-LTHR-01",
     title: "Executive Leather Journal",
     description: "Premium full-grain leather journal for your thoughts and ideas. 20% off!",
     minimumOrder: 30,
@@ -76,6 +83,7 @@ const onSale = [
   },
     {
     id: 8,
+    productId: "KT-WLNS-01",
     title: "Wellness & Self-Care Kit",
     description: "Promote well-being with a kit containing an essential oil diffuser and herbal teas. Limited time offer!",
     minimumOrder: 40,
@@ -84,6 +92,7 @@ const onSale = [
   },
   {
     id: 9,
+    productId: "GB-HOLIDAY-01",
     title: "Holiday Gift Box",
     description: "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. On sale now!",
     minimumOrder: 30,
@@ -142,6 +151,7 @@ export default function Home() {
                           {collection.products.map((product) => (
                             <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
                               <ProductCard
+                                productId={product.productId}
                                 title={product.title}
                                 description={product.description}
                                 imageUrl={product.imageUrl}

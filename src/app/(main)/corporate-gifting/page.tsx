@@ -46,6 +46,7 @@ export default function CorporateGiftingPage({ searchParams }: { searchParams?: 
           {products.map((product) => (
             <TiltEffect key={product.id}>
               <ProductCard
+                productId={product.productId}
                 title={product.title}
                 description={product.description}
                 imageUrl={product.imageUrl}

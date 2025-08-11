@@ -47,6 +47,7 @@ export default function ProductsPage({ searchParams }: { searchParams?: { catego
           {products.map((product) => (
             <TiltEffect key={product.id}>
               <ProductCard
+                productId={product.productId}
                 title={product.title}
                 description={product.description}
                 imageUrl={product.imageUrl}

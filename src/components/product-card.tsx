@@ -17,6 +17,7 @@ type ProductCardProps = {
   imageUrl: string;
   imageHint: string;
   minimumOrder?: number;
+  productId: string;
 };
 
 export default function ProductCard({
@@ -25,8 +26,9 @@ export default function ProductCard({
   imageUrl,
   imageHint,
   minimumOrder,
+  productId,
 }: ProductCardProps) {
-  const inquiryMessage = `Product: ${title}\nDescription: ${description}\nMinimum Order: ${minimumOrder || 'N/A'}`;
+  const inquiryMessage = `Product: ${title}\nID: ${productId}\nDescription: ${description}\nMinimum Order: ${minimumOrder || 'N/A'}`;
   const inquiryUrl = `/contact?message=${encodeURIComponent(inquiryMessage)}`;
 
   return (
@@ -45,6 +47,7 @@ export default function ProductCard({
       <div className="bg-card/70 backdrop-blur-sm p-6 flex flex-col flex-1 rounded-b-lg">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
+          <p className="mt-2 text-xs text-muted-foreground">ID: {productId}</p>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
           {minimumOrder && (
             <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
