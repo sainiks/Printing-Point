@@ -3,7 +3,7 @@ import ProductCard from "@/components/product-card";
 import TiltEffect from "@/components/tilt-effect";
 import type { Metadata } from "next";
 import StaticTitle from "@/components/animated-title";
-import { allProducts } from "@/lib/all-products";
+import { allProducts, mainCategories } from "@/lib/all-products";
 
 export const metadata: Metadata = {
   title: "Corporate Gifting - Printing Point",
@@ -43,18 +43,22 @@ export default function CorporateGiftingPage({ searchParams }: { searchParams?: 
       </div>
       <div className="container pb-16 md:pb-24">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {products.map((product) => (
-            <TiltEffect key={product.id}>
-              <ProductCard
-                productId={product.productId}
-                title={product.title}
-                description={product.description}
-                imageUrl={product.imageUrl}
-                minimumOrder={product.minimumOrder}
-                imageHint={product.imageHint}
-              />
-            </TiltEffect>
-          ))}
+          {products.map((product) => {
+            const categoryInfo = mainCategories.find(c => c.title === product.category);
+            return (
+              <TiltEffect key={product.id}>
+                <ProductCard
+                  productId={product.productId}
+                  title={product.title}
+                  description={product.description}
+                  imageUrl={product.imageUrl}
+                  minimumOrder={product.minimumOrder}
+                  imageHint={product.imageHint}
+                  categorySlug={categoryInfo?.slug || ''}
+                />
+              </TiltEffect>
+            )
+          })}
         </div>
       </div>
     </div>

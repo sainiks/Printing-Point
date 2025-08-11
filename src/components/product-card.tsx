@@ -9,7 +9,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ShoppingCart } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 type ProductCardProps = {
   title: string;
@@ -18,6 +18,7 @@ type ProductCardProps = {
   imageHint: string;
   minimumOrder?: number;
   productId: string;
+  categorySlug: string;
 };
 
 export default function ProductCard({
@@ -27,9 +28,9 @@ export default function ProductCard({
   imageHint,
   minimumOrder,
   productId,
+  categorySlug,
 }: ProductCardProps) {
-  const inquiryMessage = `Product: ${title}\nID: ${productId}\nDescription: ${description}\nMinimum Order: ${minimumOrder || 'N/A'}`;
-  const inquiryUrl = `/contact?message=${encodeURIComponent(inquiryMessage)}`;
+  const productUrl = `/categories/${categorySlug}`;
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-border shadow-lg">
@@ -55,8 +56,8 @@ export default function ProductCard({
         </CardContent>
         <CardFooter className="p-0 pt-6">
           <Button asChild className="w-full">
-            <Link href={inquiryUrl}>
-              <ShoppingCart className="mr-2 h-4 w-4" /> Add to Inquiry
+            <Link href={productUrl}>
+              View Products <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </CardFooter>
