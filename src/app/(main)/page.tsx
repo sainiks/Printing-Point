@@ -36,7 +36,7 @@ const bestBuys = [
     title: "Gourmet Gift Basket",
     description: "A curated selection of fine foods and wines for the discerning palate.",
     minimumOrder: 25,
-    imageUrl: "/product_images/GB-GOURMET-01.png",
+    imageUrl: "/product_images/GB-GOURMET-01.jpg",
     imageHint: "gourmet food wine",
   },
 ];
@@ -57,7 +57,7 @@ const newArrivals = [
     title: "Conference Swag Bag",
     description: "Equip attendees with memorable swag, including a branded tote bag and notebook.",
     minimumOrder: 100,
-    imageUrl: "/product_images/SW-CONF-01.png",
+    imageUrl: "/product_images/SW-CONF-01.jpg",
     imageHint: "conference swag",
   },
     {
@@ -78,7 +78,7 @@ const onSale = [
     title: "Executive Leather Journal",
     description: "Premium full-grain leather journal for your thoughts and ideas. 20% off!",
     minimumOrder: 30,
-    imageUrl: "/product_images/NB-LTHR-01.png",
+    imageUrl: "/product_images/NB-LTHR-01.jpg",
     imageHint: "leather journal",
   },
     {
@@ -87,7 +87,7 @@ const onSale = [
     title: "Wellness & Self-Care Kit",
     description: "Promote well-being with a kit containing an essential oil diffuser and herbal teas. Limited time offer!",
     minimumOrder: 40,
-    imageUrl: "/product_images/KT-WLNS-01.png",
+    imageUrl: "/product_images/KT-WLNS-01.webp",
     imageHint: "wellness kit",
   },
   {
@@ -96,7 +96,7 @@ const onSale = [
     title: "Holiday Gift Box",
     description: "A festive box filled with seasonal treats, a cozy blanket, and a scented candle. On sale now!",
     minimumOrder: 30,
-    imageUrl: "/product_images/GB-HOLIDAY-01.png",
+    imageUrl: "/product_images/GB-HOLIDAY-01.jpg",
     imageHint: "holiday gift box",
   },
 ];
