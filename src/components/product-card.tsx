@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -30,7 +31,7 @@ export default function ProductCard({
   productId,
   categorySlug,
 }: ProductCardProps) {
-  const productUrl = `/categories/${categorySlug}`;
+  const inquiryUrl = `/contact?message=I'd like to inquire about product: ${title} (ID: ${productId})`;
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-border shadow-lg">
@@ -56,8 +57,8 @@ export default function ProductCard({
         </CardContent>
         <CardFooter className="p-0 pt-6">
           <Button asChild className="w-full">
-            <Link href={productUrl}>
-              View Products <ArrowRight className="ml-2 h-4 w-4" />
+            <Link href={inquiryUrl}>
+              Add to Inquiry <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
         </CardFooter>
