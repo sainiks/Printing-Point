@@ -47,7 +47,7 @@ export default function ProductCard({
       <div className="bg-card/70 backdrop-blur-sm p-6 flex flex-col flex-1 rounded-b-lg">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
-          <p className="mt-2 text-xs text-muted-foreground">ID: {productId}</p>
+          <p className="mt-2 text-sm font-semibold text-card-foreground/90">ID: {productId}</p>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
           {minimumOrder && (
             <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
