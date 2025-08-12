@@ -12,10 +12,10 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen py-16 md:py-24 bg-background font-body">
       <div className="container">
-        <div className="bg-primary shadow-2xl rounded-lg overflow-hidden border-4 border-primary">
+        <div className="bg-card shadow-2xl rounded-lg overflow-hidden border-4 border-primary">
           <div className="flex flex-col md:flex-row">
             {/* Left side: Contact Info */}
-            <div className="md:w-1/3 bg-[#FDF5EF] p-8 md:p-12 text-primary rounded-l-lg">
+            <div className="md:w-1/3 bg-background p-8 md:p-12 text-primary rounded-l-lg">
               <ContactInfo />
             </div>
 

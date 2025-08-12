@@ -8,7 +8,7 @@ export default function ContactInfo() {
         <h2 className="font-headline text-3xl md:text-4xl text-primary mb-4">
           Contact Information
         </h2>
-        <p className="text-foreground/80">
+        <p className="text-foreground/80 font-body">
           Whether you have a question, need support or want to share your feedback, our team is here to assist you every step of the way.
         </p>
       </div>
@@ -19,8 +19,8 @@ export default function ContactInfo() {
             <Phone className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <p className="font-semibold text-foreground">+91 9810472144</p>
-            <p className="font-semibold text-foreground">+91 7217717114</p>
+            <p className="font-semibold text-foreground font-body">+91 9810472144</p>
+            <p className="font-semibold text-foreground font-body">+91 7217717114</p>
           </div>
         </div>
         <div className="flex items-start gap-4">
@@ -28,7 +28,7 @@ export default function ContactInfo() {
             <Mail className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <p className="font-semibold text-foreground">printingpoint76@yahoo.com</p>
+            <p className="font-semibold text-foreground font-body">printingpoint76@yahoo.com</p>
           </div>
         </div>
         <div className="flex items-start gap-4">
@@ -36,7 +36,7 @@ export default function ContactInfo() {
             <MapPin className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <p className="font-semibold text-foreground">
+            <p className="font-semibold text-foreground font-body">
               8/89, Mall Road, Tilak Nagar, <br />
               New Delhi- 110018
             </p>
