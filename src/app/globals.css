@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 48 33% 97%; /* #F6F3EE warm cream */
+    --background: 28 83% 96%; /* #FDF5EF warm cream */
     --foreground: 222.2 84% 4.9%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -40,12 +40,12 @@
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
   .dark {
-    --background: 48 33% 97%; /* #F6F3EE warm cream */
+    --background: 28 83% 96%; /* #FDF5EF warm cream */
     --foreground: 222.2 84% 4.9%; /* Dark Blue */
     --card: 221 45% 23%; /* Dark Blue */
-    --card-foreground: 48 33% 97%; /* warm cream */
+    --card-foreground: 28 83% 96%; /* warm cream */
     --popover: 221 45% 23%;
-    --popover-foreground: 48 33% 97%;
+    --popover-foreground: 28 83% 96%;
     --primary: 221 45% 23%;
     --primary-foreground: 38 43% 95%;
     --secondary: 232 40% 18%;
