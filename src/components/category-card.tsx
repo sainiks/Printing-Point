@@ -28,7 +28,7 @@ export default function CategoryCard({
   link,
 }: CategoryCardProps) {
   return (
-    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-border shadow-lg h-full">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-[#222A44] text-white border-border shadow-lg h-full">
       <CardHeader className="p-0">
         <div className="relative aspect-video">
           <Image
