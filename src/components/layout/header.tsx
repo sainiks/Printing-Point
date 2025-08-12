@@ -27,10 +27,13 @@ import { cn } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator";
 import { mainCategories } from "@/lib/all-products";
 
-const navLinks = mainCategories.map(category => ({
-  href: `/categories/${category.slug}`,
-  label: category.title,
-}));
+const navLinks = [
+  { href: "/", label: "Home" },
+  ...mainCategories.map(category => ({
+    href: `/categories/${category.slug}`,
+    label: category.title,
+  })),
+];
 
 
 function NavMenu() {
@@ -38,6 +41,16 @@ function NavMenu() {
   return (
     <NavigationMenu>
       <NavigationMenuList>
+        <NavigationMenuItem>
+            <Link href="/" legacyBehavior passHref>
+                <NavigationMenuLink
+                active={pathname === "/"}
+                className={navigationMenuTriggerStyle()}
+                >
+                Home
+                </NavigationMenuLink>
+            </Link>
+        </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
