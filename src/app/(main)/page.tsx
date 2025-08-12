@@ -29,59 +29,57 @@ export default function Home() {
     <div className="dark">
       <HomeHero />
 
-      <ParallaxSection backgroundGradient={newBackgroundColor}>
-        <section className="py-24 md:py-32">
-          <div className="container">
-            <div className="text-center mb-12 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
-              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                Trending Products
-              </StaticTitle>
-              <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-                Explore our most popular and recently added items, perfect for any occasion.
-              </p>
-            </div>
-            <Carousel
-              opts={{
-                align: "center",
-                loop: true,
-              }}
-              className="w-full"
-            >
-              <CarouselContent>
-                {productsInGroupsOfThree.map((productGroup, index) => (
-                  <CarouselItem key={index}>
-                      <div className="p-4 sm:p-6">
-                        <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
-                          {productGroup.map((product) => {
-                            const categoryInfo = mainCategories.find(c => c.title === product.category);
-                            return (
-                              <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
-                                <ProductCard
-                                  productId={product.productId}
-                                  title={product.title}
-                                  description={product.description}
-                                  imageUrl={product.imageUrl}
-                                  minimumOrder={product.minimumOrder}
-                                  imageHint={product.imageHint}
-                                  categorySlug={categoryInfo?.slug || ''}
-                                />
-                              </TiltEffect>
-                            )
-                          })}
-                        </div>
-                      </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex items-center justify-center gap-4 mt-8">
-                <CarouselPrevious className="static -translate-y-0 w-12 h-12" />
-                <CarouselDots />
-                <CarouselNext className="static -translate-y-0 w-12 h-12" />
-              </div>
-            </Carousel>
+      <section className="py-24 md:py-32 bg-background">
+        <div className="container">
+          <div className="text-center mb-12 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
+            <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
+              Trending Products
+            </StaticTitle>
+            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
+              Explore our most popular and recently added items, perfect for any occasion.
+            </p>
           </div>
-        </section>
-      </ParallaxSection>
+          <Carousel
+            opts={{
+              align: "center",
+              loop: true,
+            }}
+            className="w-full"
+          >
+            <CarouselContent>
+              {productsInGroupsOfThree.map((productGroup, index) => (
+                <CarouselItem key={index}>
+                    <div className="p-4 sm:p-6">
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
+                        {productGroup.map((product) => {
+                          const categoryInfo = mainCategories.find(c => c.title === product.category);
+                          return (
+                            <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
+                              <ProductCard
+                                productId={product.productId}
+                                title={product.title}
+                                description={product.description}
+                                imageUrl={product.imageUrl}
+                                minimumOrder={product.minimumOrder}
+                                imageHint={product.imageHint}
+                                categorySlug={categoryInfo?.slug || ''}
+                              />
+                            </TiltEffect>
+                          )
+                        })}
+                      </div>
+                    </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="flex items-center justify-center gap-4 mt-8">
+              <CarouselPrevious className="static -translate-y-0 w-12 h-12" />
+              <CarouselDots />
+              <CarouselNext className="static -translate-y-0 w-12 h-12" />
+            </div>
+          </Carousel>
+        </div>
+      </section>
 
       <ParallaxSection backgroundGradient={newBackgroundColor}>
         <section className="bg-transparent py-24 md:py-32">
