@@ -143,7 +143,7 @@ export default function Header() {
   return (
     <header className={cn(
       "absolute top-0 z-50 w-full transition-all duration-300",
-      "bg-black/20 backdrop-blur-sm text-primary-foreground"
+      "bg-primary text-primary-foreground"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
