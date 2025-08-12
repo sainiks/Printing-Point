@@ -3,7 +3,6 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HomeHero from "@/components/home-hero";
-import { Card, CardContent } from "@/components/ui/card";
 import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
@@ -51,8 +50,7 @@ export default function Home() {
               <CarouselContent>
                 {productsInGroupsOfThree.map((productGroup, index) => (
                   <CarouselItem key={index}>
-                    <Card className="bg-transparent border-none shadow-none">
-                      <CardContent className="p-4 sm:p-6">
+                      <div className="p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {productGroup.map((product) => {
                             const categoryInfo = mainCategories.find(c => c.title === product.category);
@@ -71,8 +69,7 @@ export default function Home() {
                             )
                           })}
                         </div>
-                      </CardContent>
-                    </Card>
+                      </div>
                   </CarouselItem>
                 ))}
               </CarouselContent>
