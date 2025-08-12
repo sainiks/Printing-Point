@@ -46,7 +46,7 @@ export default function CategoryCard({
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
         </CardContent>
         <CardFooter className="p-0 pt-6">
-          <Button asChild className="w-full">
+          <Button asChild className="w-full bg-[#FDF5EF] text-[#221A36] hover:bg-[#FDF5EF]/90">
             <Link href={link}>
               View Products <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
