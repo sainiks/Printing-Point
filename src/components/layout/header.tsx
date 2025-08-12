@@ -121,29 +121,16 @@ function NavMenu() {
 
 export default function Header() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const [scrolled, setScrolled] = React.useState(false);
-
-  React.useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
 
   return (
     <header className={cn(
-      "fixed top-0 z-50 w-full transition-all duration-300",
-      isHome && !scrolled ? "bg-transparent text-white" : "bg-primary text-primary-foreground shadow-lg"
+      "fixed top-0 z-50 w-full transition-all duration-300 bg-transparent text-white"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
           <span className={cn(
-            "font-bold font-headline text-lg",
-             isHome && !scrolled ? "text-white" : "text-primary-foreground"
+            "font-bold font-headline text-lg text-white"
           )}>
             Printing Point
           </span>
