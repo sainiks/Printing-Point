@@ -47,7 +47,7 @@ export default function HomeHero() {
         }}
       >
         
-          <StaticTitle as="h1" className="text-5xl md:text-7xl font-bold font-headline drop-shadow-lg uppercase whitespace-nowrap">
+          <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-lg uppercase whitespace-nowrap">
             Printing Point
           </StaticTitle>
           <p className="mt-4 text-lg md:text-xl max-w-2xl drop-shadow-md">
