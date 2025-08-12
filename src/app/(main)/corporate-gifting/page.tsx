@@ -28,15 +28,15 @@ export default function CorporateGiftingPage({ searchParams }: { searchParams?: 
     ? `Bespoke ${category.toLowerCase()} for your business.`
     : "Elevate your brand with our bespoke corporate gifts. We specialize in creating memorable experiences that reflect your company's prestige and values.";
 
-  const newBackgroundColor = "#203354";
+  const newBackgroundColor = "hsl(var(--background))";
   return (
     <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen">
       <div className="container py-16 md:py-24 text-center">
-          <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
-            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
+          <div className="p-8 rounded-lg bg-card/5 backdrop-blur-sm inline-block">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-foreground">
               {pageTitle}
             </StaticTitle>
-            <p className="mt-4 text-lg text-primary-foreground/80 max-w-3xl mx-auto">
+            <p className="mt-4 text-lg text-foreground/80 max-w-3xl mx-auto">
               {pageDescription}
             </p>
           </div>

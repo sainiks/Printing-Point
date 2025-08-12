@@ -29,15 +29,15 @@ export default function ProductsPage({ searchParams }: { searchParams?: { catego
     ? `Explore our collection of ${category}.`
     : "Explore our curated collection of fine gifts, perfect for any occasion. Each item is selected for its quality and craftsmanship.";
 
-  const newBackgroundColor = "#203354";
+  const newBackgroundColor = "hsl(var(--background))";
   return (
     <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen">
       <div className="container py-16 md:py-24 text-center">
-          <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
-            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
+          <div className="p-8 rounded-lg bg-card/5 backdrop-blur-sm inline-block">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-foreground">
               {pageTitle}
             </StaticTitle>
-            <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
               {pageDescription}
             </p>
           </div>

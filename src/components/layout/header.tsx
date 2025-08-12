@@ -51,7 +51,7 @@ function NavMenu() {
                           "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                         )}
                       >
-                        <div className="text-sm font-medium leading-none">{component.title}</div>
+                        <div className="text-sm font-medium leading-none text-popover-foreground">{component.title}</div>
                       </Link>
                     </NavigationMenuLink>
                   </li>
@@ -65,7 +65,7 @@ function NavMenu() {
                       "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                     )}
                   >
-                    <div className="text-sm font-medium leading-none">View All Products</div>
+                    <div className="text-sm font-medium leading-none text-popover-foreground">View All Products</div>
                   </Link>
                 </NavigationMenuLink>
               </li>
@@ -84,7 +84,7 @@ function NavMenu() {
                         "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                       )}
                     >
-                      <div className="text-sm font-medium leading-none">Service 1</div>
+                      <div className="text-sm font-medium leading-none text-popover-foreground">Service 1</div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Description for service 1.
                       </p>
@@ -99,7 +99,7 @@ function NavMenu() {
                         "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
                       )}
                     >
-                      <div className="text-sm font-medium leading-none">Service 2</div>
+                      <div className="text-sm font-medium leading-none text-popover-foreground">Service 2</div>
                       <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
                         Description for service 2.
                       </p>
@@ -130,12 +130,12 @@ export default function Header() {
   return (
     <header className={cn(
       "absolute top-0 z-50 w-full transition-all duration-300",
-      "bg-black/20 backdrop-blur-sm text-white"
+      "bg-black/20 backdrop-blur-sm text-primary-foreground"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
-          <span className="font-bold font-headline text-lg">
+          <span className="font-bold font-headline text-lg text-white">
             Printing Point
           </span>
         </Link>

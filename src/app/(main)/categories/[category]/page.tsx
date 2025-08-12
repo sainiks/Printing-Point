@@ -44,16 +44,16 @@ export default function CategoryPage({ params }: { params: { category: string } 
     }
   });
 
-  const newBackgroundColor = "#203354";
+  const newBackgroundColor = "hsl(var(--background))";
 
   return (
     <div style={{backgroundColor: newBackgroundColor}} className="min-h-screen">
       <div className="container py-16 md:py-24 text-center">
-          <div className="p-8 rounded-lg bg-black/5 backdrop-blur-sm inline-block">
-            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-primary-foreground">
+          <div className="p-8 rounded-lg bg-card/5 backdrop-blur-sm inline-block">
+            <StaticTitle className="text-4xl md:text-5xl font-bold font-headline text-foreground">
               {categoryInfo.title}
             </StaticTitle>
-            <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+            <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
               Explore our collection of {categoryInfo.title}.
             </p>
           </div>

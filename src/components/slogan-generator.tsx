@@ -62,10 +62,10 @@ export default function SloganGenerator() {
   }
 
   return (
-    <Card className="max-w-2xl mx-auto shadow-lg">
+    <Card className="max-w-2xl mx-auto shadow-lg bg-card text-card-foreground">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 font-headline">
-          <Wand2 className="h-6 w-6" style={{color: "hsl(var(--accent))"}}/>
+          <Wand2 className="h-6 w-6 text-accent" />
           AI Slogan Generator
         </CardTitle>
         <CardDescription>
@@ -111,14 +111,14 @@ export default function SloganGenerator() {
               {isLoading ? "Generating..." : "Generate Slogan"}
             </Button>
             {(isLoading || slogan) && (
-              <div className="w-full p-4 border rounded-md bg-secondary">
-                <p className="font-semibold text-primary">
+              <div className="w-full p-4 border rounded-md bg-secondary text-secondary-foreground">
+                <p className="font-semibold text-secondary-foreground">
                   Generated Slogan:
                 </p>
                 {isLoading ? (
                   <div className="animate-pulse h-6 bg-muted rounded-md mt-2 w-3/4"></div>
                 ) : (
-                  <p className="text-lg font-medium text-primary mt-1">
+                  <p className="text-lg font-medium text-secondary-foreground mt-1">
                     "{slogan}"
                   </p>
                 )}

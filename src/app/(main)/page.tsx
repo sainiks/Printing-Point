@@ -34,7 +34,7 @@ const collectionsInGroupsOfThree = collections.reduce((acc, curr, i) => {
 
 
 export default function Home() {
-  const newBackgroundColor = "#203354";
+  const newBackgroundColor = "hsl(var(--background))";
 
   return (
     <div className="dark">
@@ -43,11 +43,11 @@ export default function Home() {
       <ParallaxSection backgroundGradient={newBackgroundColor}>
         <section className="py-24 md:py-32">
           <div className="container">
-            <div className="text-center mb-12 p-8 rounded-lg bg-black/5 backdrop-blur-sm">
-              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary-foreground">
+            <div className="text-center mb-12 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
+              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
                 Trending Categories
               </StaticTitle>
-              <p className="mt-4 text-lg text-primary-foreground/80 max-w-2xl mx-auto">
+              <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
                 Curated selections from all our categories, from special deals to our newest arrivals.
               </p>
             </div>
@@ -94,14 +94,14 @@ export default function Home() {
       <ParallaxSection backgroundGradient={newBackgroundColor}>
         <section className="bg-transparent py-24 md:py-32">
           <div className="container">
-            <div className="space-y-4 text-center p-8 rounded-lg bg-black/5 backdrop-blur-sm max-w-3xl mx-auto">
-              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-primary-foreground">
+            <div className="space-y-4 text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm max-w-3xl mx-auto">
+              <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
                 About Printing Point
               </StaticTitle>
-              <p className="text-lg text-primary-foreground/80">
+              <p className="text-lg text-foreground/80">
                 Founded on a passion for quality and an eye for detail, Printing Point has become a premier destination for bespoke gifting. We believe that a great gift tells a story, and we are here to help you tell yours. Our team is dedicated to sourcing unique, high-quality products and providing exceptional service to create unforgettable moments.
               </p>
-              <p className="text-lg text-primary-foreground/80">
+              <p className="text-lg text-foreground/80">
                 We are more than just a store; we are your partners in celebration, appreciation, and connection.
               </p>
               <Button asChild size="lg" className="mt-4">
