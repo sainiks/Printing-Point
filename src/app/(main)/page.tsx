@@ -9,27 +9,18 @@ import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
-import CategoryCard from "@/components/category-card";
+import ProductCard from "@/components/product-card";
 
-// Create collections for the carousel, taking the first 3 products from each category
-const collections = mainCategories.map(category => {
-  const productInCategory = allProducts.find(p => p.category === category.title);
-  return {
-      title: category.title,
-      link: `/categories/${category.slug}`,
-      imageUrl: productInCategory?.imageUrl || "https://placehold.co/600x400.png",
-      imageHint: productInCategory?.imageHint || category.title.toLowerCase(),
-      description: `Browse our collection of ${category.title}.`
-  }
-});
+// Create collections for the carousel, taking a selection of products
+const trendingProducts = allProducts.slice(0, 9);
 
-const collectionsInGroupsOfThree = collections.reduce((acc, curr, i) => {
+const productsInGroupsOfThree = trendingProducts.reduce((acc, curr, i) => {
   if (i % 3 === 0) {
     acc.push([]);
   }
   acc[acc.length - 1].push(curr);
   return acc;
-}, [] as typeof collections[]);
+}, [] as typeof trendingProducts[]);
 
 
 export default function Home() {
@@ -44,10 +35,10 @@ export default function Home() {
           <div className="container">
             <div className="text-center mb-12 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
               <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
-                Trending Categories
+                Trending Products
               </StaticTitle>
               <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
-                Curated selections from all our categories, from special deals to our newest arrivals.
+                Explore our most popular and recently added items, perfect for any occasion.
               </p>
             </div>
             <Carousel
@@ -58,22 +49,27 @@ export default function Home() {
               className="w-full"
             >
               <CarouselContent>
-                {collectionsInGroupsOfThree.map((collectionGroup, index) => (
+                {productsInGroupsOfThree.map((productGroup, index) => (
                   <CarouselItem key={index}>
                     <Card className="bg-transparent border-none shadow-none">
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
-                          {collectionGroup.map((category) => (
-                            <TiltEffect key={category.title} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
-                              <CategoryCard
-                                title={category.title}
-                                description={category.description}
-                                imageUrl={category.imageUrl}
-                                imageHint={category.imageHint}
-                                link={category.link}
-                              />
-                            </TiltEffect>
-                          ))}
+                          {productGroup.map((product) => {
+                            const categoryInfo = mainCategories.find(c => c.title === product.category);
+                            return (
+                              <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-0.5rem)] md:w-1/3 flex-shrink-0">
+                                <ProductCard
+                                  productId={product.productId}
+                                  title={product.title}
+                                  description={product.description}
+                                  imageUrl={product.imageUrl}
+                                  minimumOrder={product.minimumOrder}
+                                  imageHint={product.imageHint}
+                                  categorySlug={categoryInfo?.slug || ''}
+                                />
+                              </TiltEffect>
+                            )
+                          })}
                         </div>
                       </CardContent>
                     </Card>
