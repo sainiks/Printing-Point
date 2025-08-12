@@ -56,7 +56,7 @@ function NavMenu() {
                     </NavigationMenuLink>
                   </li>
               ))}
-              <Separator className="my-1 bg-white/10 opacity-0 animate-fade-in-up" style={{ animationDelay: `${mainCategories.length * 0.1}s`}} />
+              <Separator className="my-1 bg-border/50 opacity-0 animate-fade-in-up" style={{ animationDelay: `${mainCategories.length * 0.1}s`}} />
               <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `${(mainCategories.length + 1) * 0.1}s`}}>
                 <NavigationMenuLink asChild>
                   <Link

@@ -60,7 +60,7 @@ export default function ContactForm() {
 
   return (
     <Card 
-      className="shadow-lg backdrop-blur-sm border-none bg-primary text-primary-foreground"
+      className="shadow-lg backdrop-blur-sm border-none bg-card text-card-foreground"
     >
       <form action={formAction} ref={formRef}>
         <CardContent className="p-6 space-y-6">
