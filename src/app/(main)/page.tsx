@@ -1,5 +1,4 @@
 
-
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -61,7 +60,7 @@ export default function Home() {
               <CarouselContent>
                 {collectionsInGroupsOfThree.map((collectionGroup, index) => (
                   <CarouselItem key={index}>
-                    <Card className={`bg-transparent backdrop-blur-sm border-none shadow-none`}>
+                    <Card className="bg-transparent border-none shadow-none">
                       <CardContent className="p-4 sm:p-6">
                         <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-4 md:gap-8 justify-center p-2 sm:p-0">
                           {collectionGroup.map((category) => (
