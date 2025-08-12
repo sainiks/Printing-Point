@@ -86,6 +86,25 @@ function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
+          <NavigationMenuTrigger>Other Services</NavigationMenuTrigger>
+          <NavigationMenuContent>
+             <ul className="grid w-[250px] gap-1 p-2">
+                <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `0.1s`}}>
+                    <NavigationMenuLink asChild>
+                        <Link
+                        href="/corporate-gifting"
+                        className={cn(
+                            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg [transform:rotateX(0deg)] hover:[transform:rotateX(-10deg)]"
+                        )}
+                        >
+                        <div className="text-sm font-medium leading-none text-popover-foreground">Corporate Gifting</div>
+                        </Link>
+                    </NavigationMenuLink>
+                </li>
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+        <NavigationMenuItem>
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink
               active={pathname === "/contact"}
@@ -153,6 +172,17 @@ export default function Header() {
                             </Link>
                         </SheetClose>
                         ))}
+                         <SheetClose asChild>
+                            <Link
+                            href="/corporate-gifting"
+                            className={cn(
+                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
+                                pathname === "/corporate-gifting" && "text-primary-foreground"
+                            )}
+                            >
+                            Corporate Gifting
+                            </Link>
+                        </SheetClose>
                         <SheetClose asChild>
                             <Link
                             href="/contact"
