@@ -20,7 +20,7 @@ const initialState: ContactFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full bg-[#FDF5EF] text-primary hover:bg-[#FDF5EF]/90 text-lg py-6" disabled={pending}>
+    <Button type="submit" className="w-full bg-[#FDF5EF] text-primary hover:bg-[#FDF5EF]/90 text-lg py-6 font-body" disabled={pending}>
       {pending ? "Sending..." : "Send Message"}
     </Button>
   );
