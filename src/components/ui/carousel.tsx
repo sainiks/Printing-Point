@@ -232,12 +232,12 @@ const CarouselPrevious = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn("rounded-full bg-primary-foreground hover:bg-primary-foreground/80 border-none", className)}
+      className={cn("rounded-full bg-primary hover:bg-primary/90 text-primary-foreground border-none", className)}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ArrowLeft className="h-4 w-4 text-primary" />
+      <ArrowLeft className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
     </Button>
   )
@@ -255,12 +255,12 @@ const CarouselNext = React.forwardRef<
       ref={ref}
       variant={variant}
       size={size}
-      className={cn("rounded-full bg-primary-foreground hover:bg-primary-foreground/80 border-none", className)}
+      className={cn("rounded-full bg-primary hover:bg-primary/90 text-primary-foreground border-none", className)}
       disabled={!canScrollNext}
       onClick={scrollNext}
       {...props}
     >
-      <ArrowRight className="h-4 w-4 text-primary" />
+      <ArrowRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
     </Button>
   )
@@ -286,8 +286,8 @@ const CarouselDots = React.forwardRef<
           className={cn(
             "h-3 rounded-full transition-all duration-300 ease-in-out",
             {
-              "w-10 bg-primary-foreground": selectedIndex === index,
-              "w-5 bg-primary-foreground/20": selectedIndex !== index
+              "w-10 bg-primary": selectedIndex === index,
+              "w-5 bg-primary/20": selectedIndex !== index
             }
           )}
           aria-label={`Go to slide ${index + 1}`}
