@@ -121,30 +121,50 @@ function NavMenu() {
 
 export default function Header() {
   const pathname = usePathname();
+  const [isScrolled, setIsScrolled] = React.useState(false);
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+  
+  const isHomePage = pathname === '/';
+  const showSolidNav = !isHomePage || isScrolled;
+
 
   return (
     <header className={cn(
-      "fixed top-0 z-50 w-full transition-all duration-300 bg-transparent text-white"
+      "fixed top-0 z-50 w-full transition-all duration-300",
+      showSolidNav ? "bg-primary shadow-md" : "bg-transparent"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
           <span className={cn(
-            "font-bold font-headline text-lg text-white"
+            "font-bold font-headline text-lg",
+             showSolidNav ? "text-primary-foreground" : "text-white"
           )}>
             Printing Point
           </span>
         </Link>
 
         <div className="flex items-center gap-4">
-            <nav className="hidden md:flex">
+            <nav className={cn(
+              "hidden md:flex",
+              showSolidNav ? "text-primary-foreground" : "text-white"
+            )}>
                 <NavMenu />
             </nav>
 
             <div className="md:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="hover:bg-white/20">
+                    <Button variant="ghost" size="icon" className={cn(
+                      showSolidNav ? "text-primary-foreground hover:bg-white/20" : "text-white hover:bg-white/20"
+                    )}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
