@@ -31,7 +31,7 @@ export default function Home() {
 
       <section className="py-24 md:py-32 bg-background">
         <div className="container">
-          <div className="text-center mb-12 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
+          <div className="text-center mb-8 p-8 rounded-lg bg-card/5 backdrop-blur-sm">
             <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
               Trending Products
             </StaticTitle>
