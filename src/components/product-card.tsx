@@ -31,7 +31,15 @@ export default function ProductCard({
   productId,
   categorySlug,
 }: ProductCardProps) {
-  const inquiryUrl = `/contact?message=I'd like to inquire about product: ${title} (ID: ${productId})`;
+  const message = [
+    `Title: ${title}`,
+    `Product ID: ${productId}`,
+    `Description: ${description}`,
+    `Minimum Order: ${minimumOrder || 'N/A'}`,
+  ].join('\n');
+
+  const inquiryUrl = `/contact?message=${encodeURIComponent(message)}`;
+
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg">
