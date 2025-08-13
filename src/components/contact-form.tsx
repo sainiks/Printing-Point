@@ -54,12 +54,15 @@ export default function ContactForm() {
 
   return (
     <form action={formAction} ref={formRef} className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div className="space-y-2">
+      <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="space-y-2 md:col-span-3">
           <Label htmlFor="fullName" className="font-headline text-xl text-primary-foreground">Name</Label>
           <Input id="fullName" name="fullName" required className="bg-white text-primary placeholder:text-primary/70 rounded-xl h-12" />
         </div>
-        <div className="space-y-2">
+        <div className="space-y-2 md:col-span-2">
+          {/* This is an empty div to create space */}
+        </div>
+        <div className="space-y-2 md:col-span-5">
           <Label htmlFor="email" className="font-headline text-xl text-primary-foreground">Email</Label>
           <Input
             id="email"
