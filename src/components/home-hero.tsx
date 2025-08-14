@@ -53,7 +53,7 @@ export default function HomeHero() {
             transformStyle: "preserve-3d",
           }}
         >
-          <div className="bg-black/20 rounded-xl p-8 shadow-2xl max-w-3xl">
+          <div className="max-w-3xl">
             <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold text-white font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
               Printing Point
             </StaticTitle>
