@@ -28,8 +28,8 @@ export default function CategoryCard({
   link,
 }: CategoryCardProps) {
   return (
-    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-card">
-      <CardHeader className="p-6 pt-12">
+    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg">
+      <div className="bg-background rounded-t-lg pt-12 p-6 relative">
         <div className="relative aspect-square w-full -mt-20 mx-auto">
           <Image
             src={imageUrl}
@@ -39,8 +39,8 @@ export default function CategoryCard({
             className="object-cover rounded-full shadow-2xl border-4 border-background"
           />
         </div>
-      </CardHeader>
-      <div className="p-6 pt-0 flex flex-col flex-1 rounded-lg text-center">
+      </div>
+      <div className="p-6 pt-6 flex flex-col flex-1 rounded-b-lg text-center bg-card">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>

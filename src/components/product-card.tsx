@@ -41,19 +41,19 @@ export default function ProductCard({
   const inquiryUrl = `/contact?message=${encodeURIComponent(message)}`;
 
   return (
-    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-card">
-      <CardHeader className="p-6 pt-12">
-        <div className="relative aspect-square w-full -mt-20 mx-auto">
-          <Image
-            src={imageUrl}
-            alt={title}
-            data-ai-hint={imageHint}
-            fill
-            className="object-cover rounded-full shadow-2xl border-4 border-background"
-          />
-        </div>
-      </CardHeader>
-      <div className="p-6 pt-0 flex flex-col flex-1 rounded-lg text-center">
+    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg">
+      <div className="bg-background rounded-t-lg pt-12 p-6 relative">
+          <div className="relative aspect-square w-full -mt-20 mx-auto">
+            <Image
+              src={imageUrl}
+              alt={title}
+              data-ai-hint={imageHint}
+              fill
+              className="object-cover rounded-full shadow-2xl border-4 border-background"
+            />
+          </div>
+      </div>
+      <div className="p-6 pt-6 flex flex-col flex-1 rounded-b-lg text-center bg-card">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
           <p className="mt-2 text-sm font-semibold text-card-foreground/90">Product ID: {productId}</p>
