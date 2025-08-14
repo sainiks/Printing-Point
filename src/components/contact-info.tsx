@@ -14,7 +14,7 @@ export default function ContactInfo() {
       </div>
 
       <div className="space-y-6">
-        <div className="flex items-start gap-4">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 flex-shrink-0 rounded-full border-2 border-primary flex items-center justify-center">
             <Phone className="w-5 h-5 text-primary" />
           </div>
@@ -23,7 +23,7 @@ export default function ContactInfo() {
             <p className="font-semibold text-foreground font-body">+91 7217717114</p>
           </div>
         </div>
-        <div className="flex items-start gap-4">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 flex-shrink-0 rounded-full border-2 border-primary flex items-center justify-center">
             <Mail className="w-5 h-5 text-primary" />
           </div>
@@ -31,7 +31,7 @@ export default function ContactInfo() {
             <p className="font-semibold text-foreground font-body">printingpoint76@yahoo.com</p>
           </div>
         </div>
-        <div className="flex items-start gap-4">
+        <div className="flex items-center gap-4">
           <div className="w-10 h-10 flex-shrink-0 rounded-full border-2 border-primary flex items-center justify-center">
             <MapPin className="w-5 h-5 text-primary" />
           </div>

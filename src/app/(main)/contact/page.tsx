@@ -10,8 +10,8 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen py-16 md:py-24 bg-background">
-      <div className="container">
+    <div className="min-h-screen flex items-center justify-center bg-background p-4 sm:p-6 md:p-8">
+      <div className="container max-w-6xl">
         <div className="bg-card shadow-2xl rounded-lg overflow-hidden border-4 border-primary">
           <div className="flex flex-col md:flex-row">
             {/* Left side: Contact Info */}
