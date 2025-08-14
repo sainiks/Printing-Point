@@ -28,7 +28,7 @@ export default function HomeHero() {
       <svg width="0" height="0">
         <defs>
           <clipPath id="wavy-clip" clipPathUnits="objectBoundingBox">
-            <path d="M0,0 H1 V0.89 C0.95,0.94,0.82,1,0.7,1 C0.55,1,0.45,0.93,0.3,0.9 C0.18,0.88,0.05,0.89,0,0.92 V0 Z" />
+            <path d="M0,0 H1 V0.8 C0.95,0.9,0.85,0.95,0.7,0.9 C0.55,0.85,0.45,0.8,0.3,0.85 C0.15,0.9,0.05,0.95,0,0.9 V0 Z" />
           </clipPath>
         </defs>
       </svg>
