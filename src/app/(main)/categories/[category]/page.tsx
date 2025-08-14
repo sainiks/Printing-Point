@@ -2,8 +2,9 @@
 import { allProducts, mainCategories } from "@/lib/all-products";
 import type { Metadata } from 'next';
 import StaticTitle from "@/components/animated-title";
-import CategoryCard from "@/components/category-card";
-import TiltEffect from "@/components/tilt-effect";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export async function generateStaticParams() {
   return mainCategories.map((category) => ({
@@ -33,14 +34,9 @@ export default function CategoryPage({ params }: { params: { category: string } 
     .filter(p => p.category === categoryInfo.title)
     .map(p => p.subCategory))
   ].map(subCategory => {
-    // Find the first product in this sub-category to get an image.
-    const product = allProducts.find(p => p.subCategory === subCategory);
     return {
       title: subCategory as string,
       link: `/products?category=${encodeURIComponent(categoryInfo.title)}&subCategory=${encodeURIComponent(subCategory as string)}`,
-      imageUrl: product?.imageUrl || "https://placehold.co/600x400.png",
-      imageHint: product?.imageHint || categoryInfo.title.toLowerCase(),
-      description: `Browse our collection of ${subCategory}.`
     }
   });
 
@@ -59,17 +55,14 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
       </div>
       <div className="container pb-16 md:pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div className="flex flex-col items-center gap-4">
           {subCategories.map((subCategory) => (
-             <TiltEffect key={subCategory.title}>
-                <CategoryCard
-                    title={subCategory.title}
-                    description={subCategory.description}
-                    imageUrl={subCategory.imageUrl}
-                    imageHint={subCategory.imageHint}
-                    link={subCategory.link}
-                />
-            </TiltEffect>
+             <Button asChild key={subCategory.title} variant="outline" className="w-full max-w-sm text-lg py-6 bg-primary/10 hover:bg-primary/20">
+                <Link href={subCategory.link}>
+                  {subCategory.title}
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+             </Button>
           ))}
         </div>
       </div>
