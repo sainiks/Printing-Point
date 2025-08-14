@@ -1,4 +1,3 @@
-
 "use client";
 
 import { useState, useEffect } from "react";
@@ -68,7 +67,7 @@ export default function HomeHero() {
             <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-md" style={{ color: '#FDF5E5' }}>
               Your Solution To Corporate Gifting
             </p>
-             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md" style={{ marginBottom: '2px', color: '#FDF5E5' }}>
+             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md" style={{ color: '#FDF5E5', marginBottom: '2px' }}>
               Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
             </p>
             <div className="mt-8 flex items-center justify-start gap-4">
