@@ -5,23 +5,19 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HomeHero from "@/components/home-hero";
-import { Carousel, CarouselContent, CarouselItem, CarouselDots, CarouselPrevious, CarouselNext } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
-import Autoplay from "embla-carousel-autoplay";
 import React from "react";
 
-// Create collections for the carousel, taking a selection of products
 const trendingProducts = allProducts.slice(0, 9);
+const duplicatedProducts = [...trendingProducts, ...trendingProducts];
 
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
-  const plugin = React.useRef(
-    Autoplay({ delay: 1000, stopOnInteraction: false, stopOnMouseEnter: false, stopOnLastSnap: false })
-  );
 
   return (
     <div className="dark">
@@ -38,19 +34,17 @@ export default function Home() {
             </p>
           </div>
           <Carousel
-            plugins={[plugin.current]}
             opts={{
               align: "start",
               loop: true,
-              dragFree: true,
             }}
             className="w-full"
           >
-            <CarouselContent className="-ml-4">
-              {trendingProducts.map((product) => {
+            <CarouselContent className="-ml-4 flex animate-marquee hover:animate-pause">
+              {duplicatedProducts.map((product, index) => {
                 const categoryInfo = mainCategories.find(c => c.title === product.category);
                 return (
-                  <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                  <CarouselItem key={`${product.id}-${index}`} className="pl-4 md:basis-1/2 lg:basis-1/3">
                     <div className="p-1">
                       <TiltEffect className="w-full">
                         <ProductCard
@@ -68,11 +62,6 @@ export default function Home() {
                 )
               })}
             </CarouselContent>
-            <div className="flex items-center justify-center gap-4 mt-8">
-              <CarouselPrevious className="static -translate-y-0 w-12 h-12" />
-              <CarouselDots />
-              <CarouselNext className="static -translate-y-0 w-12 h-12" />
-            </div>
           </Carousel>
         </div>
       </section>
