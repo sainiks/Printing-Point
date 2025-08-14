@@ -5,15 +5,13 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HomeHero from "@/components/home-hero";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
 import React from "react";
-import Autoplay from "embla-carousel-autoplay";
-import { CarouselDots } from "@/components/ui/carousel";
 
 const trendingProducts = allProducts.slice(0, 9);
 const duplicatedProducts = [...trendingProducts, ...trendingProducts];
@@ -40,13 +38,6 @@ export default function Home() {
               align: "start",
               loop: true,
             }}
-            plugins={[
-                Autoplay({
-                  delay: 2000,
-                  stopOnInteraction: false,
-                  stopOnMouseEnter: false,
-                }),
-              ]}
             className="w-full relative"
           >
             <CarouselContent className="-ml-4 flex animate-marquee hover:animate-pause">
@@ -71,11 +62,6 @@ export default function Home() {
                 )
               })}
             </CarouselContent>
-            <div className="hidden md:block">
-              <CarouselPrevious className="absolute left-[-20px] top-1/2 -translate-y-1/2" />
-              <CarouselNext className="absolute right-[-20px] top-1/2 -translate-y-1/2" />
-            </div>
-             <CarouselDots className="mt-8" />
           </Carousel>
         </div>
       </section>
