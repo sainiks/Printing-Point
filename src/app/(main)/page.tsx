@@ -1,4 +1,6 @@
 
+"use client";
+
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -9,6 +11,8 @@ import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
+import Autoplay from "embla-carousel-autoplay";
+import React from "react";
 
 // Create collections for the carousel, taking a selection of products
 const trendingProducts = allProducts.slice(0, 9);
@@ -24,6 +28,10 @@ const productsInGroupsOfThree = trendingProducts.reduce((acc, curr, i) => {
 
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  );
+
 
   return (
     <div className="dark">
@@ -40,11 +48,14 @@ export default function Home() {
             </p>
           </div>
           <Carousel
+            plugins={[plugin.current]}
             opts={{
               align: "center",
               loop: true,
             }}
             className="w-full"
+             onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.reset}
           >
             <CarouselContent>
               {productsInGroupsOfThree.map((productGroup, index) => (
