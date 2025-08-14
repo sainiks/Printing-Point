@@ -29,7 +29,7 @@ const productsInGroupsOfThree = trendingProducts.reduce((acc, curr, i) => {
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
 
 
@@ -50,12 +50,12 @@ export default function Home() {
           <Carousel
             plugins={[plugin.current]}
             opts={{
-              align: "center",
+              align: "start",
               loop: true,
             }}
             className="w-full"
-             onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.reset}
+            onMouseEnter={plugin.current.stop}
+            onMouseLeave={plugin.current.play}
           >
             <CarouselContent>
               {productsInGroupsOfThree.map((productGroup, index) => (
