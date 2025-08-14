@@ -43,17 +43,17 @@ export default function HomeHero() {
               transformStyle: "preserve-3d",
             }}
           />
-          <div className="absolute inset-0 bg-white/10 backdrop-blur-md" />
+          <div className="absolute inset-0 bg-black/30" />
         </div>
 
         <div
-          className="relative z-10 text-left p-8 md:p-12 lg:p-24 max-w-3xl"
+          className="relative z-10 text-left p-8 md:p-12 lg:p-24"
           style={{
             transform: `translateZ(${scrollPosition * -0.5}px)`,
             transformStyle: "preserve-3d",
           }}
         >
-          
+          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 border border-white/20 shadow-2xl max-w-3xl">
             <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold text-white font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
               Printing Point
             </StaticTitle>
@@ -73,7 +73,7 @@ export default function HomeHero() {
                 <Link href="/contact">Get a Custom Quote</Link>
               </Button>
             </div>
-          
+          </div>
         </div>
       </section>
     </>
