@@ -68,7 +68,8 @@ export default function HomeHero() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-primary border-primary text-primary-foreground hover:bg-primary/90"
+                className="text-primary hover:bg-[#FDF5EF]/90"
+                style={{backgroundColor: '#FDF5E5'}}
               >
                 <Link href="/contact">Get a Custom Quote</Link>
               </Button>
