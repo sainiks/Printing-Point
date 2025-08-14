@@ -4,12 +4,11 @@
 import { allProducts, mainCategories } from '@/lib/all-products';
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Button } from '@/components/ui/button';
 import StaticTitle from '@/components/animated-title';
 import { cn } from '@/lib/utils';
+import { ArrowRight } from 'lucide-react';
 
 export default function CategoryPage({ params }: { params: { category: string } }) {
   const categoryInfo = mainCategories.find((c) => c.slug === params.category);
@@ -38,8 +37,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
     }));
   }, [categoryInfo]);
   
-  const [hoveredImage, setHoveredImage] = useState<string | null>(subCategories[0]?.imageUrl || null);
-
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
   if (!categoryInfo) {
     return <div>Category not found</div>;
@@ -60,49 +58,53 @@ export default function CategoryPage({ params }: { params: { category: string } 
         </div>
       </div>
       <div className="container pb-16 md:pb-24">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-            <div className="flex flex-col items-center gap-4">
-            {subCategories.map((subCategory, index) => (
-                <Link 
-                    href={subCategory.link} 
-                    key={subCategory.title}
-                    onMouseEnter={() => setHoveredImage(subCategory.imageUrl)}
-                    className={cn(
-                        "w-full max-w-sm text-lg py-6 bg-primary/10 hover:bg-primary/20 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-md",
-                        "flex items-center justify-center text-foreground hover:text-foreground",
-                    )}
-                    >
-                    {subCategory.title}
-                    <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-            ))}
-            </div>
-            <div className="relative h-96 w-full max-w-sm mx-auto md:max-w-md lg:max-w-lg hidden md:block">
-               <AnimatePresence>
-                 {hoveredImage && (
-                    <motion.div
-                        key={hoveredImage}
-                        initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                        exit={{ opacity: 0, scale: 0.95, y: -20 }}
-                        transition={{ duration: 0.3, ease: "easeInOut" }}
-                        className="absolute inset-0"
-                    >
-                        <Image
-                        src={hoveredImage}
-                        alt="Sub-category preview"
-                        fill
-                        className="object-cover rounded-xl shadow-2xl"
-                        />
-                    </motion.div>
-                 )}
-                </AnimatePresence>
-                 {!hoveredImage && (
-                    <div className="w-full h-full bg-card/10 rounded-xl flex items-center justify-center">
-                        <p className="text-muted-foreground">Hover over a category to see a preview</p>
-                    </div>
+        <div className="flex flex-col items-center gap-4">
+          {subCategories.map((subCategory) => (
+            <Link 
+              href={subCategory.link} 
+              key={subCategory.title}
+              onMouseEnter={() => setHoveredItem(subCategory.title)}
+              onMouseLeave={() => setHoveredItem(null)}
+              className="w-full max-w-2xl"
+            >
+              <motion.div
+                layout
+                transition={{ duration: 0.3, ease: 'easeInOut' }}
+                className={cn(
+                  "relative w-full text-lg py-6 rounded-lg transition-colors duration-300 shadow-md overflow-hidden",
+                  "flex items-center justify-center text-foreground hover:text-white",
+                  "bg-primary/10 hover:bg-primary/20",
                 )}
-            </div>
+                style={{
+                  minHeight: hoveredItem === subCategory.title ? '12rem' : 'auto',
+                }}
+              >
+                <AnimatePresence>
+                  {hoveredItem === subCategory.title && (
+                    <motion.div
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5, delay: 0.1 }}
+                      className="absolute inset-0 z-0"
+                    >
+                      <Image
+                        src={subCategory.imageUrl}
+                        alt={subCategory.title}
+                        fill
+                        className="object-cover"
+                      />
+                      <div className="absolute inset-0 bg-black/50" />
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                <motion.span layout="position" className="relative z-10 flex items-center">
+                  {subCategory.title}
+                  <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </motion.span>
+              </motion.div>
+            </Link>
+          ))}
         </div>
       </div>
     </div>
