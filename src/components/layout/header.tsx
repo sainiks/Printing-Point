@@ -74,7 +74,7 @@ function NavMenu() {
                             href={`/categories/${component.slug}`}
                             className={cn(
                               "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
-                              activeCategory === component.title ? "bg-accent text-accent-foreground" : "hover:bg-accent/50"
+                              activeCategory === component.title ? "bg-primary/10 text-primary-foreground" : "hover:bg-primary/10"
                             )}
                           >
                             <div className="text-sm font-medium leading-none text-popover-foreground">{component.title}</div>
@@ -87,7 +87,7 @@ function NavMenu() {
                     <NavigationMenuLink asChild>
                       <Link
                         href="/products"
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/50"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10"
                       >
                         <div className="text-sm font-medium leading-none text-popover-foreground">View All Products</div>
                       </Link>
@@ -104,7 +104,7 @@ function NavMenu() {
                            <NavigationMenuLink asChild>
                              <Link
                                href={subCategoryLink}
-                               className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent/50 text-sm text-popover-foreground/80 hover:text-popover-foreground"
+                               className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-primary/10 text-sm text-popover-foreground/80 hover:text-popover-foreground"
                               >
                                {subCategory}
                              </Link>
