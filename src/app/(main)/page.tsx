@@ -50,7 +50,7 @@ export default function Home() {
               {productsInGroupsOfThree.map((productGroup, index) => (
                 <CarouselItem key={index}>
                     <div className="p-4">
-                      <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-8 md:gap-12 justify-center">
+                      <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-8 justify-center">
                         {productGroup.map((product) => {
                           const categoryInfo = mainCategories.find(c => c.title === product.category);
                           return (
