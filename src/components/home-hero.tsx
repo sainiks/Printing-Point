@@ -43,7 +43,7 @@ export default function HomeHero() {
               transformStyle: "preserve-3d",
             }}
           />
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
         </div>
 
         <div
@@ -53,7 +53,7 @@ export default function HomeHero() {
             transformStyle: "preserve-3d",
           }}
         >
-          <div className="bg-white/10 backdrop-blur-lg rounded-xl p-8 border border-white/20 shadow-2xl max-w-3xl">
+          <div className="bg-black/20 rounded-xl p-8 shadow-2xl max-w-3xl">
             <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold text-white font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
               Printing Point
             </StaticTitle>
