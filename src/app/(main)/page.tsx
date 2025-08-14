@@ -20,7 +20,7 @@ const trendingProducts = allProducts.slice(0, 9);
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
   const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
+    Autoplay({ delay: 1000, stopOnInteraction: false, stopOnMouseEnter: false, stopOnLastSnap: false })
   );
 
   return (
@@ -42,10 +42,9 @@ export default function Home() {
             opts={{
               align: "start",
               loop: true,
+              dragFree: true,
             }}
             className="w-full"
-            onMouseEnter={plugin.current.stop}
-            onMouseLeave={plugin.current.play}
           >
             <CarouselContent className="-ml-4">
               {trendingProducts.map((product) => {
