@@ -17,21 +17,11 @@ import React from "react";
 // Create collections for the carousel, taking a selection of products
 const trendingProducts = allProducts.slice(0, 9);
 
-const productsInGroupsOfThree = trendingProducts.reduce((acc, curr, i) => {
-  if (i % 3 === 0) {
-    acc.push([]);
-  }
-  acc[acc.length - 1].push(curr);
-  return acc;
-}, [] as typeof trendingProducts[]);
-
-
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
   const plugin = React.useRef(
     Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: true })
   );
-
 
   return (
     <div className="dark">
@@ -57,31 +47,27 @@ export default function Home() {
             onMouseEnter={plugin.current.stop}
             onMouseLeave={plugin.current.play}
           >
-            <CarouselContent>
-              {productsInGroupsOfThree.map((productGroup, index) => (
-                <CarouselItem key={index} className="px-4 md:px-12">
-                    <div className="p-4">
-                      <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-8 justify-center">
-                        {productGroup.map((product) => {
-                          const categoryInfo = mainCategories.find(c => c.title === product.category);
-                          return (
-                            <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-1.5rem)] md:w-1/3 flex-shrink-0">
-                              <ProductCard
-                                productId={product.productId}
-                                title={product.title}
-                                description={product.description}
-                                imageUrl={product.imageUrl}
-                                minimumOrder={product.minimumOrder}
-                                imageHint={product.imageHint}
-                                categorySlug={categoryInfo?.slug || ''}
-                              />
-                            </TiltEffect>
-                          )
-                        })}
-                      </div>
+            <CarouselContent className="-ml-4">
+              {trendingProducts.map((product) => {
+                const categoryInfo = mainCategories.find(c => c.title === product.category);
+                return (
+                  <CarouselItem key={product.id} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                    <div className="p-1">
+                      <TiltEffect className="w-full">
+                        <ProductCard
+                          productId={product.productId}
+                          title={product.title}
+                          description={product.description}
+                          imageUrl={product.imageUrl}
+                          minimumOrder={product.minimumOrder}
+                          imageHint={product.imageHint}
+                          categorySlug={categoryInfo?.slug || ''}
+                        />
+                      </TiltEffect>
                     </div>
-                </CarouselItem>
-              ))}
+                  </CarouselItem>
+                )
+              })}
             </CarouselContent>
             <div className="flex items-center justify-center gap-4 mt-8">
               <CarouselPrevious className="static -translate-y-0 w-12 h-12" />
