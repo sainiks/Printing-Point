@@ -59,7 +59,7 @@ export default function CategoryPage({ params }: { params: { category: string } 
           </div>
       </div>
       <div className="container pb-16 md:pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {subCategories.map((subCategory) => (
              <TiltEffect key={subCategory.title}>
                 <CategoryCard

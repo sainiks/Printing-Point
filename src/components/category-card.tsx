@@ -28,19 +28,19 @@ export default function CategoryCard({
   link,
 }: CategoryCardProps) {
   return (
-    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg h-full">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg h-full rounded-[200px]">
       <CardHeader className="p-0">
-        <div className="relative aspect-video">
+        <div className="relative aspect-[3/4] w-full">
           <Image
             src={imageUrl}
             alt={title}
             data-ai-hint={imageHint}
             fill
-            className="object-cover rounded-t-lg"
+            className="object-cover rounded-t-[200px]"
           />
         </div>
       </CardHeader>
-      <div className="bg-card/70 backdrop-blur-sm p-6 flex flex-col flex-1 rounded-b-lg">
+      <div className="bg-card/70 backdrop-blur-sm p-6 flex flex-col flex-1 rounded-b-[200px] text-center">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>

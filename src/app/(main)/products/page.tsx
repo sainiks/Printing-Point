@@ -43,7 +43,7 @@ export default function ProductsPage({ searchParams }: { searchParams?: { catego
           </div>
       </div>
       <div className="container pb-16 md:pb-24">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
           {products.map((product) => {
             const categoryInfo = mainCategories.find(c => c.title === product.category);
             return (
