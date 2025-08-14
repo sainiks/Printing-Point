@@ -28,7 +28,7 @@ export default function CategoryCard({
   link,
 }: CategoryCardProps) {
   return (
-    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-transparent">
+    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-card/70 backdrop-blur-sm">
       <CardHeader className="p-6 pt-12">
         <div className="relative aspect-square w-full -mt-20 mx-auto">
           <Image
@@ -40,7 +40,7 @@ export default function CategoryCard({
           />
         </div>
       </CardHeader>
-      <div className="bg-card/70 backdrop-blur-sm p-6 pt-0 flex flex-col flex-1 rounded-lg text-center">
+      <div className="p-6 pt-0 flex flex-col flex-1 rounded-lg text-center">
         <CardContent className="p-0 flex-1">
           <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
