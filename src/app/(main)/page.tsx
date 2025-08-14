@@ -5,19 +5,22 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import HomeHero from "@/components/home-hero";
-import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import ParallaxSection from "@/components/parallax-section";
 import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
 import React from "react";
+import Autoplay from "embla-carousel-autoplay";
 
 const trendingProducts = allProducts.slice(0, 9);
-const duplicatedProducts = [...trendingProducts, ...trendingProducts];
 
 export default function Home() {
   const newBackgroundColor = "hsl(var(--background))";
+  const autoplayPlugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: false, stopOnMouseEnter: false })
+  );
 
   return (
     <div className="dark">
@@ -38,10 +41,13 @@ export default function Home() {
               align: "start",
               loop: true,
             }}
+            plugins={[autoplayPlugin.current]}
+            onMouseEnter={autoplayPlugin.current.stop}
+            onMouseLeave={autoplayPlugin.current.play}
             className="w-full relative"
           >
-            <CarouselContent className="-ml-4 flex animate-marquee hover:animate-pause">
-              {duplicatedProducts.map((product, index) => {
+            <CarouselContent className="-ml-4">
+              {trendingProducts.map((product, index) => {
                 const categoryInfo = mainCategories.find(c => c.title === product.category);
                 return (
                   <CarouselItem key={`${product.id}-${index}`} className="pl-4 md:basis-1/2 lg:basis-1/3">
@@ -62,6 +68,8 @@ export default function Home() {
                 )
               })}
             </CarouselContent>
+            <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 z-10" />
+            <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 z-10" />
           </Carousel>
         </div>
       </section>
