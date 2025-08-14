@@ -49,7 +49,7 @@ export default function ProductCard({
               alt={title}
               data-ai-hint={imageHint}
               fill
-              className="object-cover rounded-full shadow-2xl border-4 border-background"
+              className="object-cover rounded-full drop-shadow-2xl"
             />
           </div>
       </div>
