@@ -33,8 +33,8 @@ export default function HomeHero() {
         </defs>
       </svg>
       <section
-        className="relative w-full h-screen flex items-center justify-start overflow-hidden bg-primary"
-        style={{ perspective: '1000px' }}
+        className="relative w-full h-screen flex items-center justify-start overflow-hidden"
+        style={{ backgroundColor: '#FDF5E5', perspective: '1000px' }}
       >
         <div
           className="absolute inset-0"
@@ -55,20 +55,20 @@ export default function HomeHero() {
         </div>
 
         <div
-          className="relative z-10 text-left text-white p-8 md:p-12 lg:p-24 max-w-3xl"
+          className="relative z-10 text-left p-8 md:p-12 lg:p-24 max-w-3xl"
           style={{
             transform: `translateZ(${scrollPosition * -0.5}px)`,
             transformStyle: "preserve-3d",
           }}
         >
           
-            <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-lg uppercase whitespace-nowrap mb-[2px]">
+            <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline text-foreground drop-shadow-lg uppercase whitespace-nowrap mb-[2px]">
               Printing Point
             </StaticTitle>
-            <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-md">
+            <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-md text-foreground/90">
               Your Solution To Corporate Gifting
             </p>
-             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md" style={{ marginBottom: '2px' }}>
+             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md text-foreground/80" style={{ marginBottom: '2px' }}>
               Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
             </p>
             <div className="mt-8 flex items-center justify-start gap-4">
@@ -76,7 +76,7 @@ export default function HomeHero() {
                 asChild
                 size="lg"
                 variant="outline"
-                className="bg-transparent border-white text-white hover:bg-white hover:text-black"
+                className="bg-primary border-primary text-primary-foreground hover:bg-primary/90"
               >
                 <Link href="/contact">Get a Custom Quote</Link>
               </Button>
