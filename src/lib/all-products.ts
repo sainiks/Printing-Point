@@ -118,3 +118,4 @@ export const allProducts = [
   { id: 90, productId: "0023", title: "Kitchen/Home Appliance", description: "High-quality appliances for your home.", minimumOrder: 50, imageUrl: "/Product_Images/23.webp", imageHint: "kitchen appliance", category: "Kitchen/Home Appliances", subCategory: "Kitchen/Home Appliances" },
   
 ];
+
