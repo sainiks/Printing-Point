@@ -48,7 +48,7 @@ export default function Home() {
           >
             <CarouselContent>
               {productsInGroupsOfThree.map((productGroup, index) => (
-                <CarouselItem key={index}>
+                <CarouselItem key={index} className="px-4 md:px-12">
                     <div className="p-4">
                       <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-8 justify-center">
                         {productGroup.map((product) => {
