@@ -28,7 +28,7 @@ export default function HomeHero() {
       <svg width="0" height="0">
         <defs>
           <clipPath id="wavy-clip" clipPathUnits="objectBoundingBox">
-            <path d="M0,0 H1 V0.8 C0.95,0.9,0.85,0.95,0.7,0.9 C0.55,0.85,0.45,0.8,0.3,0.85 C0.15,0.9,0.05,0.95,0,0.9 V0 Z" />
+            <path d="M0,0.1 C0.05,0.05,0.15,0,0.3,0.05 C0.45,0.1,0.55,0.1,0.7,0.05 C0.85,0,0.95,0.05,1,0.1 V0.9 C0.95,0.95,0.85,1,0.7,0.95 C0.55,0.9,0.45,0.9,0.3,0.95 C0.15,1,0.05,0.95,0,0.9 V0.1 Z" />
           </clipPath>
         </defs>
       </svg>
@@ -62,13 +62,13 @@ export default function HomeHero() {
           }}
         >
           
-            <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline text-foreground drop-shadow-lg uppercase whitespace-nowrap mb-[2px]">
+            <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-lg uppercase whitespace-nowrap mb-[2px]" style={{ color: '#FDF5E5' }}>
               Printing Point
             </StaticTitle>
-            <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-md text-foreground/90">
+            <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-md" style={{ color: '#FDF5E5' }}>
               Your Solution To Corporate Gifting
             </p>
-             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md text-foreground/80" style={{ marginBottom: '2px' }}>
+             <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-md" style={{ marginBottom: '2px', color: '#FDF5E5' }}>
               Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
             </p>
             <div className="mt-8 flex items-center justify-start gap-4">
