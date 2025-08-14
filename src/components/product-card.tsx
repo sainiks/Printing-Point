@@ -41,7 +41,7 @@ export default function ProductCard({
   const inquiryUrl = `/contact?message=${encodeURIComponent(message)}`;
 
   return (
-    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-transparent">
+    <Card className="flex flex-col overflow-visible transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 border-border shadow-lg bg-card">
       <CardHeader className="p-6 pt-12">
         <div className="relative aspect-square w-full -mt-20 mx-auto">
           <Image
