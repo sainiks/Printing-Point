@@ -1,3 +1,4 @@
+
 "use client";
 
 import { useState, useEffect } from "react";
@@ -42,7 +43,7 @@ export default function HomeHero() {
               transformStyle: "preserve-3d",
             }}
           />
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-white/10 backdrop-blur-md" />
         </div>
 
         <div
