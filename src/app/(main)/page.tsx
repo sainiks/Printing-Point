@@ -29,7 +29,7 @@ export default function Home() {
     <div className="dark">
       <HomeHero />
 
-      <section className="py-24 md:py-32 bg-background">
+      <section className="py-16 md:py-24 bg-background">
         <div className="container">
           <div className="text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm">
             <StaticTitle as="h2" className="text-5xl md:text-6xl font-bold font-headline text-foreground">
@@ -54,7 +54,7 @@ export default function Home() {
                         {productGroup.map((product) => {
                           const categoryInfo = mainCategories.find(c => c.title === product.category);
                           return (
-                            <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-1.5rem)] md:w-1/4 flex-shrink-0">
+                            <TiltEffect key={product.id} className="w-full sm:w-[calc(50%-1.5rem)] md:w-1/3 flex-shrink-0">
                               <ProductCard
                                 productId={product.productId}
                                 title={product.title}
