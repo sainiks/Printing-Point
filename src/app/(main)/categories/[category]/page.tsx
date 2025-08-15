@@ -9,9 +9,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import StaticTitle from '@/components/animated-title';
 import { cn } from '@/lib/utils';
 import { ArrowRight } from 'lucide-react';
+import { useParams } from 'next/navigation';
 
-export default function CategoryPage({ params }: { params: { category: string } }) {
-  const categoryInfo = mainCategories.find((c) => c.slug === params.category);
+export default function CategoryPage() {
+  const params = useParams();
+  const categorySlug = Array.isArray(params.category) ? params.category[0] : params.category;
+
+  const categoryInfo = mainCategories.find((c) => c.slug === categorySlug);
 
   const subCategories = useMemo(() => {
     if (!categoryInfo) return [];
