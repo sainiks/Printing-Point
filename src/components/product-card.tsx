@@ -48,7 +48,7 @@ export default function ProductCard({
           alt={title}
           data-ai-hint={imageHint}
           fill
-          className="object-contain"
+          className="object-cover"
         />
       </div>
       <div className="p-6 flex flex-col flex-1 text-center bg-card">
