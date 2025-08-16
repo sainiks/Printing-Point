@@ -66,7 +66,7 @@ function HeroSection() {
 
 function TrendingProductsSection() {
     const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: true })
+        Autoplay({ delay: 2000, stopOnInteraction: false })
     );
 
     return (
@@ -86,8 +86,6 @@ function TrendingProductsSection() {
                         loop: true,
                     }}
                     plugins={[plugin.current]}
-                    onMouseEnter={plugin.current.stop}
-                    onMouseLeave={plugin.current.reset}
                     className="w-full"
                 >
                     <CarouselContent>
