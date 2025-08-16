@@ -7,7 +7,6 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import StaticTitle from "@/components/animated-title";
-import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
 import {
@@ -32,11 +31,16 @@ export default function Home() {
   const heroScale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [1, 1.2, 1.2, 1.5]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.1, 0.8, 1], [1, 1, 1, 0]);
 
-  const contentTranslateY = useTransform(scrollYProgress, [0.1, 0.2], ["100vh", "0vh"]);
-  const contentOpacity = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
+  // First content section (Trending Products)
+  const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.2], ["100vh", "0vh"]);
+  const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
+
+  // Second content section (About Us)
+  const contentTranslateY2 = useTransform(scrollYProgress, [0.4, 0.5], ["100vh", "0vh"]);
+  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.45], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative h-[300vh] bg-background">
+    <div ref={containerRef} className="relative h-[400vh] bg-background">
       <div className="sticky top-0 h-screen overflow-hidden">
         {/* Hero Section */}
         <motion.div
@@ -78,9 +82,9 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Scrolling Content */}
+        {/* Scrolling Content 1: Trending Products */}
         <motion.div
-          style={{ translateY: contentTranslateY, opacity: contentOpacity }}
+          style={{ translateY: contentTranslateY1, opacity: contentOpacity1 }}
           className="absolute inset-0 z-20 bg-background"
         >
           <div className="h-full overflow-y-auto">
@@ -135,7 +139,15 @@ export default function Home() {
                 </div>
               </div>
             </section>
+          </div>
+        </motion.div>
 
+        {/* Scrolling Content 2: About Us */}
+        <motion.div
+          style={{ translateY: contentTranslateY2, opacity: contentOpacity2 }}
+          className="absolute inset-0 z-30 bg-background"
+        >
+          <div className="h-full overflow-y-auto flex items-center justify-center">
             <section className="bg-transparent py-24 md:py-32">
               <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm max-w-3xl mx-auto">
