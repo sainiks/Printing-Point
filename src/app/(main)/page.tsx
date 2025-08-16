@@ -30,15 +30,16 @@ export default function Home() {
 
   // Smoother hero animation
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 1.1]);
-  const heroOpacity = useTransform(scrollYProgress, [0.7, 0.9], [1, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
 
-  // First content section (Trending Products) - starts appearing earlier
+  // First content section (Trending Products)
   const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.3], ["100vh", "0vh"]);
-  const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
+  const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.25], [0, 1]);
 
-  // Second content section (About Us) - starts appearing earlier
+  // Second content section (About Us)
   const contentTranslateY2 = useTransform(scrollYProgress, [0.4, 0.6], ["100vh", "0vh"]);
-  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
+  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.55], [0, 1]);
+
 
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-background">
