@@ -1,21 +1,20 @@
 
 "use client";
 
-import { useRef, type ReactNode } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import StaticTitle from "@/components/animated-title";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
-import styles from "./page.module.css";
+import { cn } from "@/lib/utils";
 
 const trendingProducts = allProducts.slice(0, 3);
 
 function HeroSection() {
     return (
-        <div className="relative h-full">
+        <section className="relative h-screen flex items-center justify-start">
             <div className="absolute inset-0">
                 <Image
                     src="/hero_background.png"
@@ -24,7 +23,7 @@ function HeroSection() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/30" />
+                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
             </div>
 
             <div className="relative z-10 h-full flex items-center justify-start">
@@ -51,14 +50,14 @@ function HeroSection() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 }
 
 function TrendingProductsSection() {
     return (
-        <section className="h-full flex flex-col justify-center bg-background/90 backdrop-blur-md">
-            <div className="container text-center py-8">
+        <section className="bg-background py-16 md:py-24">
+            <div className="container text-center">
                 <StaticTitle as="h2" className="text-5xl md:text-6xl font-bold font-headline text-foreground">
                     Trending Products
                 </StaticTitle>
@@ -66,7 +65,7 @@ function TrendingProductsSection() {
                     Explore our most popular and recently added items, perfect for any occasion.
                 </p>
             </div>
-            <div className="container">
+            <div className="container mt-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {trendingProducts.map((product) => {
                         const categoryInfo = mainCategories.find(c => c.title === product.category);
@@ -91,7 +90,7 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="h-full flex items-center justify-center bg-background">
+        <section className="bg-secondary/10 py-16 md:py-24">
             <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
@@ -112,65 +111,28 @@ function AboutSection() {
     );
 }
 
-interface CardProps {
-    i: number;
-    children: ReactNode;
-    progress: any;
-    range: [number, number];
-    targetScale: number;
-}
-
-const Card = ({ i, children, progress, range, targetScale }: CardProps) => {
-    const scale = useTransform(progress, range, [1, targetScale]);
-    const opacity = useTransform(progress, [range[0], (range[0] + range[1]) / 2, range[1]], [1, 1, 0.5]);
-
-
-    return (
-        <div className={styles.cardContainer}>
-            <motion.div
-                className={styles.card}
-                style={{
-                    scale,
-                    opacity,
-                    top: `calc(-5vh + ${i * 25}px)`,
-                }}
-            >
-                {children}
-            </motion.div>
-        </div>
-    );
-};
-
+const SectionWrapper = ({ children, className }: { children: React.ReactNode, className?: string }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        viewport={{ once: true }}
+        className={cn(className)}
+    >
+        {children}
+    </motion.div>
+)
 
 export default function Home() {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const { scrollYProgress } = useScroll({
-        target: containerRef,
-        offset: ['start start', 'end end'],
-    });
-
-    const sections = [
-        <HeroSection key="hero" />,
-        <TrendingProductsSection key="trending" />,
-        <AboutSection key="about" />,
-    ];
-
     return (
-        <main ref={containerRef} className={styles.main}>
-            {sections.map((section, i) => {
-                const targetScale = 1 - (sections.length - i) * 0.05;
-                return (
-                    <Card
-                        key={i}
-                        i={i}
-                        progress={scrollYProgress}
-                        range={[i * (1 / sections.length), 1]}
-                        targetScale={targetScale}
-                    >
-                        {section}
-                    </Card>
-                );
-            })}
+        <main className="bg-background">
+            <HeroSection />
+            <SectionWrapper>
+                <TrendingProductsSection />
+            </SectionWrapper>
+             <SectionWrapper>
+                <AboutSection />
+            </SectionWrapper>
         </main>
     );
 }
