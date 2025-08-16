@@ -28,22 +28,25 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-  // Smoother hero animation
   const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 1.1]);
-  const heroOpacity = useTransform(scrollYProgress, [0.5, 0.7], [1, 0]);
+  const heroOpacity = useTransform(scrollYProgress, [0.7, 0.9], [1, 0]);
 
-  // First content section (Trending Products)
-  const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.3], ["100vh", "0vh"]);
+  // Section 1: Trending Products
+  const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.4], ["100vh", "0vh"]);
   const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.25], [0, 1]);
+  const contentRotateX1 = useTransform(scrollYProgress, [0.1, 0.4], [30, 0]);
+  const contentTranslateZ1 = useTransform(scrollYProgress, [0.1, 0.4], [-300, 0]);
 
-  // Second content section (About Us)
-  const contentTranslateY2 = useTransform(scrollYProgress, [0.4, 0.6], ["100vh", "0vh"]);
-  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.55], [0, 1]);
+  // Section 2: About Us
+  const contentTranslateY2 = useTransform(scrollYProgress, [0.5, 0.8], ["100vh", "0vh"]);
+  const contentOpacity2 = useTransform(scrollYProgress, [0.5, 0.65], [0, 1]);
+  const contentRotateX2 = useTransform(scrollYProgress, [0.5, 0.8], [30, 0]);
+  const contentTranslateZ2 = useTransform(scrollYProgress, [0.5, 0.8], [-300, 0]);
 
 
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-background">
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: '1000px' }}>
         {/* Hero Section */}
         <motion.div
           style={{ scale: heroScale, opacity: heroOpacity }}
@@ -86,7 +89,13 @@ export default function Home() {
 
         {/* Scrolling Content 1: Trending Products */}
         <motion.div
-          style={{ translateY: contentTranslateY1, opacity: contentOpacity1 }}
+          style={{ 
+            translateY: contentTranslateY1, 
+            opacity: contentOpacity1,
+            rotateX: contentRotateX1,
+            translateZ: contentTranslateZ1,
+            transformStyle: 'preserve-3d',
+          }}
           className="absolute inset-0 z-20 bg-background"
         >
           <div className="h-full overflow-y-auto">
@@ -146,7 +155,13 @@ export default function Home() {
 
         {/* Scrolling Content 2: About Us */}
         <motion.div
-          style={{ translateY: contentTranslateY2, opacity: contentOpacity2 }}
+          style={{ 
+            translateY: contentTranslateY2, 
+            opacity: contentOpacity2,
+            rotateX: contentRotateX2,
+            translateZ: contentTranslateZ2,
+            transformStyle: 'preserve-3d',
+          }}
           className="absolute inset-0 z-30 bg-background"
         >
           <div className="h-full overflow-y-auto flex items-center justify-center">
