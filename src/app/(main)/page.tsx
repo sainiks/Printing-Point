@@ -9,8 +9,18 @@ import StaticTitle from "@/components/animated-title";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
 import { cn } from "@/lib/utils";
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+import * as React from "react";
 
-const trendingProducts = allProducts.slice(0, 3);
+const trendingProducts = allProducts.slice(0, 6);
 
 function HeroSection() {
     return (
@@ -55,6 +65,10 @@ function HeroSection() {
 }
 
 function TrendingProductsSection() {
+    const plugin = React.useRef(
+        Autoplay({ delay: 2000, stopOnInteraction: true })
+    );
+
     return (
         <section className="bg-background py-16 md:py-24">
             <div className="container text-center">
@@ -66,23 +80,39 @@ function TrendingProductsSection() {
                 </p>
             </div>
             <div className="container mt-12">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {trendingProducts.map((product) => {
-                        const categoryInfo = mainCategories.find(c => c.title === product.category);
-                        return (
-                            <ProductCard
-                                key={product.id}
-                                productId={product.productId}
-                                title={product.title}
-                                description={product.description}
-                                imageUrl={product.imageUrl}
-                                minimumOrder={product.minimumOrder}
-                                imageHint={product.imageHint}
-                                categorySlug={categoryInfo?.slug || ''}
-                            />
-                        )
-                    })}
-                </div>
+                 <Carousel
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    plugins={[plugin.current]}
+                    onMouseEnter={plugin.current.stop}
+                    onMouseLeave={plugin.current.reset}
+                    className="w-full"
+                >
+                    <CarouselContent>
+                        {trendingProducts.map((product) => {
+                            const categoryInfo = mainCategories.find(c => c.title === product.category);
+                            return (
+                                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
+                                    <div className="p-1 h-full">
+                                        <ProductCard
+                                            productId={product.productId}
+                                            title={product.title}
+                                            description={product.description}
+                                            imageUrl={product.imageUrl}
+                                            minimumOrder={product.minimumOrder}
+                                            imageHint={product.imageHint}
+                                            categorySlug={categoryInfo?.slug || ''}
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            )
+                        })}
+                    </CarouselContent>
+                    <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 hidden md:flex" />
+                    <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 hidden md:flex" />
+                </Carousel>
             </div>
         </section>
     );
