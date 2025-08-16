@@ -4,7 +4,6 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion, useScroll, useTransform } from "framer-motion";
 import StaticTitle from "@/components/animated-title";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
@@ -17,7 +16,6 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import styles from "./page.module.css";
 
 const trendingProducts = allProducts.slice(0, 6);
 
@@ -140,48 +138,11 @@ function AboutSection() {
 
 
 export default function Home() {
-  const containerRef = React.useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end end"],
-  });
-  
-  // Trending Products animation
-  const trendingOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
-  const trendingX = useTransform(scrollYProgress, [0.1, 0.4], ["-100%", "0%"]);
-
-  // About Us animation
-  const aboutOpacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
-  const aboutX = useTransform(scrollYProgress, [0.5, 0.8], ["100%", "0%"]);
-
   return (
     <main className="bg-background">
       <HeroSection />
-      <div ref={containerRef} className={styles.scrollContainer}>
-        <div className={styles.contentWrapper}>
-          <div className={styles.spacer} />
-
-          {/* Trending Products Section */}
-          <motion.div 
-            className={styles.branchLeft}
-            style={{ opacity: trendingOpacity, x: trendingX }}
-          >
-            <TrendingProductsSection />
-          </motion.div>
-
-          <div className={styles.spacer} />
-
-          {/* About Us Section */}
-          <motion.div 
-             className={styles.branchRight}
-             style={{ opacity: aboutOpacity, x: aboutX }}
-          >
-            <AboutSection />
-          </motion.div>
-          
-          <div className={styles.spacer} />
-        </div>
-      </div>
+      <TrendingProductsSection />
+      <AboutSection />
     </main>
   );
 }
