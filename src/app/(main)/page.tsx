@@ -10,6 +10,14 @@ import StaticTitle from "@/components/animated-title";
 import TiltEffect from "@/components/tilt-effect";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 
 const trendingProducts = allProducts.slice(0, 9);
 
@@ -86,23 +94,44 @@ export default function Home() {
                     Explore our most popular and recently added items, perfect for any occasion.
                   </p>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
-                  {trendingProducts.map((product, index) => {
-                    const categoryInfo = mainCategories.find(c => c.title === product.category);
-                    return (
-                      <TiltEffect key={`${product.id}-${index}`} className="w-full">
-                        <ProductCard
-                          productId={product.productId}
-                          title={product.title}
-                          description={product.description}
-                          imageUrl={product.imageUrl}
-                          minimumOrder={product.minimumOrder}
-                          imageHint={product.imageHint}
-                          categorySlug={categoryInfo?.slug || ''}
-                        />
-                      </TiltEffect>
-                    )
-                  })}
+                <div className="mt-12">
+                   <Carousel
+                    opts={{
+                      align: "start",
+                      loop: true,
+                    }}
+                    plugins={[
+                      Autoplay({
+                        delay: 2000,
+                        stopOnInteraction: false,
+                        stopOnMouseEnter: false,
+                      }),
+                    ]}
+                    className="w-full"
+                  >
+                    <CarouselContent>
+                      {trendingProducts.map((product, index) => {
+                         const categoryInfo = mainCategories.find(c => c.title === product.category);
+                        return (
+                          <CarouselItem key={`${product.id}-${index}`} className="basis-full md:basis-1/2 lg:basis-1/3">
+                            <div className="p-1 h-full">
+                                <ProductCard
+                                  productId={product.productId}
+                                  title={product.title}
+                                  description={product.description}
+                                  imageUrl={product.imageUrl}
+                                  minimumOrder={product.minimumOrder}
+                                  imageHint={product.imageHint}
+                                  categorySlug={categoryInfo?.slug || ''}
+                                />
+                            </div>
+                          </CarouselItem>
+                        )
+                      })}
+                    </CarouselContent>
+                    <CarouselPrevious className="absolute left-0 top-1/2 -translate-y-1/2 z-10" />
+                    <CarouselNext className="absolute right-0 top-1/2 -translate-y-1/2 z-10" />
+                  </Carousel>
                 </div>
               </div>
             </section>
