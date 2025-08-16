@@ -34,18 +34,14 @@ export default function Home() {
   // Section 1: Trending Products
   const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.4], ["100vh", "0vh"]);
   const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.25], [0, 1]);
-  const contentRotateX1 = useTransform(scrollYProgress, [0.1, 0.4], [30, 0]);
-  const contentTranslateZ1 = useTransform(scrollYProgress, [0.1, 0.4], [-300, 0]);
 
   // Section 2: About Us
   const contentTranslateY2 = useTransform(scrollYProgress, [0.5, 0.8], ["100vh", "0vh"]);
   const contentOpacity2 = useTransform(scrollYProgress, [0.5, 0.65], [0, 1]);
-  const contentRotateX2 = useTransform(scrollYProgress, [0.5, 0.8], [30, 0]);
-  const contentTranslateZ2 = useTransform(scrollYProgress, [0.5, 0.8], [-300, 0]);
 
 
   return (
-    <div ref={containerRef} className="relative h-[400vh] bg-background">
+    <div ref={containerRef} className="relative h-[300vh] bg-background">
       <div className="sticky top-0 h-screen overflow-hidden" style={{ perspective: '1000px' }}>
         {/* Hero Section */}
         <motion.div
@@ -92,8 +88,6 @@ export default function Home() {
           style={{ 
             translateY: contentTranslateY1, 
             opacity: contentOpacity1,
-            rotateX: contentRotateX1,
-            translateZ: contentTranslateZ1,
             transformStyle: 'preserve-3d',
           }}
           className="absolute inset-0 z-20 bg-background"
@@ -158,8 +152,6 @@ export default function Home() {
           style={{ 
             translateY: contentTranslateY2, 
             opacity: contentOpacity2,
-            rotateX: contentRotateX2,
-            translateZ: contentTranslateZ2,
             transformStyle: 'preserve-3d',
           }}
           className="absolute inset-0 z-30 bg-background"
