@@ -145,67 +145,26 @@ export default function Home() {
     target: containerRef,
     offset: ["start start", "end end"],
   });
-
-  // Main trunk animation
-  const trunkPathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
   
-  // Branch 1 (Trending Products) animation
-  const branch1PathLength = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
-  const branch1Opacity = useTransform(scrollYProgress, [0.25, 0.35], [0, 1]);
-  const branch1X = useTransform(scrollYProgress, [0.25, 0.4], ["-100%", "0%"]);
+  // Trending Products animation
+  const trendingOpacity = useTransform(scrollYProgress, [0.1, 0.3], [0, 1]);
+  const trendingX = useTransform(scrollYProgress, [0.1, 0.4], ["-100%", "0%"]);
 
-  // Branch 2 (About Us) animation
-  const branch2PathLength = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
-  const branch2Opacity = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
-  const branch2X = useTransform(scrollYProgress, [0.65, 0.8], ["100%", "0%"]);
+  // About Us animation
+  const aboutOpacity = useTransform(scrollYProgress, [0.5, 0.7], [0, 1]);
+  const aboutX = useTransform(scrollYProgress, [0.5, 0.8], ["100%", "0%"]);
 
   return (
     <main className="bg-background">
       <HeroSection />
       <div ref={containerRef} className={styles.scrollContainer}>
-        <div className={styles.svgContainer}>
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 200 2000"
-            preserveAspectRatio="none"
-          >
-            {/* Trunk */}
-            <motion.path
-              d="M 100 0 V 2000"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
-              fill="none"
-              style={{ pathLength: trunkPathLength }}
-            />
-
-            {/* Branch 1 */}
-            <motion.path
-              d="M 100 600 H 20"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
-              fill="none"
-              style={{ pathLength: branch1PathLength }}
-            />
-
-             {/* Branch 2 */}
-            <motion.path
-              d="M 100 1400 H 180"
-              stroke="hsl(var(--primary))"
-              strokeWidth="2"
-              fill="none"
-              style={{ pathLength: branch2PathLength }}
-            />
-          </svg>
-        </div>
-
         <div className={styles.contentWrapper}>
           <div className={styles.spacer} />
 
           {/* Trending Products Section */}
           <motion.div 
             className={styles.branchLeft}
-            style={{ opacity: branch1Opacity, x: branch1X }}
+            style={{ opacity: trendingOpacity, x: trendingX }}
           >
             <TrendingProductsSection />
           </motion.div>
@@ -215,11 +174,11 @@ export default function Home() {
           {/* About Us Section */}
           <motion.div 
              className={styles.branchRight}
-             style={{ opacity: branch2Opacity, x: branch2X }}
+             style={{ opacity: aboutOpacity, x: aboutX }}
           >
             <AboutSection />
           </motion.div>
-
+          
           <div className={styles.spacer} />
         </div>
       </div>
