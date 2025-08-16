@@ -4,12 +4,10 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import StaticTitle from "@/components/animated-title";
 import { allProducts, mainCategories } from "@/lib/all-products";
 import ProductCard from "@/components/product-card";
-import { cn } from "@/lib/utils";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
@@ -19,12 +17,13 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
+import styles from "./page.module.css";
 
 const trendingProducts = allProducts.slice(0, 6);
 
 function HeroSection() {
     return (
-        <section className="relative h-screen flex items-center justify-start">
+        <section className="relative h-screen flex items-center justify-start text-white">
             <div className="absolute inset-0">
                 <Image
                     src="/hero_background.png"
@@ -33,18 +32,18 @@ function HeroSection() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
             </div>
 
             <div className="relative z-10 h-full flex items-center justify-start">
                 <div className="max-w-3xl p-8 md:p-12 lg:p-24">
-                    <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold text-white font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
+                    <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
                         Printing Point
                     </StaticTitle>
-                    <p className="mt-4 text-xl md:text-2xl max-w-2xl text-white drop-shadow-sm">
+                    <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
                         Your Solution To Corporate Gifting
                     </p>
-                    <p className="mt-4 text-lg md:text-xl max-w-3xl text-white drop-shadow-sm mb-[2px]">
+                    <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-[2px]">
                         Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
                     </p>
                     <div className="mt-8 flex items-center justify-start gap-4">
@@ -70,7 +69,7 @@ function TrendingProductsSection() {
     );
 
     return (
-        <section className="bg-background py-16 md:py-24">
+        <section className="bg-background py-16 md:py-24 w-full">
             <div className="container text-center">
                 <StaticTitle as="h2" className="text-5xl md:text-6xl font-bold font-headline text-foreground">
                     Trending Products
@@ -118,7 +117,7 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="bg-secondary/10 py-16 md:py-24">
+        <section className="bg-secondary/10 py-16 md:py-24 w-full">
             <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
@@ -139,28 +138,91 @@ function AboutSection() {
     );
 }
 
-const SectionWrapper = ({ children, className }: { children: React.ReactNode, className?: string }) => (
-    <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ once: true }}
-        className={cn(className)}
-    >
-        {children}
-    </motion.div>
-)
 
 export default function Home() {
-    return (
-        <main className="bg-background">
-            <HeroSection />
-            <SectionWrapper>
-                <TrendingProductsSection />
-            </SectionWrapper>
-             <SectionWrapper>
-                <AboutSection />
-            </SectionWrapper>
-        </main>
-    );
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  // Main trunk animation
+  const trunkPathLength = useTransform(scrollYProgress, [0, 1], [0, 1]);
+  
+  // Branch 1 (Trending Products) animation
+  const branch1PathLength = useTransform(scrollYProgress, [0.2, 0.4], [0, 1]);
+  const branch1Opacity = useTransform(scrollYProgress, [0.25, 0.35], [0, 1]);
+  const branch1X = useTransform(scrollYProgress, [0.25, 0.4], ["-100%", "0%"]);
+
+  // Branch 2 (About Us) animation
+  const branch2PathLength = useTransform(scrollYProgress, [0.6, 0.8], [0, 1]);
+  const branch2Opacity = useTransform(scrollYProgress, [0.65, 0.75], [0, 1]);
+  const branch2X = useTransform(scrollYProgress, [0.65, 0.8], ["100%", "0%"]);
+
+  return (
+    <main className="bg-background">
+      <HeroSection />
+      <div ref={containerRef} className={styles.scrollContainer}>
+        <div className={styles.svgContainer}>
+          <svg
+            width="100%"
+            height="100%"
+            viewBox="0 0 200 2000"
+            preserveAspectRatio="none"
+          >
+            {/* Trunk */}
+            <motion.path
+              d="M 100 0 V 2000"
+              stroke="hsl(var(--primary))"
+              strokeWidth="2"
+              fill="none"
+              style={{ pathLength: trunkPathLength }}
+            />
+
+            {/* Branch 1 */}
+            <motion.path
+              d="M 100 600 H 20"
+              stroke="hsl(var(--primary))"
+              strokeWidth="2"
+              fill="none"
+              style={{ pathLength: branch1PathLength }}
+            />
+
+             {/* Branch 2 */}
+            <motion.path
+              d="M 100 1400 H 180"
+              stroke="hsl(var(--primary))"
+              strokeWidth="2"
+              fill="none"
+              style={{ pathLength: branch2PathLength }}
+            />
+          </svg>
+        </div>
+
+        <div className={styles.contentWrapper}>
+          <div className={styles.spacer} />
+
+          {/* Trending Products Section */}
+          <motion.div 
+            className={styles.branchLeft}
+            style={{ opacity: branch1Opacity, x: branch1X }}
+          >
+            <TrendingProductsSection />
+          </motion.div>
+
+          <div className={styles.spacer} />
+
+          {/* About Us Section */}
+          <motion.div 
+             className={styles.branchRight}
+             style={{ opacity: branch2Opacity, x: branch2X }}
+          >
+            <AboutSection />
+          </motion.div>
+
+          <div className={styles.spacer} />
+        </div>
+      </div>
+    </main>
+  );
 }

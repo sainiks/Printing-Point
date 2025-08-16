@@ -1,0 +1,58 @@
+
+.scrollContainer {
+    position: relative;
+    height: 300vh; /* Adjust height based on content */
+}
+
+.svgContainer {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+}
+
+.contentWrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+}
+
+.branchLeft,
+.branchRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+}
+
+.branchLeft {
+    justify-content: flex-start;
+    padding-left: 2rem; /* or desired padding */
+
+}
+
+.branchRight {
+    justify-content: flex-end;
+    padding-right: 2rem; /* or desired padding */
+}
+
+.spacer {
+    height: 100vh;
+}
+
+/* Ensure sections inside branches take up appropriate width */
+.branchLeft > section,
+.branchRight > section {
+    max-width: calc(50% - 4rem); /* Adjust based on padding */
+}
