@@ -28,16 +28,17 @@ export default function Home() {
     offset: ["start start", "end end"],
   });
 
-  const heroScale = useTransform(scrollYProgress, [0, 0.1, 0.9, 1], [1, 1.2, 1.2, 1.5]);
-  const heroOpacity = useTransform(scrollYProgress, [0, 0.1, 0.8, 1], [1, 1, 1, 0]);
+  // Smoother hero animation
+  const heroScale = useTransform(scrollYProgress, [0, 0.15], [1, 1.1]);
+  const heroOpacity = useTransform(scrollYProgress, [0.7, 0.9], [1, 0]);
 
-  // First content section (Trending Products)
-  const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.2], ["100vh", "0vh"]);
-  const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.15], [0, 1]);
+  // First content section (Trending Products) - starts appearing earlier
+  const contentTranslateY1 = useTransform(scrollYProgress, [0.1, 0.3], ["100vh", "0vh"]);
+  const contentOpacity1 = useTransform(scrollYProgress, [0.1, 0.2], [0, 1]);
 
-  // Second content section (About Us)
-  const contentTranslateY2 = useTransform(scrollYProgress, [0.4, 0.5], ["100vh", "0vh"]);
-  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.45], [0, 1]);
+  // Second content section (About Us) - starts appearing earlier
+  const contentTranslateY2 = useTransform(scrollYProgress, [0.4, 0.6], ["100vh", "0vh"]);
+  const contentOpacity2 = useTransform(scrollYProgress, [0.4, 0.5], [0, 1]);
 
   return (
     <div ref={containerRef} className="relative h-[400vh] bg-background">
