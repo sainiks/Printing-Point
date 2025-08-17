@@ -14,7 +14,7 @@
     --popover: 45 83% 92%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 202 22% 42%; /* Classic Steel Blue */
+    --primary: 16 13% 56%; /* Dusty Rose */
     --primary-foreground: 45 83% 98%;
     
     --secondary: 240 4.8% 95.9%;
@@ -31,7 +31,7 @@
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 202 22% 42%;
+    --ring: 16 13% 56%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -83,6 +83,7 @@
 
     
 }
+
 
 
 
