@@ -1,8 +1,8 @@
 
 "use client";
 
-import { useActionState, useEffect, useRef } from "react";
-import { useFormStatus } from "react-dom";
+import { useEffect, useRef } from "react";
+import { useFormState, useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
@@ -28,7 +28,7 @@ function SubmitButton() {
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+  const [state, formAction] = useFormState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const messageParam = searchParams.get("message");
@@ -40,9 +40,6 @@ export default function ContactForm() {
         description: state.message,
       });
       formRef.current?.reset();
-       const textarea = formRef.current?.querySelector('textarea');
-       if(textarea) textarea.value = '';
-
     } else if (state.status === "error") {
       toast({
         title: "Error",
@@ -57,7 +54,7 @@ export default function ContactForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
           <Label htmlFor="fullName" className="font-headline text-xl text-card-foreground">Name</Label>
-          <Input id="fullName" name="fullName" required className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl h-12" />
+          <Input id="fullName" name="fullName" required className="bg-white text-foreground placeholder:text-muted-foreground rounded-xl h-12" />
         </div>
         <div className="space-y-2">
           <Label htmlFor="email" className="font-headline text-xl text-card-foreground">Email</Label>
@@ -66,7 +63,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             required
-            className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl h-12"
+            className="bg-white text-foreground placeholder:text-muted-foreground rounded-xl h-12"
           />
         </div>
       </div>
@@ -78,9 +75,9 @@ export default function ContactForm() {
           required
           minLength={10}
           rows={6}
-          key={messageParam}
+          key={messageParam} // Force re-render when product changes
           defaultValue={messageParam || ''}
-          className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl"
+          className="bg-white text-foreground placeholder:text-muted-foreground rounded-xl"
         />
       </div>
        <div className="space-y-2 !mt-4 hidden">
