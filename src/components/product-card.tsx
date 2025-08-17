@@ -32,9 +32,9 @@ export default function ProductCard({
   categorySlug,
 }: ProductCardProps) {
   const message = [
-    `Title: ${title}`,
+    `${title}`,
     `Product ID: ${productId}`,
-    `Description: ${description}`,
+    `${description}`,
     `Minimum Order: ${minimumOrder || 'N/A'}`,
   ].join('\n');
 
