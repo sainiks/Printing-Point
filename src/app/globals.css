@@ -14,7 +14,7 @@
     --popover: 45 83% 92%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 332 79% 29%; /* Deep Magenta */
+    --primary: 200 15% 26%; /* Charcoal Slate */
     --primary-foreground: 45 83% 98%;
     
     --secondary: 240 4.8% 95.9%;
@@ -31,7 +31,7 @@
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 332 79% 29%;
+    --ring: 200 15% 26%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
