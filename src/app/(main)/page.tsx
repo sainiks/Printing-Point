@@ -36,24 +36,28 @@ function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-black/40" />
             </motion.div>
-            <div className="relative z-10 flex flex-col items-start p-8 md:p-12 lg:p-24 max-w-3xl">
-                <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
-                    Printing Point
-                </StaticTitle>
-                <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
-                    Your Solution To Corporate Gifting
-                </p>
-                <p className="mt-6 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-8 leading-relaxed">
-                    Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
-                </p>
-                <Button
-                    asChild
-                    size="lg"
-                    variant="default"
-                    className="bg-primary text-primary-foreground hover:bg-primary/90"
-                >
-                    <Link href="/contact">Get a Custom Quote</Link>
-                </Button>
+            <div className="relative z-10 w-full p-8 md:p-12 lg:p-24">
+                <div className="max-w-3xl">
+                    <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
+                        Printing Point
+                    </StaticTitle>
+                    <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
+                        Your Solution To Corporate Gifting
+                    </p>
+                    <p className="mt-6 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-8 leading-relaxed">
+                        Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
+                    </p>
+                </div>
+                <div className="w-full flex justify-center mt-8">
+                    <Button
+                        asChild
+                        size="lg"
+                        variant="default"
+                        className="bg-primary text-primary-foreground hover:bg-primary/90"
+                    >
+                        <Link href="/contact">Get a Custom Quote</Link>
+                    </Button>
+                </div>
             </div>
         </section>
     );
