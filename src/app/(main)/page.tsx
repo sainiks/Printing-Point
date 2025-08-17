@@ -68,7 +68,7 @@ function TrendingProductsSection() {
     const trendingProducts = allProducts.slice(0, 9);
 
     return (
-        <section className="bg-background py-16 md:py-24 bg-print-pattern">
+        <section className="bg-background py-16 md:py-24">
             <div className="container text-center">
                 <StaticTitle as="h2" className="text-4xl md:text-5xl font-bold font-headline text-foreground">
                     Trending Products
@@ -118,7 +118,7 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="bg-secondary/20 py-16 md:py-24 bg-print-pattern">
+        <section className="bg-secondary/20 py-16 md:py-24">
             <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
