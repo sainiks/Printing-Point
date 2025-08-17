@@ -14,7 +14,7 @@
     --popover: 45 83% 92%;
     --popover-foreground: 240 10% 3.9%;
     
-    --primary: 27 100% 37%; /* Burnt Orange */
+    --primary: 250 60% 38%; /* Royal Purple */
     --primary-foreground: 45 83% 98%;
     
     --secondary: 240 4.8% 95.9%;
@@ -31,7 +31,7 @@
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 27 100% 37%;
+    --ring: 250 60% 38%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -83,6 +83,7 @@
 
     
 }
+
 
 
 
