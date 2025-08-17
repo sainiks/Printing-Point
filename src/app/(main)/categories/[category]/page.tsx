@@ -76,8 +76,8 @@ export default function CategoryPage() {
                 transition={{ duration: 0.3, ease: 'easeInOut' }}
                 className={cn(
                   "relative w-full text-lg py-6 rounded-lg transition-colors duration-300 shadow-md overflow-hidden",
-                  "flex items-center justify-center text-foreground hover:text-white",
-                  "bg-primary/10 hover:bg-primary/20",
+                  "flex items-center justify-center text-primary-foreground hover:text-primary-foreground",
+                  "bg-primary/80 hover:bg-primary",
                 )}
                 style={{
                   minHeight: hoveredItem === subCategory.title ? '12rem' : 'auto',
@@ -102,7 +102,7 @@ export default function CategoryPage() {
                     </motion.div>
                   )}
                 </AnimatePresence>
-                <motion.span layout="position" className="relative z-10 flex items-center">
+                <motion.span layout="position" className="relative z-10 flex items-center text-primary-foreground">
                   {subCategory.title}
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                 </motion.span>

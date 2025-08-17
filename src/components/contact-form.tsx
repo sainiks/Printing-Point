@@ -20,7 +20,7 @@ const initialState: ContactFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" className="w-full bg-[#FDF5EF] text-primary hover:bg-[#FDF5EF]/90 text-lg py-6 font-body" disabled={pending}>
+    <Button type="submit" className="w-full bg-primary text-primary-foreground hover:bg-primary/90 text-lg py-6 font-body" disabled={pending}>
       {pending ? "Sending..." : "Send Message"}
     </Button>
   );
@@ -56,22 +56,22 @@ export default function ContactForm() {
     <form action={formAction} ref={formRef} className="space-y-8">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         <div className="space-y-2">
-          <Label htmlFor="fullName" className="font-headline text-xl text-primary-foreground">Name</Label>
-          <Input id="fullName" name="fullName" required className="bg-white text-primary placeholder:text-primary/70 rounded-xl h-12" />
+          <Label htmlFor="fullName" className="font-headline text-xl text-card-foreground">Name</Label>
+          <Input id="fullName" name="fullName" required className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl h-12" />
         </div>
         <div className="space-y-2">
-          <Label htmlFor="email" className="font-headline text-xl text-primary-foreground">Email</Label>
+          <Label htmlFor="email" className="font-headline text-xl text-card-foreground">Email</Label>
           <Input
             id="email"
             name="email"
             type="email"
             required
-            className="bg-white text-primary placeholder:text-primary/70 rounded-xl h-12"
+            className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl h-12"
           />
         </div>
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message" className="font-headline text-xl text-primary-foreground">Your Message</Label>
+        <Label htmlFor="message" className="font-headline text-xl text-card-foreground">Your Message</Label>
         <Textarea
           id="message"
           name="message"
@@ -79,7 +79,7 @@ export default function ContactForm() {
           minLength={10}
           rows={6}
           defaultValue={messageParam || ''}
-          className="bg-white text-primary placeholder:text-primary/70 rounded-xl"
+          className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl"
         />
       </div>
        <div className="space-y-2 !mt-4 hidden">

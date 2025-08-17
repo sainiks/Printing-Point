@@ -34,7 +34,7 @@ function HeroSection() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+                <div className="absolute inset-0 bg-background/70 backdrop-blur-sm" />
             </motion.div>
             <div className="relative z-10 flex flex-col items-center p-4">
                 <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
@@ -50,7 +50,7 @@ function HeroSection() {
                     asChild
                     size="lg"
                     variant="default"
-                    className="bg-primary/90 text-primary-foreground hover:bg-primary"
+                    className="bg-primary text-primary-foreground hover:bg-primary/90"
                 >
                     <Link href="/contact">Get a Custom Quote</Link>
                 </Button>
@@ -118,7 +118,7 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="bg-secondary/20 py-16 md:py-24">
+        <section className="bg-black/20 py-16 md:py-24">
             <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">

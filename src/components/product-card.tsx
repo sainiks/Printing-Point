@@ -41,7 +41,7 @@ export default function ProductCard({
   const inquiryUrl = `/contact?message=${encodeURIComponent(message)}`;
 
   return (
-    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-primary border-white/10 shadow-lg h-full">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-white/10 shadow-lg h-full">
       <div className="relative aspect-video w-full">
         <Image
           src={imageUrl}
@@ -51,17 +51,17 @@ export default function ProductCard({
           className="object-cover"
         />
       </div>
-      <div className="p-6 flex flex-col flex-1 text-center bg-transparent">
+      <div className="p-6 flex flex-col flex-1 text-center">
         <CardContent className="p-0 flex-1">
-          <CardTitle className="font-headline text-xl text-primary-foreground">{title}</CardTitle>
-          <p className="mt-2 text-sm font-semibold text-primary-foreground/90">Product ID: {productId}</p>
-          <CardDescription className="mt-2 text-primary-foreground/80">{description}</CardDescription>
+          <CardTitle className="font-headline text-xl text-card-foreground">{title}</CardTitle>
+          <p className="mt-2 text-sm font-semibold text-card-foreground/90">Product ID: {productId}</p>
+          <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
           {minimumOrder && (
             <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
           )}
         </CardContent>
         <CardFooter className="p-0 pt-6">
-          <Button asChild className="w-full bg-primary-foreground text-primary hover:bg-primary-foreground/90">
+          <Button asChild className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
             <Link href={inquiryUrl}>
               Add to Inquiry <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
@@ -71,4 +71,3 @@ export default function ProductCard({
     </Card>
   );
 }
-

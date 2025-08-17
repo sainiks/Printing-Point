@@ -74,7 +74,7 @@ function NavMenu() {
                             href={`/categories/${component.slug}`}
                             className={cn(
                               "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
-                              activeCategory === component.title ? "bg-primary/10 text-primary-foreground" : "hover:bg-primary/10"
+                              activeCategory === component.title ? "bg-accent text-accent-foreground" : "hover:bg-accent/80"
                             )}
                           >
                             <div className="text-sm font-medium leading-none text-popover-foreground">{component.title}</div>
@@ -87,7 +87,7 @@ function NavMenu() {
                     <NavigationMenuLink asChild>
                       <Link
                         href="/products"
-                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-primary/10"
+                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent/80"
                       >
                         <div className="text-sm font-medium leading-none text-popover-foreground">View All Products</div>
                       </Link>
@@ -104,7 +104,7 @@ function NavMenu() {
                            <NavigationMenuLink asChild>
                              <Link
                                href={subCategoryLink}
-                               className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-primary/10 text-sm text-popover-foreground/80 hover:text-popover-foreground"
+                               className="block select-none rounded-md p-2 leading-none no-underline outline-none transition-colors hover:bg-accent/80 text-sm text-popover-foreground/80 hover:text-popover-foreground"
                               >
                                {subCategory}
                              </Link>
@@ -178,14 +178,14 @@ export default function Header() {
   return (
     <header className={cn(
       "fixed top-0 z-50 w-full transition-all duration-300",
-      showSolidNav ? "bg-primary shadow-md" : "bg-transparent"
+      showSolidNav ? "bg-background shadow-md border-b border-white/10" : "bg-transparent"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
           <span className={cn(
             "font-bold font-headline text-lg",
-             showSolidNav ? "text-primary-foreground" : "text-white"
+             "text-white"
           )}>
             Printing Point
           </span>
@@ -194,7 +194,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
             <nav className={cn(
               "hidden md:flex",
-              showSolidNav ? "text-primary-foreground" : "text-white"
+              "text-white"
             )}>
                 <NavMenu />
             </nav>
@@ -203,13 +203,13 @@ export default function Header() {
                 <Sheet>
                     <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className={cn(
-                      showSolidNav ? "text-primary-foreground hover:bg-white/20" : "text-white hover:bg-white/20"
+                      "text-white hover:bg-white/20"
                     )}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Toggle navigation menu</span>
                     </Button>
                     </SheetTrigger>
-                    <SheetContent side="right" className="bg-primary text-primary-foreground">
+                    <SheetContent side="right" className="bg-background text-foreground">
                     <nav className="grid gap-6 text-lg font-medium mt-6">
                         <SheetClose asChild>
                         <Link
@@ -217,7 +217,7 @@ export default function Header() {
                             className="flex items-center gap-2 text-lg font-semibold mb-4"
                         >
                             <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
-                            <span className="font-headline">Printing Point</span>
+                            <span className="font-headline text-foreground">Printing Point</span>
                         </Link>
                         </SheetClose>
                         {navLinks.map((link) => (
@@ -225,8 +225,8 @@ export default function Header() {
                             <Link
                             href={link.href}
                             className={cn(
-                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
-                                pathname === link.href && "text-primary-foreground"
+                                "text-foreground/80 transition-colors hover:text-foreground",
+                                pathname === link.href && "text-foreground"
                             )}
                             >
                             {link.label}
@@ -237,8 +237,8 @@ export default function Header() {
                             <Link
                             href="/corporate-gifting"
                             className={cn(
-                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
-                                pathname === "/corporate-gifting" && "text-primary-foreground"
+                                "text-foreground/80 transition-colors hover:text-foreground",
+                                pathname === "/corporate-gifting" && "text-foreground"
                             )}
                             >
                             Corporate Gifting
@@ -248,8 +248,8 @@ export default function Header() {
                             <Link
                             href="/contact"
                             className={cn(
-                                "text-primary-foreground/80 transition-colors hover:text-primary-foreground",
-                                pathname === "/contact" && "text-primary-foreground"
+                                "text-foreground/80 transition-colors hover:text-foreground",
+                                pathname === "/contact" && "text-foreground"
                             )}
                             >
                             Contact Us

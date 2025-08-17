@@ -5,17 +5,17 @@
 
 @layer base {
   :root {
-    --background: 45 83% 92%; /* A darker shade of #FDF5E5 */
-    --foreground: 240 10% 3.9%;
+    --background: 168 100% 15%; /* Deep Emerald Green */
+    --foreground: 45 83% 98%;
     
-    --card: 45 83% 92%;
-    --card-foreground: 240 10% 3.9%;
+    --card: 168 100% 15%;
+    --card-foreground: 45 83% 98%;
     
-    --popover: 45 83% 92%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover: 168 100% 15%;
+    --popover-foreground: 45 83% 98%;
     
-    --primary: 168 100% 15%; /* Deep Emerald Green */
-    --primary-foreground: 45 83% 98%;
+    --primary: 45 83% 92%; /* A darker shade of #FDF5E5 */
+    --primary-foreground: 240 10% 3.9%;
     
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
@@ -31,7 +31,7 @@
     
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
-    --ring: 168 100% 15%;
+    --ring: 45 83% 92%;
     
     --chart-1: 220 70% 50%;
     --chart-2: 160 60% 45%;
@@ -83,6 +83,7 @@
 
     
 }
+
 
 
 
