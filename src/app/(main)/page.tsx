@@ -16,58 +16,40 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 const trendingProducts = allProducts.slice(0, 6);
 
 function HeroSection() {
     return (
-        <section className="relative h-screen flex items-center justify-start text-white">
-            <div className="absolute inset-0">
-                <Image
-                    src="/hero_background.png"
-                    alt="Background"
-                    data-ai-hint="abstract background"
-                    fill
-                    className="object-cover"
-                />
-                <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" />
-            </div>
-
-            <div className="relative z-10 h-full flex items-center justify-start">
-                <div className="max-w-3xl p-8 md:p-12 lg:p-24">
-                    <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
-                        Printing Point
-                    </StaticTitle>
-                    <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
-                        Your Solution To Corporate Gifting
-                    </p>
-                    <p className="mt-4 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-[2px]">
-                        Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
-                    </p>
-                    <div className="mt-8 flex items-center justify-start gap-4">
-                        <Button
-                            asChild
-                            size="lg"
-                            variant="outline"
-                            className="text-primary hover:bg-[#FDF5EF]/90"
-                            style={{ backgroundColor: '#FDF5E5' }}
-                        >
-                            <Link href="/contact">Get a Custom Quote</Link>
-                        </Button>
-                    </div>
-                </div>
+        <section className="relative h-full flex items-center justify-center text-center text-white">
+             <div className="relative z-10 flex flex-col items-center">
+                <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
+                    Printing Point
+                </StaticTitle>
+                <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
+                    Your Solution To Corporate Gifting
+                </p>
+                <p className="mt-6 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-8 leading-relaxed">
+                    Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
+                </p>
+                <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="bg-primary/80 border-primary-foreground/50 text-primary-foreground hover:bg-primary"
+                >
+                    <Link href="/contact">Get a Custom Quote</Link>
+                </Button>
             </div>
         </section>
     );
 }
 
 function TrendingProductsSection() {
-    const plugin = React.useRef(
-        Autoplay({ delay: 2000, stopOnInteraction: false })
-    );
-
     return (
-        <section className="bg-background py-16 md:py-24 w-full">
+        <section className="h-full flex flex-col items-center justify-center text-white">
             <div className="container text-center">
                 <StaticTitle as="h2" className="text-5xl md:text-6xl font-bold font-headline text-foreground">
                     Trending Products
@@ -76,38 +58,25 @@ function TrendingProductsSection() {
                     Explore our most popular and recently added items, perfect for any occasion.
                 </p>
             </div>
-            <div className="container mt-12">
-                 <Carousel
-                    opts={{
-                        align: "start",
-                        loop: true,
-                    }}
-                    plugins={[plugin.current]}
-                    className="w-full"
-                >
-                    <CarouselContent>
-                        {trendingProducts.map((product) => {
-                            const categoryInfo = mainCategories.find(c => c.title === product.category);
-                            return (
-                                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
-                                    <div className="p-1 h-full">
-                                        <ProductCard
-                                            productId={product.productId}
-                                            title={product.title}
-                                            description={product.description}
-                                            imageUrl={product.imageUrl}
-                                            minimumOrder={product.minimumOrder}
-                                            imageHint={product.imageHint}
-                                            categorySlug={categoryInfo?.slug || ''}
-                                        />
-                                    </div>
-                                </CarouselItem>
-                            )
-                        })}
-                    </CarouselContent>
-                    <CarouselPrevious className="absolute left-[-1rem] top-1/2 -translate-y-1/2 hidden md:flex" />
-                    <CarouselNext className="absolute right-[-1rem] top-1/2 -translate-y-1/2 hidden md:flex" />
-                </Carousel>
+            <div className="container mt-12 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                  {trendingProducts.map((product) => {
+                      const categoryInfo = mainCategories.find(c => c.title === product.category);
+                      return (
+                          <div key={product.id} className="p-1 h-full">
+                              <ProductCard
+                                  productId={product.productId}
+                                  title={product.title}
+                                  description={product.description}
+                                  imageUrl={product.imageUrl}
+                                  minimumOrder={product.minimumOrder}
+                                  imageHint={product.imageHint}
+                                  categorySlug={categoryInfo?.slug || ''}
+                              />
+                          </div>
+                      )
+                  })}
+                </div>
             </div>
         </section>
     );
@@ -115,9 +84,9 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="bg-secondary/10 py-16 md:py-24 w-full">
+        <section className="h-full flex items-center justify-center text-white">
             <div className="container">
-                <div className="space-y-4 text-center p-8 rounded-lg bg-card/5 backdrop-blur-sm max-w-3xl mx-auto">
+                <div className="space-y-4 text-center p-8 rounded-lg max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
                         About Printing Point
                     </StaticTitle>
@@ -136,13 +105,42 @@ function AboutSection() {
     );
 }
 
+const sections = [
+  { component: HeroSection },
+  { component: TrendingProductsSection },
+  { component: AboutSection },
+];
 
 export default function Home() {
+  const targetRef = React.useRef<HTMLDivElement | null>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+  });
+
+  const cards = sections.map((_, i) => {
+    const scale = useTransform(scrollYProgress, [i / sections.length, (i + 1) / sections.length], [1, 0.85]);
+    const opacity = useTransform(scrollYProgress, [i / sections.length, (i + 1) / sections.length], [1, 0]);
+    return { scale, opacity };
+  });
+
   return (
-    <main className="bg-background">
-      <HeroSection />
-      <TrendingProductsSection />
-      <AboutSection />
+    <main ref={targetRef} className="relative bg-background" style={{ height: `${sections.length * 100}vh` }}>
+      <div className="sticky top-0 h-screen overflow-hidden">
+        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
+        {sections.map(({ component: Component }, i) => (
+          <motion.div
+            key={i}
+            className="absolute inset-0 flex items-center justify-center"
+            style={{ scale: cards[i].scale, opacity: cards[i].opacity, zIndex: sections.length - i }}
+          >
+            <div className="w-full h-full p-8 md:p-12 lg:p-16">
+               <div className="w-full h-full rounded-2xl bg-card/80 backdrop-blur-md border border-white/10 p-8 shadow-2xl">
+                 <Component />
+               </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </main>
   );
 }
