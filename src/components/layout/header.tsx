@@ -36,7 +36,7 @@ const navLinks = [
 ];
 
 
-function NavMenu() {
+function NavMenu({ className }: { className?: string }) {
   const pathname = usePathname();
   const [activeCategory, setActiveCategory] = React.useState(mainCategories[0].title);
 
@@ -56,14 +56,14 @@ function NavMenu() {
             <Link href="/" legacyBehavior passHref>
                 <NavigationMenuLink
                 active={pathname === "/"}
-                className={navigationMenuTriggerStyle()}
+                className={cn(navigationMenuTriggerStyle(), className)}
                 >
                 Home
                 </NavigationMenuLink>
             </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Products</NavigationMenuTrigger>
+          <NavigationMenuTrigger className={cn(className)}>Products</NavigationMenuTrigger>
           <NavigationMenuContent>
              <div className="grid grid-cols-[1fr_2fr] w-[600px] p-2">
                <ul className="flex flex-col gap-1 border-r border-border pr-2">
@@ -126,7 +126,7 @@ function NavMenu() {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Other Services</NavigationMenuTrigger>
+          <NavigationMenuTrigger className={cn(className)}>Other Services</NavigationMenuTrigger>
           <NavigationMenuContent>
              <ul className="grid w-[250px] gap-1 p-2">
                 <li className="opacity-0 animate-fade-in-up" style={{ animationDelay: `0.1s`}}>
@@ -148,7 +148,7 @@ function NavMenu() {
           <Link href="/contact" legacyBehavior passHref>
             <NavigationMenuLink
               active={pathname === "/contact"}
-              className={navigationMenuTriggerStyle()}
+              className={cn(navigationMenuTriggerStyle(), className)}
             >
               Contact Us
             </NavigationMenuLink>
@@ -185,25 +185,22 @@ export default function Header() {
           <Image src="/logo.png" alt="Printing Point Logo" width={32} height={32} className="h-8 w-8" />
           <span className={cn(
             "font-bold font-headline text-lg",
-             "text-white"
+             showSolidNav ? "text-primary" : "text-white"
           )}>
             Printing Point
           </span>
         </Link>
 
         <div className="flex items-center gap-4">
-            <nav className={cn(
-              "hidden md:flex",
-              "text-white"
-            )}>
-                <NavMenu />
+            <nav className="hidden md:flex">
+                <NavMenu className={cn(showSolidNav ? "text-primary hover:bg-primary/10" : "text-white hover:bg-white/20")} />
             </nav>
 
             <div className="md:hidden">
                 <Sheet>
                     <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className={cn(
-                      "text-white hover:bg-white/20"
+                      showSolidNav ? "text-primary hover:bg-primary/10" : "text-white hover:bg-white/20"
                     )}>
                         <Menu className="h-6 w-6" />
                         <span className="sr-only">Toggle navigation menu</span>
@@ -264,3 +261,4 @@ export default function Header() {
     </header>
   );
 }
+
