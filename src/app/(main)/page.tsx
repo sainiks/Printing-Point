@@ -34,7 +34,7 @@ function HeroSection() {
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-black/40" />
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
             </motion.div>
             <div className="relative z-10 w-full p-8 md:p-12 lg:p-24">
                 <div className="max-w-3xl">
