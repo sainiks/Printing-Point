@@ -80,4 +80,13 @@
             linear-gradient(to bottom, hsl(var(--border) / 0.4) 1px, transparent 1px);
         background-size: 4rem 4rem;
     }
+
+    .bg-print-pattern {
+        background-color: hsl(var(--background));
+        background-image:
+            radial-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px),
+            radial-gradient(hsl(var(--primary) / 0.05) 1px, transparent 1px);
+        background-size: 20px 20px;
+        background-position: 0 0, 10px 10px;
+    }
 }
