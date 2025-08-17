@@ -1,8 +1,8 @@
 
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useEffect, useRef, useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { useSearchParams } from "next/navigation";
 import { useToast } from "@/hooks/use-toast";
 import { submitContactForm, type ContactFormState } from "@/lib/actions";
@@ -28,7 +28,7 @@ function SubmitButton() {
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
-  const [state, formAction] = useFormState(submitContactForm, initialState);
+  const [state, formAction] = useActionState(submitContactForm, initialState);
   const { toast } = useToast();
   const formRef = useRef<HTMLFormElement>(null);
   const messageParam = searchParams.get("message");
