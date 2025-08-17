@@ -41,7 +41,7 @@ export default function ProductCard({
   const inquiryUrl = `/contact?message=${encodeURIComponent(message)}`;
 
   return (
-    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-white/10 shadow-lg h-full">
+    <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-white/10 shadow-lg h-full text-card-foreground">
       <div className="relative aspect-video w-full">
         <Image
           src={imageUrl}
@@ -57,7 +57,7 @@ export default function ProductCard({
           <p className="mt-2 text-sm font-semibold text-card-foreground/90">Product ID: {productId}</p>
           <CardDescription className="mt-2 text-card-foreground/80">{description}</CardDescription>
           {minimumOrder && (
-            <p className="mt-2 text-sm text-muted-foreground">Minimum Order: {minimumOrder}</p>
+            <p className="mt-2 text-sm text-card-foreground/70">Minimum Order: {minimumOrder}</p>
           )}
         </CardContent>
         <CardFooter className="p-0 pt-6">

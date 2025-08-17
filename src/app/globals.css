@@ -8,8 +8,8 @@
     --background: 168 100% 15%; /* Deep Emerald Green */
     --foreground: 45 83% 98%;
     
-    --card: 168 100% 15%;
-    --card-foreground: 45 83% 98%;
+    --card: 45 83% 95%; /* #FDF5E5 */
+    --card-foreground: 240 10% 3.9%;
     
     --popover: 168 100% 15%;
     --popover-foreground: 45 83% 98%;
@@ -83,6 +83,7 @@
 
     
 }
+
 
 
 
