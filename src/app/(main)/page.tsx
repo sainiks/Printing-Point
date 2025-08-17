@@ -20,7 +20,7 @@ import { motion } from "framer-motion";
 
 function HeroSection() {
     return (
-        <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+        <section className="relative h-screen flex items-center justify-start text-left text-white overflow-hidden">
             <motion.div 
               className="absolute inset-0"
               initial={{ scale: 1.1, opacity: 0.8 }}
@@ -36,7 +36,7 @@ function HeroSection() {
                 />
                 <div className="absolute inset-0 bg-black/40" />
             </motion.div>
-            <div className="relative z-10 flex flex-col items-center p-4">
+            <div className="relative z-10 flex flex-col items-start p-8 md:p-12 lg:p-24 max-w-3xl">
                 <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
                     Printing Point
                 </StaticTitle>
