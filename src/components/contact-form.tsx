@@ -68,6 +68,16 @@ export default function ContactForm() {
         </div>
       </div>
       <div className="space-y-2">
+        <Label htmlFor="phone" className="font-headline text-xl text-card-foreground">Phone Number (Optional)</Label>
+        <Input
+          id="phone"
+          name="phone"
+          type="tel"
+          placeholder="+91 12345 67890"
+          className="bg-white text-foreground placeholder:text-muted-foreground rounded-xl h-12"
+        />
+      </div>
+      <div className="space-y-2">
         <Label htmlFor="message" className="font-headline text-xl text-card-foreground">Your Message</Label>
         <Textarea
           id="message"
@@ -80,16 +90,7 @@ export default function ContactForm() {
           className="bg-white text-foreground placeholder:text-muted-foreground rounded-xl"
         />
       </div>
-       <div className="space-y-2 !mt-4 hidden">
-            <Label htmlFor="phone">Phone Number (Optional)</Label>
-            <Input
-              id="phone"
-              name="phone"
-              type="tel"
-              placeholder="+1 (555) 123-4567"
-              className="bg-primary-foreground text-primary placeholder:text-primary/70"
-            />
-        </div>
+      
       <div>
         <SubmitButton />
       </div>
