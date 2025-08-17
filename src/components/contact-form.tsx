@@ -78,6 +78,7 @@ export default function ContactForm() {
           required
           minLength={10}
           rows={6}
+          key={messageParam}
           defaultValue={messageParam || ''}
           className="bg-white text-primary-foreground placeholder:text-muted-foreground rounded-xl"
         />
