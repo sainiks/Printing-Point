@@ -1,4 +1,3 @@
-
 "use client";
 
 import Image from "next/image";
@@ -16,15 +15,27 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import * as React from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { cn } from "@/lib/utils";
-
-const trendingProducts = allProducts.slice(0, 6);
+import { motion } from "framer-motion";
 
 function HeroSection() {
     return (
-        <section className="relative h-full flex items-center justify-center text-center text-white">
-             <div className="relative z-10 flex flex-col items-center">
+        <section className="relative h-screen flex items-center justify-center text-center text-white overflow-hidden">
+            <motion.div 
+              className="absolute inset-0"
+              initial={{ scale: 1.1, opacity: 0.8 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1.5, ease: "easeOut" }}
+            >
+                <Image
+                    src="/hero_background.png"
+                    alt="Background"
+                    data-ai-hint="abstract background"
+                    fill
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-black/40 backdrop-blur-sm" />
+            </motion.div>
+            <div className="relative z-10 flex flex-col items-center p-4">
                 <StaticTitle as="h1" className="text-5xl md:text-[76px] font-bold font-headline drop-shadow-md uppercase whitespace-nowrap mb-[2px]">
                     Printing Point
                 </StaticTitle>
@@ -37,8 +48,8 @@ function HeroSection() {
                 <Button
                     asChild
                     size="lg"
-                    variant="outline"
-                    className="bg-primary/80 border-primary-foreground/50 text-primary-foreground hover:bg-primary"
+                    variant="default"
+                    className="bg-primary/90 text-primary-foreground hover:bg-primary"
                 >
                     <Link href="/contact">Get a Custom Quote</Link>
                 </Button>
@@ -47,11 +58,18 @@ function HeroSection() {
     );
 }
 
+
 function TrendingProductsSection() {
+    const plugin = React.useRef(
+        Autoplay({ delay: 2000, stopOnInteraction: false })
+    );
+
+    const trendingProducts = allProducts.slice(0, 9);
+
     return (
-        <section className="h-full flex flex-col items-center justify-center text-white">
+        <section className="bg-background py-16 md:py-24">
             <div className="container text-center">
-                <StaticTitle as="h2" className="text-5xl md:text-6xl font-bold font-headline text-foreground">
+                <StaticTitle as="h2" className="text-4xl md:text-5xl font-bold font-headline text-foreground">
                     Trending Products
                 </StaticTitle>
                 <p className="mt-4 text-lg text-foreground/80 max-w-2xl mx-auto">
@@ -59,24 +77,39 @@ function TrendingProductsSection() {
                 </p>
             </div>
             <div className="container mt-12 w-full">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                  {trendingProducts.map((product) => {
-                      const categoryInfo = mainCategories.find(c => c.title === product.category);
-                      return (
-                          <div key={product.id} className="p-1 h-full">
-                              <ProductCard
-                                  productId={product.productId}
-                                  title={product.title}
-                                  description={product.description}
-                                  imageUrl={product.imageUrl}
-                                  minimumOrder={product.minimumOrder}
-                                  imageHint={product.imageHint}
-                                  categorySlug={categoryInfo?.slug || ''}
-                              />
-                          </div>
-                      )
-                  })}
-                </div>
+                <Carousel
+                    plugins={[plugin.current]}
+                    opts={{
+                        align: "start",
+                        loop: true,
+                    }}
+                    className="w-full"
+                >
+                    <CarouselContent>
+                        {trendingProducts.map((product) => {
+                            const categoryInfo = mainCategories.find(c => c.title === product.category);
+                            return (
+                                <CarouselItem key={product.id} className="md:basis-1/2 lg:basis-1/3">
+                                    <div className="p-1 h-full">
+                                        <ProductCard
+                                            productId={product.productId}
+                                            title={product.title}
+                                            description={product.description}
+                                            imageUrl={product.imageUrl}
+                                            minimumOrder={product.minimumOrder}
+                                            imageHint={product.imageHint}
+                                            categorySlug={categoryInfo?.slug || ''}
+                                        />
+                                    </div>
+                                </CarouselItem>
+                            )
+                        })}
+                    </CarouselContent>
+                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 flex items-center gap-4">
+                        <CarouselPrevious />
+                        <CarouselNext />
+                    </div>
+                </Carousel>
             </div>
         </section>
     );
@@ -84,7 +117,7 @@ function TrendingProductsSection() {
 
 function AboutSection() {
     return (
-        <section className="h-full flex items-center justify-center text-white">
+        <section className="bg-secondary/20 py-16 md:py-24">
             <div className="container">
                 <div className="space-y-4 text-center p-8 rounded-lg max-w-3xl mx-auto">
                     <StaticTitle as="h2" className="text-3xl md:text-4xl font-bold font-headline text-foreground">
@@ -105,42 +138,12 @@ function AboutSection() {
     );
 }
 
-const sections = [
-  { component: HeroSection },
-  { component: TrendingProductsSection },
-  { component: AboutSection },
-];
-
 export default function Home() {
-  const targetRef = React.useRef<HTMLDivElement | null>(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-  });
-
-  const cards = sections.map((_, i) => {
-    const scale = useTransform(scrollYProgress, [i / sections.length, (i + 1) / sections.length], [1, 0.85]);
-    const opacity = useTransform(scrollYProgress, [i / sections.length, (i + 1) / sections.length], [1, 0]);
-    return { scale, opacity };
-  });
-
-  return (
-    <main ref={targetRef} className="relative bg-background" style={{ height: `${sections.length * 100}vh` }}>
-      <div className="sticky top-0 h-screen overflow-hidden">
-        <div className="absolute inset-0 bg-grid-pattern opacity-30"></div>
-        {sections.map(({ component: Component }, i) => (
-          <motion.div
-            key={i}
-            className="absolute inset-0 flex items-center justify-center"
-            style={{ scale: cards[i].scale, opacity: cards[i].opacity, zIndex: sections.length - i }}
-          >
-            <div className="w-full h-full p-8 md:p-12 lg:p-16">
-               <div className="w-full h-full rounded-2xl bg-card/80 backdrop-blur-md border border-white/10 p-8 shadow-2xl">
-                 <Component />
-               </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
-    </main>
-  );
+    return (
+        <main>
+            <HeroSection />
+            <TrendingProductsSection />
+            <AboutSection />
+        </main>
+    );
 }
