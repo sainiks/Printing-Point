@@ -42,7 +42,7 @@ export default function ProductCard({
 
   return (
     <Card className="flex flex-col overflow-hidden transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 bg-card border-white/10 shadow-lg h-full text-card-foreground">
-      <div className="relative h-72 w-full">
+      <div className="relative h-80 w-full">
         <Image
           src={imageUrl}
           alt={title}
