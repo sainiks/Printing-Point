@@ -52,8 +52,8 @@ function HeroSection() {
                     <Button
                         asChild
                         size="lg"
-                        variant="default"
-                        className="bg-primary text-primary-foreground hover:bg-primary/90"
+                        variant="outline"
+                        className="border-2 border-white bg-transparent text-white hover:bg-white hover:text-primary py-7 px-10 text-lg"
                     >
                         <Link href="/contact">Get a Custom Quote</Link>
                     </Button>
