@@ -178,7 +178,7 @@ export default function Header() {
   return (
     <header className={cn(
       "fixed top-0 z-50 w-full transition-all duration-300",
-      showSolidNav ? "shadow-md border-b border-white/10 bg-[#FDF5E5]" : "bg-transparent"
+      showSolidNav ? "shadow-md border-b border-white/10 bg-[#FEFAF6]" : "bg-transparent"
     )}>
       <div className="container flex h-16 items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
