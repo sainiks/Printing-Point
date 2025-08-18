@@ -42,7 +42,7 @@ function HeroSection() {
                         Printing Point
                     </StaticTitle>
                     <p className="mt-4 text-xl md:text-2xl max-w-2xl drop-shadow-sm">
-                        Your Solution to Printing and Gifting
+                        Your Solution to Printing and Gifting.
                     </p>
                     <p className="mt-6 text-lg md:text-xl max-w-3xl drop-shadow-sm mb-8 leading-relaxed">
                         Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
