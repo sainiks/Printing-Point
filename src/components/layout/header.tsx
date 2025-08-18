@@ -53,14 +53,14 @@ function NavMenu({ className }: { className?: string }) {
     <NavigationMenu>
       <NavigationMenuList>
         <NavigationMenuItem>
-            <Link href="/" legacyBehavior passHref>
-                <NavigationMenuLink
-                active={pathname === "/"}
-                className={cn(navigationMenuTriggerStyle(), className)}
-                >
-                Home
-                </NavigationMenuLink>
-            </Link>
+          <Link href="/" passHref>
+            <NavigationMenuLink
+              active={pathname === "/"}
+              className={cn(navigationMenuTriggerStyle(), className)}
+            >
+              Home
+            </NavigationMenuLink>
+          </Link>
         </NavigationMenuItem>
         <NavigationMenuItem>
           <NavigationMenuTrigger className={cn(className)}>Products</NavigationMenuTrigger>
@@ -145,7 +145,7 @@ function NavMenu({ className }: { className?: string }) {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/contact" legacyBehavior passHref>
+          <Link href="/contact" passHref>
             <NavigationMenuLink
               active={pathname === "/contact"}
               className={cn(navigationMenuTriggerStyle(), className)}
