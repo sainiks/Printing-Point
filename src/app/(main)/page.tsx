@@ -48,7 +48,7 @@ function HeroSection() {
                         Move beyond the standard. Our premium corporate gifting solutions, including extensive customization options, are designed to help you make a statement. Whether you're celebrating milestones or showing appreciation, create a powerful connection with every gift you send.
                     </p>
                 </div>
-                <div className="w-full flex justify-center mt-8">
+                <div className="w-full flex justify-start mt-8">
                     <Button
                         asChild
                         size="lg"
