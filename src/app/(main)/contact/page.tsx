@@ -1,5 +1,5 @@
-
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import ContactForm from '@/components/contact-form';
 import ContactInfo from '@/components/contact-info';
 
@@ -7,6 +7,32 @@ export const metadata: Metadata = {
   title: 'Contact Us - Printing Point',
   description: 'Get in touch with us for your gifting needs.',
 };
+
+function ContactFormFallback() {
+  return (
+    <div className="space-y-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-2">
+          <div className="h-6 bg-muted rounded animate-pulse" />
+          <div className="h-12 bg-muted rounded-xl animate-pulse" />
+        </div>
+        <div className="space-y-2">
+          <div className="h-6 bg-muted rounded animate-pulse" />
+          <div className="h-12 bg-muted rounded-xl animate-pulse" />
+        </div>
+      </div>
+      <div className="space-y-2">
+        <div className="h-6 bg-muted rounded animate-pulse" />
+        <div className="h-12 bg-muted rounded-xl animate-pulse" />
+      </div>
+      <div className="space-y-2">
+        <div className="h-6 bg-muted rounded animate-pulse" />
+        <div className="h-32 bg-muted rounded-xl animate-pulse" />
+      </div>
+      <div className="h-12 bg-muted rounded animate-pulse" />
+    </div>
+  );
+}
 
 export default function ContactPage() {
   return (
@@ -24,7 +50,9 @@ export default function ContactPage() {
               <h2 className="font-headline text-3xl md:text-4xl text-center md:text-left mb-8">
                 Fill The Form
               </h2>
-              <ContactForm />
+              <Suspense fallback={<ContactFormFallback />}>
+                <ContactForm />
+              </Suspense>
             </div>
           </div>
         </div>
